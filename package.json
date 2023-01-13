@@ -1,7 +1,7 @@
 {
-  "name": "tech-blog",
+  "name": "street-food-blog",
   "version": "1.0.0",
-  "description": "A CMS-style blog site where developers can publish their blog posts and comment on other developers’ posts.",
+  "description": "A site where foodies can locate, explore, and talk about street food.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
