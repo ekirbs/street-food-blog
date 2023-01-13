@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS project2_db;
+DROP DATABASE IF EXISTS street_food_db;
 
-CREATE DATABASE project2_db;
+CREATE DATABASE street_food_db;
 
-USE project2_db;
+USE street_food_db;
