@@ -39,7 +39,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/post/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const dbPostData = await Post.findByPk(req.params.id, {
       include: [
@@ -59,7 +59,7 @@ router.get('/post/:id', async (req, res) => {
     });
 
     const post = dbPostData.get({ plain: true });
-    res.render('post', { post, logged_in: req.session.logged_in });
+    res.render('homepage', { post, logged_in: req.session.logged_in });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);

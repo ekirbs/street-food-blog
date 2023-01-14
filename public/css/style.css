@@ -87,10 +87,10 @@ nav a:hover {
   margin-left: 16px;
 }
 
-img {
+/* img {
   max-width: 100%;
   height: auto;
-}
+} */
 
 .painting {
   width: 50%;
@@ -144,21 +144,19 @@ img {
   font-weight: bold;
 }
 
-.gallery-name {
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  text-shadow: 2px 2px 5px var(--secondary);
-  border: 10px groove var(--light);
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-right: 100px;
-  padding-left: 100px;
-}
-
 /* LAYOUT */
 .container {
   display: flex;
   flex-flow: column wrap;
   align-content: flex-start;
   align-items: center;
+}
+
+
+/* ADDED */
+
+/* HEADER */
+header img {
+  width: 5em;
+  height: auto;
 }
