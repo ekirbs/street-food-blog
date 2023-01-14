@@ -94,4 +94,13 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/profile', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/profile');
+    return;
+  }
+
+  res.render('login');
+});
+
 module.exports = router;

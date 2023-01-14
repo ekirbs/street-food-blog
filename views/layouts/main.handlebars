@@ -42,7 +42,7 @@
     <nav>
       <a href="/">Home</a>
       {{#if logged_in}}
-      <a href="/">Profile</a>
+      <a href="/profile">Profile</a>
       <button id="logout" class="btn-no-style">Logout</button>
       {{else}}
       <a href="/login">Login</a>
@@ -50,9 +50,6 @@
     </nav>
 
     <main class="container container-fluid mt-5">
-      <aside>
-        <h2>We can put the map here, and it only appear when the user is on the food find section.</h2>
-      </aside>
       <div class="posts">
         {{{body}}}
       </div>
