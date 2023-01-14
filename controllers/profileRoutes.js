@@ -3,17 +3,19 @@ const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
-  console.log('GET /');
+  console.log('GET /profile');
   try {
-    const dbPostData = await Post.findAll({
+    const postData = await Post.findAll({
       where: {
         user_id: req.session.user_id
       },
       attributes: [
         "id",
         "title",
-        "post_body"
+        "post_body",
+        "created_at"
       ],
+      order: [[ 'created_at', 'DESC']],
       include: [
         {
           model: User,
@@ -21,33 +23,22 @@ router.get('/', withAuth, async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ['id', 'comment_body', "post_id", "user_id"],
+          attributes: ['id', 'comment_body', "post_id", "user_id", "created_at"],
+          order: [[ 'created_at', 'DESC']],
           include: {
             model: User,
-            attributed: ["username"]
+            attributes: ["username"]
           }
         },
       ],
     });
 
-    const posts = dbPostData.map((post) => post.get({ plain: true }));
+    const posts = postData.map((post) => post.get({ plain: true }));
 
-    res.render('dashboard', { 
-      posts, 
-      logged_in: req.session.logged_in 
-    });
+    res.render('profile', { posts, logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }
-});
-
-router.get('/login', (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect('/dashboard');
-    return;
-  }
-
-  res.render('login');
 });
 
 module.exports = router;

@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const newComment = await Comment.create({
       ...req.body,
@@ -10,11 +11,11 @@ router.post('/', async (req, res) => {
 
     res.status(200).json(newComment);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(400).json(err); // 400 vs 500?
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.destroy({
       where: {

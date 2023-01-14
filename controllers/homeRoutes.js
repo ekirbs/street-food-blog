@@ -10,8 +10,9 @@ router.get('/', async (req, res) => {
         "id",
         "title",
         "post_body",
+        "created_at"
       ],
-      // order: [[ 'created_at', 'DESC']],
+      order: [[ 'created_at', 'DESC']],
       include: [
         {
           model: User,
@@ -19,10 +20,11 @@ router.get('/', async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ['id', 'comment_body', "post_id", "user_id"],
+          attributes: ['id', 'comment_body', "post_id", "user_id", "created_at"],
+          order: [[ 'created_at', 'DESC']],
           include: {
             model: User,
-            attributed: ["username"]
+            attributes: ["username"]
           }
         },
       ],
@@ -33,15 +35,26 @@ router.get('/', async (req, res) => {
     res.render('homepage', {
       posts,
       logged_in: req.session.logged_in,
+      // username: req.session.username,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/post/:id', async (req, res) => {
+  console.log(req.params.id);
   try {
-    const dbPostData = await Post.findByPk(req.params.id, {
+    const postData = await Post.findOne({
+      where: {
+        id: req.params.id
+      },
+      attributes: [
+        "id",
+        "title",
+        "post_body",
+        "created_at"
+      ],
       include: [
         {
           model: User,
@@ -49,17 +62,23 @@ router.get('/:id', async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ['id', 'comment_body', "post_id", "user_id"],
+          attributes: ['id', 'comment_body', "post_id", "user_id", "created_at"],
+          order: [[ 'created_at', 'DESC']],
           include: {
             model: User,
-            attributed: ["username"]
+            attributes: ["username"]
           }
         },
       ],
     });
 
-    const post = dbPostData.get({ plain: true });
-    res.render('homepage', { post, logged_in: req.session.logged_in });
+    // const post = dbPostData.map((post) => post.get({ plain: true }));
+    const post = postData.get({ plain: true });
+
+    res.render('homepage', {
+      post,
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
@@ -68,7 +87,7 @@ router.get('/:id', async (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/dashboard');
+    res.redirect('/profile');
     return;
   }
 
