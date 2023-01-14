@@ -160,3 +160,9 @@ header img {
   width: 5em;
   height: auto;
 }
+
+/* PROFILE IMG */
+figure img {
+  width: 100%;
+  height: auto;
+}
