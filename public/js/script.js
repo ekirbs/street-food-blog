@@ -1,4 +1,4 @@
-const streetFoodApiKey = "";
+const streetFoodApiKey =`http://data.streetfoodapp.com/1.1/`;
 const mapApiKey = "";
 const weatherApiKey = "3044316f6126db93462603440b6cd43c";
 
@@ -12,3 +12,25 @@ function init() {
 };
 
 init();
+
+async function displayStreetFoodInfo() {
+var streetFoodApiUrl = `http://data.streetfoodapp.com/1.1/schedule/boston/`;
+console.log(streetFoodApiUrl);
+fetch(streetFoodApiUrl, {
+  method: "GET",
+  headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+  // mode: 'cors'
+})  
+.then((response) => {
+  return response.json();
+})
+.then((response) => {
+  console.log(response);
+})
+}
+displayStreetFoodInfo()
+
+
+
+
+
