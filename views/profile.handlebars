@@ -4,19 +4,32 @@
     
 <p>This is the profile page.</p>
 
-{{#each posts as |post| }}
-<div class="row mb-4 project">
-  <div class="col-md-5">
-    <h2>
-      {{{get_img}}}
-      <a href="/post/{{post.id}}">{{post.title}}</a>
-    </h2>
-    <p>Created by {{post.user_id}}</p>
+{{#if posts}}
+<div>
+
+  <h3>Your Posts:</h3>
+  {{#each posts as |post| }}
+
+  <div class="row mb-4 project">
+
+    <div class="col-md-5">
+      <h2>
+        {{{get_img}}}
+        <a href="/post/{{post.id}}">{{post.title}}</a>
+      </h2>
+      <p>Created by: {{post.user_id}}</p>
+    </div>
+
+    <div class="col-md-7">
+      <p>
+        {{post.post_body}}
+      </p>
+    </div>
+
+    <a href=`/editUser/{{post.id}}` class="edit-post">Edit Your Post</a>
+
   </div>
-  <div class="col-md-7">
-    <p>
-      {{post.post_body}}
-    </p>
-  </div>
+
 </div>
 {{/each}}
+{{/if}}

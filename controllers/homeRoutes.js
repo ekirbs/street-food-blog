@@ -1,38 +1,52 @@
-const router = require('express').Router();
-const { User, Post, Comment } = require('../models');
+const router = require("express").Router();
+const { User, Post, Comment } = require("../models");
 // const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
-  console.log('GET /');
+router.get("/", async (req, res) => {
+  console.log("GET /");
   try {
     const postData = await Post.findAll({
       attributes: [
         "id",
         "title",
         "post_body",
-        "created_at"
+        "created_at",
       ],
-      order: [[ 'created_at', 'DESC']],
+      order: [[
+        "created_at",
+        "DESC",
+      ]],
       include: [
         {
           model: User,
-          attributes: ['username'],
+          attributes: ["username"],
         },
         {
           model: Comment,
-          attributes: ['id', 'comment_body', "post_id", "user_id", "created_at"],
-          order: [[ 'created_at', 'DESC']],
+          attributes: [
+            "id",
+            "comment_body",
+            "post_id",
+            "user_id",
+            "created_at",
+          ],
+          order: [[
+            "created_at",
+            "DESC",
+          ]],
           include: {
             model: User,
-            attributes: ["username"]
-          }
+            attributes: [
+              "username",
+            ],
+          },
         },
       ],
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
 
-    res.render('homepage', {
+    res.render("homepage", {
       posts,
       logged_in: req.session.logged_in,
       // username: req.session.username,
@@ -42,7 +56,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/post/:id', async (req, res) => {
+router.get("/post/:id", async (req, res) => {
   console.log(req.params.id);
   try {
     const postData = await Post.findOne({
@@ -53,21 +67,34 @@ router.get('/post/:id', async (req, res) => {
         "id",
         "title",
         "post_body",
-        "created_at"
+        "created_at",
       ],
       include: [
         {
           model: User,
-          attributes: ['username'],
+          attributes: [
+            "username",
+          ],
         },
         {
           model: Comment,
-          attributes: ['id', 'comment_body', "post_id", "user_id", "created_at"],
-          order: [[ 'created_at', 'DESC']],
+          attributes: [
+            "id",
+            "comment_body",
+            "post_id",
+            "user_id",
+            "created_at",
+          ],
+          order: [[
+            "created_at",
+            "DESC",
+          ]],
           include: {
             model: User,
-            attributes: ["username"]
-          }
+            attributes: [
+              "username",
+            ],
+          },
         },
       ],
     });
@@ -75,7 +102,7 @@ router.get('/post/:id', async (req, res) => {
     // const post = dbPostData.map((post) => post.get({ plain: true }));
     const post = postData.get({ plain: true });
 
-    res.render('post', {
+    res.render("post", {
       post,
       logged_in: req.session.logged_in,
     });
@@ -85,22 +112,22 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
-router.get('/login', (req, res) => {
+router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect("/profile");
     return;
   }
 
-  res.render('login');
+  res.render("login");
 });
 
-router.get('/profile', (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect('/profile');
-    return;
-  }
+// router.get("/profile", (req, res) => {
+//   if (req.session.logged_in) {
+//     res.redirect("/profile");
+//     return;
+//   }
 
-  res.render('login');
-});
+//   res.render("login");
+// });
 
 module.exports = router;
