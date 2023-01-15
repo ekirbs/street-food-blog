@@ -10,6 +10,7 @@ router.get("/", async (req, res) => {
         "id",
         "title",
         "post_body",
+        "user_id",
         "created_at",
       ],
       order: [[
@@ -67,6 +68,7 @@ router.get("/post/:id", async (req, res) => {
         "id",
         "title",
         "post_body",
+        "user_id",
         "created_at",
       ],
       include: [
