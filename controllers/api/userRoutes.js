@@ -46,6 +46,7 @@ router.get("/:id", withAuth, async (req, res) => {
             "id",
             "title",
             "post_body",
+            "user_id",
             "created_at",
           ],
           order: [
