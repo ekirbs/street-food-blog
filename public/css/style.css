@@ -13,7 +13,14 @@
   --border-radius: 0.3rem;
 }
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 body {
+  /* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
   font-family: Arial;
   margin: 0;
   display: flex;
@@ -33,11 +40,38 @@ a:visited {
 }
 
 header {
+  background: var(--primary);
+  color: var(--light);
+  position: static;
+  top: 0px;
+  overflow: auto;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+}
+
+/* header {
   padding: 40px;
   text-align: center;
   background: var(--primary);
   color: var(--light);
 }
+
+header {
+  background-color: var(--dark-background);
+  color: var(--white);
+  position: static;
+  top: 0px;
+  overflow: auto;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} */
 
 main {
   display: flex;
@@ -170,4 +204,15 @@ header img {
 figure img {
   width: 100%;
   height: auto;
+}
+
+header h1 {
+  display: inline-block;
+  font-size: 48px;
+  text-decoration: underline var(--#7cb342);
+  margin-left: 20px;
+}
+
+#currentDay {
+  padding-right: 10px;
 }

@@ -1,16 +1,19 @@
-{{#each posts as |post| }}
-<div class="row mb-4 post">
-  <div class="col-md-5">
-    <h2>
-      {{{get_img}}}
-      <a href="/post/{{post.id}}">{{post.title}}</a>
-    </h2>
-    <p>Created by {{post.user_id}}</p>
+{{!-- {{> post-info post}}
+
+{{#if logged_in}}
+<form class="new-comment">
+  <div>
+    <textarea name="comment-body"></textarea>
   </div>
-  <div class="col-md-7">
-    <p>
-      {{post.post_body}}
-    </p>
+
+  <div>
+    <button type="submit">Post Your Comment</button>
   </div>
-</div>
-{{/each}}
+</form>
+{{/if}}
+
+{{> comments post.comments}}
+
+{{#if logged_in}}
+<script src="/js/comment.js"></script>
+{{/if}} --}}
