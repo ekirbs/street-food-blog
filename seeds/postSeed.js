@@ -12,8 +12,8 @@ const postData = [
     "user_id": 3
   },
   {
-    "title": "Encryption",
-    "post_body": "Encrypting your passwords is an important security measure to deter hackers form accessing sensitive files.",
+    "title": "What is Halal?",
+    "post_body": "I saw a lot of people around a halal vendor the other day, but I've never had it before.  What is it?",
     "user_id": 4
   },
   {
