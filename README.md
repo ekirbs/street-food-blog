@@ -41,9 +41,9 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 ## Credits
 
 - Link: [Eric Kirberger](https://github.com/ekirbs 'The github page for Eric Kirberger.')
-- Link: [](https://github.com/ 'The github page for .')
-- Link: [](https://github.com/ 'The github page for .')
-- Link: [](https://github.com/ 'The github page for .')
+- Link: [Thomas Madden](https://github.com/ogwalrus 'The github page for Thomas.')
+- Link: [Nick Stallard](https://github.com/nickj13 'The github page for Nick.')
+- Link: [Mekael Abdullah](https://github.com/mekael18 'The github page for Mekael.')
 
 List your collaborators, if any, with links to their GitHub profiles.
 
