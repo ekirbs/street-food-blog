@@ -1,8 +1,87 @@
-const router = require('express').Router();
-const { User } = require('../../models');
-// const withAuth = require('../../utils/auth');
+const router = require("express").Router();
+const { User, Post, Comment } = require("../../models");
+const withAuth = require("../../utils/auth");
 
-router.post('/', async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
+  try {
+    const userData = await User.findAll({
+      attributes: {
+        exclude: ["password"],
+      },
+      order: [
+        "created_at",
+        "DESC",
+      ],
+  });
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/:id", withAuth, async (req, res) => {
+  try {
+    const commentData = await User.findOne({
+      attributes: {
+        exclude: ["password"],
+      },
+      where: {
+        id: req.params.id,
+      },
+      attributes: [
+        "id",
+        "comment_body",
+        "post_id",
+        "user_id",
+        "created_at",
+      ],
+      order: [
+        "created_at",
+        "DESC",
+      ],
+      include: [
+        {
+          model: Post,
+          attributes: [
+            "id",
+            "title",
+            "post_body",
+            "created_at",
+          ],
+          order: [
+            "created_at",
+            "DESC",
+          ],
+        },
+        {
+          model: Comment,
+          attributes: [
+            "id",
+            "comment-body",
+            "post_id",
+            "user_id",
+            "created_at",
+          ],
+          order: [
+            "created_at",
+            "DESC",
+          ],
+          include: {
+            model: Post,
+            attributes: [
+              "title",
+            ],
+          },
+        },
+      ],
+    });
+    res.status(200).json(commentData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.post("/", async (req, res) => {
   try {
     const userData = await User.create(req.body);
 
@@ -13,18 +92,22 @@ router.post('/', async (req, res) => {
       res.status(200).json(userData);
     });
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
+    const userData = await User.findOne({
+      where: {
+        email: req.body.email,
+      },
+    });
 
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: "Incorrect email or password, please try again!" });
       return;
     }
 
@@ -33,7 +116,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: "Incorrect email or password, please try again!" });
       return;
     }
 
@@ -41,7 +124,7 @@ router.post('/login', async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
       
-      res.json({ user: userData, message: 'You are now logged in!' });
+      res.json({ user: userData, message: "You are now logged in!!" });
     });
 
   } catch (err) {
@@ -49,7 +132,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/logout', (req, res) => {
+router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
