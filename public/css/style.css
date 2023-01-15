@@ -1,15 +1,26 @@
 :root {
-  --primary: #3d5852;
-  --secondary: #86938f;
+  --primary: #424242 ;
+  --secondary: #7cb342;
+  --tertiary: #bdbdbd ;
+  --quatrinary: #eeeeee;
+  /* --primary: #3d4c58; */
+  /* --secondary: #86938f;
   --tertiary: #5e877f;
-  --quatrinary: #6c6b67;
+  --quatrinary: #6c6b67; */
   --light: #e3e4e3;
-  --dark: #182c23;
+  --dark: #7cb342 ;
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
 }
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 body {
+  /* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
   font-family: Arial;
   margin: 0;
   display: flex;
@@ -29,11 +40,38 @@ a:visited {
 }
 
 header {
+  background: var(--primary);
+  color: var(--light);
+  position: static;
+  top: 0px;
+  overflow: auto;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+}
+
+/* header {
   padding: 40px;
   text-align: center;
   background: var(--primary);
   color: var(--light);
 }
+
+header {
+  background-color: var(--dark-background);
+  color: var(--white);
+  position: static;
+  top: 0px;
+  overflow: auto;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} */
 
 main {
   display: flex;
@@ -87,10 +125,10 @@ nav a:hover {
   margin-left: 16px;
 }
 
-img {
+/* img {
   max-width: 100%;
   height: auto;
-}
+} */
 
 .painting {
   width: 50%;
@@ -124,7 +162,8 @@ img {
   border-radius: var(--border-radius);
   border-style: double;
   border-width: thick;
-  background-color: #577a7c;
+  background-color: #33691e;
+  /* background-color: #577a7c; */
   color: var(--light);
 }
 
@@ -144,21 +183,36 @@ img {
   font-weight: bold;
 }
 
-.gallery-name {
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  text-shadow: 2px 2px 5px var(--secondary);
-  border: 10px groove var(--light);
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-right: 100px;
-  padding-left: 100px;
-}
-
 /* LAYOUT */
 .container {
   display: flex;
   flex-flow: column wrap;
   align-content: flex-start;
   align-items: center;
+}
+
+
+/* ADDED */
+
+/* HEADER */
+header img {
+  width: 5em;
+  height: auto;
+}
+
+/* PROFILE IMG */
+figure img {
+  width: 100%;
+  height: auto;
+}
+
+header h1 {
+  display: inline-block;
+  font-size: 48px;
+  text-decoration: underline var(--#7cb342);
+  margin-left: 20px;
+}
+
+#currentDay {
+  padding-right: 10px;
 }

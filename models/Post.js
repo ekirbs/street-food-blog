@@ -25,6 +25,10 @@ Post.init(
         key: 'id',
       },
     },
+    // rating: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: true,
+    // },
   },
   {
     sequelize,
