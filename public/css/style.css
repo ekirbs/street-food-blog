@@ -230,14 +230,14 @@ header h1 {
 }
 
 /* || VENDOR INFO SECTION */
+#vendor-name,
 #food-type,
 #vendor-description-card,
 #vendor-weather-card,
 #vendor-directions-card,
 #vendor-hours-card,
 #vendor-contact-card,
-#contact-vendor,
-#vendor-name {
+#contact-vendor {
   padding: 5%;
   color: #000000;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
