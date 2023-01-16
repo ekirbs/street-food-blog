@@ -333,6 +333,12 @@ a:hover {
   background-color: var(--secondary);
 }
 
+#map {
+  /* position: relative; */
+  height: 100%; /* The height is 400 pixels */
+  width: 100%; /* The width is the width of the web page */
+}
+
 /* .active,
 .dot:hover {
   background-color: var(--primary);
