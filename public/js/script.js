@@ -1,3 +1,5 @@
+
+
 const streetFoodApiKey = `http://data.streetfoodapp.com/1.1/`;
 const mapApiKey = "";
 const weatherApiKey = "3044316f6126db93462603440b6cd43c";
@@ -34,7 +36,7 @@ async function displayStreetFoodInfo() {
 
 
 
-
+        // Need to find a way of getting the icons pulled from api
         data.push({
           lat: v[1].last.latitude,
           long: v[1].last.longitude,
@@ -78,7 +80,32 @@ function displayVendorInfo(vendor) {
   let email = vendor.email;
   $("#vendor-contact-card").append("<br/>" + "Vendor Phone Number" + "<br/>" + phone + "<br/>" + "Vendor Email Address"+ "<br/>" + email);
 }
-displayStreetFoodInfo();
+
+
+// Initialize and add the map
+async function initMap() {
+  await displayStreetFoodInfo();
+  console.log(data[0]);
+  // The location of Uluru
+  const boston = { lat: 42.3601, lng: -71.0589 };
+  // The map, centered at Uluru
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 10,
+    center: boston,
+  });
+  // The marker, positioned at Uluru
+  const marker = new google.maps.Marker({
+    position: boston,
+    map: map,
+  });
+}
+
+window.initMap = initMap;
+
+
+
+
+// displayStreetFoodInfo();
 
 
 
