@@ -9,7 +9,7 @@ Provide a short description explaining the what, why, and how of your project. U
 - What problem does it solve?
 - What did you learn?
 
-Link: [Application Name](https://ekirbs.github.io/stree-food-blog/ 'One sentence description of the app.')
+Link: [Application Name](https://ekirbs.github.io/street-food-blog/ 'One sentence description of the app.')
 
 ## Table of Contents
 
@@ -44,8 +44,6 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 - Link: [Thomas Madden](https://github.com/ogwalrus 'The github page for Thomas.')
 - Link: [Nick Stallard](https://github.com/nickj13 'The github page for Nick.')
 - Link: [Mekael Abdullah](https://github.com/mekael18 'The github page for Mekael.')
-
-List your collaborators, if any, with links to their GitHub profiles.
 
 If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
 
