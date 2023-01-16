@@ -1,0 +1,43 @@
+<div>
+
+  <a href="/profile"> &larr; Back to Profile</a>
+  <h2>Edit User</h2>
+
+  <form class="edit-user-form">
+
+    <div>
+      <label for="username">User Name: </label>
+      <input name="username" type="text" value=`{{user.username}}`/>
+    </div>
+
+    <div>
+      <label for="email">User Email: </label>
+      <input name="email" type="text" value=`{{user.email}}`/>
+    </div>
+
+    <div>
+      <a href=`/post/{{post.id}}`>{{post.comments.length}}</a>
+    </div>
+
+    <button type="submit">Update Info</button>
+    <button type="delete" class="delete-post-btn">Delete It</button>
+
+  </form>
+
+</div>
+
+<form class="comment-form">
+
+  <div>
+    <textarea name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">Comment It</button>
+  </div>
+
+</form>
+
+{{comments post.comments}}
+
+<script src="/js/editUser.js"></script>

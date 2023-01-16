@@ -1,0 +1,173 @@
+<figure>
+  <img src="/images/nyc-panorama.jpg" alt="A panorama image of New York City."/>
+</figure>
+    
+<p>This is the profile page.</p>
+
+<main class="main-content">
+      <!-- ABOUT US SECTION -->
+      <section class="section-label about-site-header">
+        <h3>Welcome!</h3>
+      </section>
+
+      <section id="about-site" class="about-site-section">
+        <p id="greetings">
+          Greetings! You want to explore the food on the streets...
+        </p>
+      </section>
+
+      <!-- CITY CHOICE SECTION -->
+      <section class="section-label about-site-header">
+        <h3>Choose a City</h3>
+      </section>
+
+      <section id="about-site" class="about-site-section">
+        <div class="col s4"></div>
+
+        <div id="history-spot"></div>
+        <div id="park-name"></div>
+      </section>
+
+      <!-- VENDOR INFO SECTION -->
+      <section id="park-info-header" class="section-label">
+        <h3>Vendor Info</h3>
+      </section>
+
+      <section id="vendor-info-section" class="vendors-section">
+        <article class="card card-main zoom">
+          <div id="activity-card"></div>
+          <div class="img-text">
+            <h4>Activities</h4>
+            <p>enjoy the activities!</p>
+          </div>
+        </article>
+
+        <article class="card card-alt zoom">
+          <div id="park-description-card"></div>
+          <div class="img-text">
+            <h4>Park Description</h4>
+            <p>stuff about the park</p>
+          </div>
+        </article>
+
+        <article class="card card-alt zoom">
+          <div id="park-weather-card"></div>
+          <div class="img-text">
+            <h4>Best Time of Year</h4>
+            <p>gives a yearly weather report</p>
+          </div>
+        </article>
+
+        <article class="card card-alt zoom">
+          <div id="park-directions-card"></div>
+          <div class="img-text">
+            <h4>Directions</h4>
+            <p>how to get to the park</p>
+          </div>
+        </article>
+
+        <article class="card card-alt zoom">
+          <div id="park-hours-card"></div>
+          <div class="img-text">
+            <h4>Hours</h4>
+            <p>hours of operation</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- WEATHER SECTION -->
+      <section id="weather-forecast-header" class="section-label">
+        <h3>Weather Forecast</h3>
+      </section>
+
+      <section id="daily-weather" class="daily-section">
+        <article class="card card-main-weather zoom">
+          <div id="weather"></div>
+          <div class="img-text">
+            <h4>Current Weather</h4>
+            <p>the weather today!</p>
+          </div>
+        </article>
+
+        <article class="card card-alt-weather zoom">
+          <div id="weather-day-0"></div>
+          <div class="weather-img-text">
+            <h5>Day 2</h5>
+            <p>next 5 days forecast</p>
+          </div>
+        </article>
+
+        <article class="card card-alt-weather zoom">
+          <div id="weather-day-1"></div>
+          <div class="weather-img-text">
+            <h5>Day 3</h5>
+            <p>next 5 days forecast</p>
+          </div>
+        </article>
+
+        <article class="card card-alt-weather zoom">
+          <div id="weather-day-2"></div>
+          <div class="weather-img-text">
+            <h5>Day 4</h5>
+            <p>next 5 days forecast</p>
+          </div>
+        </article>
+
+        <article class="card card-alt-weather zoom">
+          <div id="weather-day-3"></div>
+          <div class="weather-img-text">
+            <h5>Day 5</h5>
+            <p>next 5 days forecast</p>
+          </div>
+        </article>
+
+        <article class="card card-alt-weather zoom">
+          <div id="weather-day-4"></div>
+          <div class="weather-img-text">
+            <h5>Day 6</h5>
+            <p>next 5 days forecast</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- CONTACT PARK SECTION -->
+      <section class="section-label contact-park-header">
+        <h3>Contact the Park</h3>
+      </section>
+
+      <section class="contact-park-section">
+        <!-- <a href="tel:5558675309">Jenny: (555) 867-5309</a> -->
+        <a href="https://www.nps.gov/index.htm">https://www.nps.gov/index.htm</a>
+        <div id="contact-park"></div>
+      </section>
+    </main>
+
+{{#if posts}}
+<div>
+
+  <h3>Your Posts:</h3>
+  {{#each posts as |post| }}
+
+  <div class="row mb-4 project">
+
+    <div class="col-md-5">
+      <h2>
+        {{{get_img}}}
+        <a href="/post/{{post.id}}">{{post.title}}</a>
+      </h2>
+      <p>Created by: {{post.user_id}}</p>
+    </div>
+
+    <div class="col-md-7">
+      <p>
+        {{post.post_body}}
+      </p>
+    </div>
+
+    <a href=`/editUser/{{post.id}}` class="edit-post">Edit Your Post</a>
+
+  </div>
+
+</div>
+{{/each}}
+{{/if}}

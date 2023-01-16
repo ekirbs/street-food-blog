@@ -3,10 +3,6 @@
   --secondary: #7cb342;
   --tertiary: #bdbdbd ;
   --quatrinary: #eeeeee;
-  /* --primary: #3d4c58; */
-  /* --secondary: #86938f;
-  --tertiary: #5e877f;
-  --quatrinary: #6c6b67; */
   --light: #e3e4e3;
   --dark: #7cb342 ;
   --error: rgb(228, 46, 1);
@@ -204,6 +200,7 @@ header img {
 figure img {
   width: 100%;
   height: auto;
+  z-index: 0;
 }
 
 header h1 {

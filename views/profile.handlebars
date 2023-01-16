@@ -4,6 +4,33 @@
     
 <p>This is the profile page.</p>
 
+<div class="row">
+  <div class="column">
+    <h3>Create a Post</h3>
+
+    <form class="new-post-form">
+
+      <div>
+        <label for="post-title">Post Title</label>
+        <input type="text" id="post-title" name="post-title" />
+      </div>
+
+      <div>
+        <label for="post-body">Post Body</label>
+        <textarea type="text" id="post-body" name="post-body"></textarea>
+      </div>
+
+      <button type="submit" class="btn">Create Post</button>
+
+    </form>
+  </div>
+</div>
+
+<div>
+  <h2>Your Profile</h2>
+  {{> userData}}
+</div>
+
 {{#if posts}}
 <div>
 
@@ -17,7 +44,7 @@
         {{{get_img}}}
         <a href="/post/{{post.id}}">{{post.title}}</a>
       </h2>
-      <p>Created by: {{post.user_id}}</p>
+      <p>Created by: {{user.username}}</p>
     </div>
 
     <div class="col-md-7">
@@ -33,3 +60,5 @@
 </div>
 {{/each}}
 {{/if}}
+
+<script src="/js/newPost"></script>

@@ -1,4 +1,4 @@
-{{!-- {{> post-info post}}
+{{> postData post}}
 
 {{#if logged_in}}
 <form class="new-comment">
@@ -12,8 +12,8 @@
 </form>
 {{/if}}
 
-{{> comments post.comments}}
+{{> commentData post.comments}}
 
 {{#if logged_in}}
 <script src="/js/comment.js"></script>
-{{/if}} --}}
+{{/if}}
