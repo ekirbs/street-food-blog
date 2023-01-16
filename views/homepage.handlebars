@@ -50,7 +50,7 @@
     <div id="vendor-name"></div>
     
   </section>
-
+  
   <section id="vendor-info-section" class="info-section">
 
     <article class="card card-main zoom">
@@ -102,40 +102,40 @@
     </article>
 
   </section>
+
+  {{!-- GOOGLE MAP SECTION --}}
+  <section class="section-label map-header">
+    <h3>Google Map</h3>
+  </section>
+
+  <section class="map-section">
+    <!-- <a href="tel:5558675309">Jenny: (555) 867-5309</a> -->
+    {{!-- <a href="https://www.nps.gov/index.htm">https://www.nps.gov/index.htm</a> --}}
+    <div id="map"></div>
+  </section>
+
+  {{!-- POST SECTION --}}
+  <section class="section-label post-header">
+    <h3>Post Section</h3>
+  </section>
+
+  <section class="post-section">
+    {{#each posts as |post| }}
+    <div class="row mb-4 post">
+      <div class="col-md-5">
+        <h2>
+          {{{get_img}}}
+          <a href="/post/{{post.id}}">{{post.title}}</a>
+        </h2>
+        <p>Created by: {{user.username}}</p>
+      </div>
+      <div class="col-md-7">
+        <p>
+          {{post.post_body}}
+        </p>
+      </div>
+    </div>
+    {{/each}}
+  </section>
+
 </main>
-
-{{!-- GOOGLE MAP SECTION --}}
-<section class="section-label map-header">
-  <h3>Google Map</h3>
-</section>
-
-<section class="map-section">
-  <!-- <a href="tel:5558675309">Jenny: (555) 867-5309</a> -->
-  {{!-- <a href="https://www.nps.gov/index.htm">https://www.nps.gov/index.htm</a> --}}
-  <div id="map"></div>
-</section>
-
-{{!-- POST SECTION --}}
-<section class="section-label post-header">
-  <h3>Post Section</h3>
-</section>
-
-<section class="post-section">
-  {{#each posts as |post| }}
-  <div class="row mb-4 post">
-    <div class="col-md-5">
-      <h2>
-        {{{get_img}}}
-        <a href="/post/{{post.id}}">{{post.title}}</a>
-      </h2>
-      <p>Created by: {{user.username}}</p>
-    </div>
-    <div class="col-md-7">
-      <p>
-        {{post.post_body}}
-      </p>
-    </div>
-  </div>
-  {{/each}}
-</section>
-
