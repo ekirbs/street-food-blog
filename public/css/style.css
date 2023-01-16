@@ -141,13 +141,28 @@ nav a:hover {
 
 /* CARDS */
 .card {
-  margin: 20px;
-  flex: 0 1 300px;
+  height: 100%;
+  width: 100%;
+  margin: 1%;
+  background-color: var(--tertiary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: flex-end;
+  overflow: hidden;
   border: 7px double var(--dark);
   border-radius: 10px;
+  color: var(--dark);
+  flex: 0 1 300px;
+}
+
+/* .card {
+  margin: 20px;
+  border: 7px double var(--dark);
   background-color: var(--light);
   color: var(--dark);
-}
+} */
 
 .login-card {
   margin: 0 0 20px 0;
@@ -212,4 +227,76 @@ header h1 {
 
 #currentDay {
   padding-right: 10px;
+}
+
+/* || VENDOR INFO SECTION */
+#food-type,
+#vendor-description-card,
+#vendor-weather-card,
+#vendor-directions-card,
+#vendor-hours-card,
+#vendor-contact-card,
+#contact-vendor,
+#vendor-name {
+  padding: 5%;
+  color: #000000;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+#about-site {
+  padding: auto;
+  color: #000000;
+}
+
+.info-section {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.5em;
+  grid-template-areas:
+    "main main alt"
+    "alt alt alt";
+}
+
+.card a {
+  opacity: 75%;
+}
+
+.card-main {
+  width: 0;
+  height: 20em;
+  margin: 2px;
+  min-width: 100%;
+  min-height: 100%;
+  /* grid-area: 1 / 1 / span 2 / span 1; */
+}
+
+.card-alt {
+  width: 0;
+  height: 0;
+  margin: 2px;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.img-text {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: var(--dark-background);
+  color: var(--dark-highlight);
+  flex: 1 1 50%;
+  padding: 2px;
+}
+
+a:hover {
+  opacity: 100%;
+}
+
+.zoom {
+  transition: transform 0.2s;
+}
+
+.zoom:hover {
+  transform: scale(1.025);
 }
