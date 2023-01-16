@@ -1,0 +1,30 @@
+<div>
+  <a href="/profile"> &larr; Back to Profile</a>
+  <h2>Edit User</h2>
+  <form class="edit-user-form">
+    <div>
+      <label for="post-title">Post Title: </label>
+      <input name="post-title" type="text" value=`{{post.title}}`/>
+    </div>
+    <div>
+      <textarea name="post-body">{{post.post-body}}</textarea>
+    </div>
+    <div>
+      <a href=`/post/{{post.id}}`>{{post.comments.length}}</a>
+    </div>
+    <button type="submit">Post It</button>
+    <button type="delete" class="delete-post-btn">Delete It</button>
+  </form>
+</div>
+
+<form class="comment-form">
+  <div>
+    <textarea name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">Comment It</button>
+  </div>
+</form>
+
+{{comments post.comments}}
