@@ -283,8 +283,8 @@ header h1 {
   position: absolute;
   bottom: 0;
   right: 0;
-  background: var(--dark-background);
-  color: var(--dark-highlight);
+  background: var(--primary);
+  color: var(--tertiary);
   flex: 1 1 50%;
   padding: 2px;
 }
@@ -300,3 +300,55 @@ a:hover {
 .zoom:hover {
   transform: scale(1.025);
 }
+
+.main-content {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 25% 25% 75% 50% 75%;
+  grid-gap: 1em;
+  margin: 1em;
+}
+
+.main-content > section {
+  background: var(--light);
+  padding: 1em;
+  color: var(--white);
+}
+
+.main-content > section:nth-child(odd) {
+  background: var(--tertiary);
+}
+
+.section-label {
+  font-size: 2vw;
+  border-right: 6px solid var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+  text-decoration: underline var(--secondary);
+}
+
+.hist-btn {
+  background-color: var(--secondary);
+}
+
+/* .active,
+.dot:hover {
+  background-color: var(--primary);
+} */
+
+/* FADING ANIMATION */
+/* .fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+} */
