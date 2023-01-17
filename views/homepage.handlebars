@@ -1,20 +1,142 @@
-<aside>
-  <h2>We can put the map here, and it only appear when the user is on the food find section.</h2>
-</aside>
+<main class="main-content">
 
-{{#each posts as |post| }}
-<div class="row mb-4 post">
-  <div class="col-md-5">
-    <h2>
-      {{{get_img}}}
-      <a href="/post/{{post.id}}">{{post.title}}</a>
-    </h2>
-    <p>Created by: {{user.username}}</p>
-  </div>
-  <div class="col-md-7">
-    <p>
-      {{post.post_body}}
+{{!-- WELCOME SECTION --}}
+  <section class="section-label about-site-header">
+    <h3>Welcome!</h3>
+  </section>
+
+  <section id="about-site" class="about-site-section">
+    <p id="greetings">
+      Greetings! You want to explore nature. You want to visit a park. But
+      you want to find the right park. This app allows you to find important
+      information about the park, and the weather forecast for the upcoming
+      week to help you make a decision.
     </p>
-  </div>
-</div>
-{{/each}}
+  </section>
+
+{{!-- CHOOSE A VENDOR SECTION --}}
+  <section class="section-label about-site-header">
+    <h3>Choose a Vendor</h3>
+  </section>
+
+  <section id="about-site" class="about-site-section">
+    <div class="col s4">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">Find some Street Meat!</button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <li><button class="dropdown-item" type="button">City Hall Plaza</button></li>
+          <li><button class="dropdown-item" type="button">Greenway</button></li>
+          <li><button class="dropdown-item" type="button">The Cod Squad</button></li>
+          <li><button class="dropdown-item" type="button">The Whoopie Wagon</button></li>
+          <li><button class="dropdown-item" type="button">SoWa Open Market</button></li>
+          <li><button class="dropdown-item" type="button">Roxy's Grilled Cheese</button></li>
+          <li><button class="dropdown-item" type="button">Cookie Monstah</button></li>
+          <li><button class="dropdown-item" type="button">Chicken &#38; Rice Guys</button></li>
+          <li><button class="dropdown-item" type="button">Papi's Stuffed Sopapillas</button></li>
+          <li><button class="dropdown-item" type="button">Tres Latinas</button></li>
+          <li><button class="dropdown-item" type="button">Friends 4 OBA</button></li>
+          <li><button class="dropdown-item" type="button">Vaz &#38; Mac Tex-Mex</button></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="history-spot"></div>
+  </section>
+
+{{!-- VENDOR INFO SECTION --}}
+  <section id="vendor-info-header" class="section-label">
+
+    <h3>Vendor Name</h3>
+    <div id="vendor-name"></div>
+    
+  </section>
+  
+  <section id="vendor-info-section" class="info-section">
+
+    <article class="card card-main zoom">
+      <div id="food-type"></div>
+      <div class="img-text">
+        <h4>Vendor Menu</h4>
+        <p>enjoy the different foods</p>
+      </div>
+    </article>
+
+    <article class="card card-alt zoom">
+      <div id="vendor-description-card"></div>
+      <div class="img-text">
+        <h4>Vendor Description</h4>
+        <p>stuff about the park</p>
+      </div>
+    </article>
+
+    <article class="card card-alt zoom">
+      <div id="vendor-weather-card"></div>
+      <div class="img-text">
+        <h4>Rating</h4>
+        <p>what people think about the food</p>
+      </div>
+    </article>
+
+    <article class="card card-alt zoom">
+      <div id="vendor-directions-card"></div>
+      <div class="img-text">
+        <h4>Directions</h4>
+        <p>where to find the vendor</p>
+      </div>
+    </article>
+
+    <article class="card card-alt zoom">
+      <div id="vendor-hours-card"></div>
+      <div class="img-text">
+        <h4>Hours</h4>
+        <p>hours of operation</p>
+      </div>
+    </article>
+
+    <article class="card card-alt zoom">
+      <div id="vendor-contact-card"></div>
+      <div class="img-text">
+        <h4>Contact</h4>
+        <p>contact info for the vendor</p>
+      </div>
+    </article>
+
+  </section>
+
+  {{!-- GOOGLE MAP SECTION --}}
+  <section class="section-label map-header">
+    <h3>Google Map</h3>
+  </section>
+
+  <section class="map-section">
+    <!-- <a href="tel:5558675309">Jenny: (555) 867-5309</a> -->
+    {{!-- <a href="https://www.nps.gov/index.htm">https://www.nps.gov/index.htm</a> --}}
+    <div id="map"></div>
+    
+  </section>
+
+  {{!-- POST SECTION --}}
+  <section class="section-label post-header">
+    <h3>Post Section</h3>
+  </section>
+
+  <section class="post-section">
+    {{#each posts as |post| }}
+    <div class="row mb-4 post">
+      <div class="col-md-5">
+        <h2>
+          {{{get_img}}}
+          <a href="/post/{{post.id}}">{{post.title}}</a>
+        </h2>
+        <p>Created by: {{user.username}}</p>
+      </div>
+      <div class="col-md-7">
+        <p>
+          {{post.post_body}}
+        </p>
+      </div>
+    </div>
+    {{/each}}
+  </section>
+
+</main>

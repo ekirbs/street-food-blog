@@ -17,7 +17,7 @@
   </form>
 </div>
 
-<form class="comment-form">
+<form class="new-comment-form">
   <div>
     <textarea name="comment-body"></textarea>
   </div>
@@ -27,7 +27,8 @@
   </div>
 </form>
 
-{{> comments post.comments }}
+{{> commentData}}
+{{!-- {{> comments post.comments }} --}}
 
 <script src="/js/editPost.js"></script>
 <script src="/js/deletePost.js"></script>
