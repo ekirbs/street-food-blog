@@ -34,10 +34,11 @@ const delPostButtonHandler = async (event) => {
   console.log(event);
   // if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
+    // const qwer = document.querySelector(".delete-post-btn").getAttribute("data-id");
 
-  console.log(id);
+  console.log(qwer);
 
-    const response = await fetch(`/api/posts/${id}`, {
+    const response = await fetch(`/api/posts/${qwer}`, {
       method: "DELETE",
     });
 
