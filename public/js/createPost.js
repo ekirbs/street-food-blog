@@ -21,7 +21,7 @@ const newPostFormHandler = async (event) => {
     console.log(title, post_body)
     console.log(response);
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/profile'); // maybe try document.location.reload()
     } else {
       alert('Failed to create post.');
     }

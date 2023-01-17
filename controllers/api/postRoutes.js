@@ -102,16 +102,16 @@ router.get("/:id", withAuth, async (req, res) => {
     res.status(400).json(err); // 400 vs 500?
   }
 });
-
+// actually /api/posts
 router.post("/", withAuth, async (req, res) => {
   console.log("Creating post");
   try {
-    console.log("inside post try");
+    console.log("inside post try")
     // const newPost = await Post.create({
     //   ...req.body,
     //   user_id: req.session.user_id,
     // });
-    // console.log(req.body);
+    console.log(req.body);
     
     // const newPost = await Post.create(req.body);
     const newPost = await Post.create({
