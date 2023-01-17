@@ -111,7 +111,7 @@ router.post("/", withAuth, async (req, res) => {
     //   ...req.body,
     //   user_id: req.session.user_id,
     // });
-    console.log(req.body);
+    // console.log(req.body);
     
     // const newPost = await Post.create(req.body);
     const newPost = await Post.create({
@@ -120,7 +120,7 @@ router.post("/", withAuth, async (req, res) => {
       user_id: req.session.user_id,
     });
     console.log("through post try.");
-    console.log(newPost);
+    // console.log(newPost);
     res.status(200).json(newPost);
   } catch (err) {
     res.status(400).json(err); // 400 vs 500?
@@ -139,6 +139,30 @@ router.post("/", withAuth, async (req, res) => {
   // } catch (err) {
   //   res.status(500).json(err);
   // }
+});
+
+router.put("/", withAuth, async (req, res) => {
+  console.log("Creating post");
+  try {
+    console.log("inside put try")
+    console.log(req.body);
+    
+    const editedPost = await Post.update({
+      where: {
+        id: req.params.id,
+      },
+    },
+    {
+      title: req.body.title,
+      post_body: req.body.post_body,
+    },
+    );
+    console.log("through put try.");
+    console.log(editedPost);
+    res.status(200).json(editedPost);
+  } catch (err) {
+    res.status(400).json(err); // 400 vs 500?
+  }
 });
 
 router.delete("/:id", withAuth, async (req, res) => {

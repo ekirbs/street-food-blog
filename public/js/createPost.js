@@ -21,7 +21,7 @@ const newPostFormHandler = async (event) => {
     console.log(title, post_body);
     console.log(response);
     if (response.ok) {
-      document.location.reload( forceGet);
+      document.location.reload();
       // document.location.replace("/profile"); // maybe try document.location.reload()
     } else {
       alert("Failed to create post.");
@@ -36,12 +36,12 @@ const delPostButtonHandler = async (event) => {
     const id = event.target.getAttribute("data-id");
     // const qwer = document.querySelector(".delete-post-btn").getAttribute("data-id");
 
-  console.log(qwer);
+  console.log(id);
 
-    const response = await fetch(`/api/posts/${qwer}`, {
+    const response = await fetch(`/api/posts/`, {
       method: "DELETE",
     });
-
+    console.log(response);
     if (response.ok) {
       document.location.replace("/profile");
     } else {

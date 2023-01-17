@@ -1,5 +1,5 @@
-{{post.title}}
-{{post.body}}
+{{!-- {{post.title}}
+{{post.body}} --}}
 {{> postData post}}
 
 {{#if logged_in}}
@@ -9,13 +9,13 @@
   </div>
 
   <div>
-    <button type="submit">Post Your Comment</button>
+    <button class="button" type="submit">Post Your Comment</button>
   </div>
 </form>
 {{/if}}
 
 {{!-- {{> commentData}} --}}
-{{> commentData comments}}
+{{> commentData post.comments}}
 
 {{#if logged_in}}
 <script src="/js/comment.js"></script>
