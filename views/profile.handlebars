@@ -6,6 +6,13 @@
 
 <div class="row">
   <div class="column">
+    <div>
+      <h2>Your Profile</h2>
+      {{> userData}}
+    </div>
+  </div>
+
+  <div class="column">
     <h3>Create a Post</h3>
     <form class="new-post-form">
 
@@ -22,11 +29,6 @@
       <button type="submit" class="btn">Create Post</button>
 
     </form>
-  </div>
-
-  <div>
-    <h2>Your Profile</h2>
-    {{> userData}}
   </div>
 
 </div>
@@ -53,7 +55,7 @@
       </p>
     </div>
 
-    <a href="/profile/editPost/{{post.id}}" class="edit-post">Edit Your Post</a>
+    <a href="/editPost/{{post.id}}" class="edit-post">Edit Your Post</a>
     <button type="delete" class="delete-post-btn">Delete This Post</button>
 
 

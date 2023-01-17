@@ -1,15 +1,42 @@
-<div class="comments">
-  {{#each comment}}
-
-  {{!-- {{#each this}} --}}
+{{!-- <div class="comments">
+  {{#each this}}
   <div class="comment">
     <div class="commentUserInfo">
       {{user.username}}
     </div>
     <div class="comment_body">
       <p{{comment.comment_body}}></p>
-      {{!-- <button type="delete" class="delete-post-btn">Delete This Comment</button> --}}
     </div>
   </div>
   {{/each}}
+</div> --}}
+
+{{#if comments}}
+<div>
+
+  <h3>Comments:</h3>
+  {{#each comments as |comment| }}
+
+  <div class="row mb-4 comment">
+
+    <div class="col-md-5">
+      <h2>
+        <a href="/comment/{{comment.id}}"></a>
+      </h2>
+      <p>Created by: {{user.username}}</p>
+    </div>
+
+    <div class="col-md-7">
+      <p>
+        {{comment.comment_body}}
+      </p>
+    </div>
+
+    <a href="/profile/editComment/{{comment.id}}" class="edit-comment">Edit Your Comment</a>
+    <button type="delete" class="delete-comment-btn">Delete This Comment</button>
+
+  </div>
+
 </div>
+{{/each}}
+{{/if}}

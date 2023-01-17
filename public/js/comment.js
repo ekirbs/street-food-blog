@@ -44,4 +44,4 @@ const delCommentBtnHandler = async (event) => {
 };
 
 document.querySelector(".new-comment-form").addEventListener("submit", newCommentFormHandler);
-document.querySelector(".delete-post-btn").addEventListener("click", delCommentBtnHandler);
+// document.querySelector(".delete-comment-btn").addEventListener("click", delCommentBtnHandler);
