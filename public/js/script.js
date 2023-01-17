@@ -12,7 +12,6 @@ function init() {
 
   // renderHistory();
 };
-
 init();
 
 async function displayStreetFoodInfo() {
@@ -63,6 +62,7 @@ async function displayStreetFoodInfo() {
     console.log(data[0]);
     displayVendorInfo(data[0]);
 }
+displayStreetFoodInfo();
 function displayVendorInfo(vendor) {
   console.log(vendor);
   let name = vendor.name;
@@ -99,6 +99,21 @@ async function initMap() {
     position: boston,
     map: map,
   });
+  for(const vendor of data){
+    const pos = {lat: vendor.lat, lng: vendor.long};
+    const infoWindow = new google.maps.InfoWindow();
+    const marker = new google.maps.Marker({
+      position: pos,
+      map: map,
+      title: vendor.name,
+      optimized: false,
+    });
+    marker.addListener("click", () => {
+      infoWindow.close();
+      infoWindow.setContent(marker.getTitle());
+      infoWindow.open(marker.getMap(), marker);
+    });
+  }
 }
 
 window.initMap = initMap;
