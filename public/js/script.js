@@ -53,30 +53,42 @@ async function displayStreetFoodInfo() {
 //     console.log(data[0]);
     // displayVendorInfo(data[0]);
 }
-displayStreetFoodInfo();
+
 function displayVendorInfo(vendor) {
   console.log(vendor);
   let name = vendor.name;
+  $("#vendor-name").empty();
   $("#vendor-name").append(`<h3 style="text-decoration: underline">${name}</h3>`);
 
-  let website = vendor.url;
-  $("#vendor-name").append(`<a href="${website}">${website}</a>`);
+  let website = "https://"+vendor.website;
+  
 
   let description = vendor.description;
+  $("#vendor-description-card").empty();
   $("#vendor-description-card").append("<br/>" + "Vendor Description" + "<br/>" + description + "<br/>");
 
   let address = vendor.address;
+  $("#vendor-directions-card").empty();
   $("#vendor-directions-card").append("<br/>" + "Vendor Location" + "<br/>" + address + "<br/>");
 
   let phone = vendor.phone;
   let email = vendor.email;
-  $("#vendor-contact-card").append("<br/>" + "Vendor Phone Number" + "<br/>" + phone + "<br/>" + "Vendor Email Address"+ "<br/>" + email);
+  $("#vendor-contact-card").empty();
+  $("#vendor-contact-card").append("<br/>" + "Vendor Phone Number" + "<br/>" + phone + "<br/>" + "Vendor Email Address"+ "<br/>" + email + "<br/>" + `<a href="${website}">${website}</a>`);
 }
 
+$(".dropdown-menu").on("click", function (event) {
+  event.preventDefault();
+  id = event.target.id;
+  const selectedVendor = data.find(element => element.name == id);
+  console.log(selectedVendor);
+  displayVendorInfo(selectedVendor);
+});
 
 // Initialize and add the map
 async function initMap() {
   await displayStreetFoodInfo();
+  console.log(data);
   // console.log(data[0]);
   // The location of Uluru
   const boston = { lat: 42.3601, lng: -71.0589 };
@@ -86,10 +98,6 @@ async function initMap() {
     center: boston,
   });
   // The marker, positioned at Uluru
-  const marker = new google.maps.Marker({
-    position: boston,
-    map: map,
-  });
   for(const vendor of data){
     const pos = {lat: vendor.lat, lng: vendor.long};
     const infoWindow = new google.maps.InfoWindow();
@@ -110,7 +118,23 @@ async function initMap() {
 window.initMap = initMap;
 
 
+// async function myFunction() {
+//   document.getElementById("myDropdown").classList.toggle("show");
+// }
 
+// // Close the dropdown menu if the user clicks outside of it
+// window.onclick = function(event) {
+//   if (!event.target.matches('.dropbtn')) {
+//     var dropdowns = document.getElementsByClassName("dropdown-content");
+//     var i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       var openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains('show')) {
+//         openDropdown.classList.remove('show');
+//       }
+//     }
+//   }
+// }
 
 // displayStreetFoodInfo();
 
