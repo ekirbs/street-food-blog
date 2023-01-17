@@ -16,6 +16,7 @@ function init() {
 init();
 
 async function displayStreetFoodInfo() {
+ // fetch('/api/streetfood') => //front end does the other stuff
   var streetFoodApiUrl = `http://data.streetfoodapp.com/1.1/schedule/boston/`;
   console.log(streetFoodApiUrl);
   await fetch(streetFoodApiUrl, {

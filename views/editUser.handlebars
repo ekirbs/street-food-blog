@@ -20,7 +20,7 @@
     </div>
 
     <button type="submit">Update Info</button>
-    <button type="delete" class="delete-post-btn">Delete It</button>
+    <button type="delete" class="delete-user-btn">Delete It</button>
 
   </form>
 
@@ -38,6 +38,8 @@
 
 </form>
 
-{{comments post.comments}}
+{{> commentData}}
+{{!-- {{comments post.comments}} --}}
 
 <script src="/js/editUser.js"></script>
+<script src="/js/deleteUser.js"></script>

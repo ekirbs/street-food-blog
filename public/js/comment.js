@@ -16,9 +16,11 @@ const newCommentFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      // document.location.replace('/profile');
+      document.location.reload();
     } else {
-      alert('Failed to create comment');
+      // alert('Failed to create comment');
+      alert(response.statusText);
     }
   }
 };
@@ -27,14 +29,16 @@ const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/comment/${id}`, {
+    const response = await fetch(`/api/comments/${id}`, {
       method: 'DELETE',
     });
 
     if (response.ok) {
-      document.location.replace('/comment');
+      // document.location.replace('/comment');
+      document.location.reload();
     } else {
-      alert('Failed to delete comment.');
+      // alert('Failed to delete comment.');
+      alert(response.statusText);
     }
   }
 };

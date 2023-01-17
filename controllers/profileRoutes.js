@@ -1,9 +1,9 @@
 const router = require("express").Router();
 const { User, Post, Comment } = require("../models");
 const withAuth = require("../utils/auth");
-
+// actually /profile
 router.get("/", withAuth, async (req, res) => {
-  console.log("GET /profile");
+  console.log("GET all posts on dashboard");
   try {
     const postData = await Post.findAll({
       where: {
@@ -56,7 +56,9 @@ router.get("/", withAuth, async (req, res) => {
       ],
     });
 
+    console.log(postData);
     const posts = postData.map((post) => post.get({ plain: true }));
+    console.log(posts);
 
     res.render("profile", {
       posts,
