@@ -12,7 +12,6 @@ function init() {
 
   // renderHistory();
 };
-
 init();
 
 async function displayStreetFoodInfo() {
