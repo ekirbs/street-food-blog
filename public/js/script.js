@@ -1,8 +1,6 @@
-
-
-const streetFoodApiKey = `http://data.streetfoodapp.com/1.1/`;
-const mapApiKey = "";
-const weatherApiKey = "3044316f6126db93462603440b6cd43c";
+// const streetFoodApiKey = `http://data.streetfoodapp.com/1.1/`;
+// const mapApiKey = "";
+// const weatherApiKey = "3044316f6126db93462603440b6cd43c";
 let data = [];
 
 function init() {
@@ -12,18 +10,10 @@ function init() {
 
   // renderHistory();
 };
-
 init();
 
 async function displayStreetFoodInfo() {
- // fetch('/api/streetfood') => //front end does the other stuff
-  var streetFoodApiUrl = `http://data.streetfoodapp.com/1.1/schedule/boston/`;
-  console.log(streetFoodApiUrl);
-  await fetch(streetFoodApiUrl, {
-    method: "GET",
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    // mode: 'cors'
-  })
+ await fetch('/api/streetfood')
     .then((response) => {
       return response.json();
     })
@@ -32,7 +22,7 @@ async function displayStreetFoodInfo() {
       const vendors = response.vendors;
       
       const vendorList = Object.entries(vendors);
-      console.log(vendors);
+      // console.log(vendors);
       for (const v of vendorList) {
 
 
@@ -59,10 +49,11 @@ async function displayStreetFoodInfo() {
       return data;
 
     })
-    console.log(data);
-    console.log(data[0]);
-    displayVendorInfo(data[0]);
+//     console.log(data);
+//     console.log(data[0]);
+    // displayVendorInfo(data[0]);
 }
+displayStreetFoodInfo();
 function displayVendorInfo(vendor) {
   console.log(vendor);
   let name = vendor.name;
@@ -86,7 +77,7 @@ function displayVendorInfo(vendor) {
 // Initialize and add the map
 async function initMap() {
   await displayStreetFoodInfo();
-  console.log(data[0]);
+  // console.log(data[0]);
   // The location of Uluru
   const boston = { lat: 42.3601, lng: -71.0589 };
   // The map, centered at Uluru
@@ -99,6 +90,21 @@ async function initMap() {
     position: boston,
     map: map,
   });
+  for(const vendor of data){
+    const pos = {lat: vendor.lat, lng: vendor.long};
+    const infoWindow = new google.maps.InfoWindow();
+    const marker = new google.maps.Marker({
+      position: pos,
+      map: map,
+      title: vendor.name,
+      optimized: false,
+    });
+    marker.addListener("click", () => {
+      infoWindow.close();
+      infoWindow.setContent(marker.getTitle());
+      infoWindow.open(marker.getMap(), marker);
+    });
+  }
 }
 
 window.initMap = initMap;
