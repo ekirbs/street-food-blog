@@ -164,9 +164,8 @@ nav a:hover {
   color: var(--dark);
 } */
 
-.login-card {
-  margin: 0 0 20px 0;
-  flex: 0 0 50%;
+
+/* flex: 0 0 50%;
   max-width: 50%;
   padding: 5px;
   border: 3px solid var(--primary);
@@ -175,7 +174,47 @@ nav a:hover {
   border-width: thick;
   background-color: var(--dark);
   /* background-color: #577a7c; */
-  color: var(--light);
+  /* color: var(--primary); */ 
+.login-card {
+  width: 750px;
+  height: 450px;
+  display: block;
+  margin-bottom: 20px;
+  flex: 0 0 50%;
+  padding: 5px;
+  border: 3px solid var(--primary);
+  border-radius: var(--border-radius);
+  border-style: double;
+  border-width: thick;
+  background-color: var(--dark);
+  
+
+}
+.signup-card {
+  width: 450px;
+  height: 450px;
+  display: block;
+  margin-bottom: 20px;
+  flex: 0 0 50%;
+  padding: 5px;
+  border: 3px solid var(--primary);
+  border-radius: var(--border-radius);
+  border-style: double;
+  border-width: thick;
+  background-color: var(--dark);
+  
+
+}
+
+.form-group label {
+  color:#424242;
+}
+
+.form-group-btn {
+text-align: center;
+position: relative;
+top: 20px;
+
 }
 
 .card header {
@@ -307,6 +346,7 @@ a:hover {
   grid-template-rows: 12% 15% 50% 50% 75%;
   grid-gap: 1em;
   margin: 1em;
+  
 }
 
 .main-content > section {
