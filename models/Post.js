@@ -11,10 +11,10 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    location: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    // location: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
     title: {
       type: DataTypes.STRING,
       allowNull: false,

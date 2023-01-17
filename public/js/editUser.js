@@ -42,10 +42,6 @@ const delUserButtonHandler = async (event) => {
   }
 };
 
-document
-  .querySelector('.edit-profile-form')
-  .addEventListener('submit', newFormHandler);
+document.querySelector('.edit-profile-form').addEventListener('submit', editUserFormHandler);
 
-document
-  .querySelector('.profile-list')
-  .addEventListener('click', delButtonHandler);
+document.querySelector('.profile-list').addEventListener('click', delUserButtonHandler);

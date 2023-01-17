@@ -104,24 +104,41 @@ router.get("/:id", withAuth, async (req, res) => {
 });
 
 router.post("/", withAuth, async (req, res) => {
+  console.log("Creating post");
   try {
-    const newPost = await Post.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
-
-    // const newPost = await Post.create(req.body);
-
+    console.log("inside post try");
     // const newPost = await Post.create({
-    //   title: req.body.title,
-    //   post_body: req.body.post_body,
+    //   ...req.body,
     //   user_id: req.session.user_id,
     // });
-
+    // console.log(req.body);
+    
+    // const newPost = await Post.create(req.body);
+    const newPost = await Post.create({
+      title: req.body.title,
+      post_body: req.body.post_body,
+      user_id: req.session.user_id,
+    });
+    console.log("through post try.");
+    console.log(newPost);
     res.status(200).json(newPost);
   } catch (err) {
     res.status(400).json(err); // 400 vs 500?
   }
+
+  // try {
+  //   const newPost = await Post.create(req.body);
+  //   console.log(newPost);
+  //   console.log(req.body);
+  //   req.session.save(() => {
+  //     req.session.user_id = newPost.user_id;
+  //     req.session.logged_in = true;
+
+  //     res.status(200).json(newPost);
+  //   });
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }
 });
 
 router.delete("/:id", withAuth, async (req, res) => {
