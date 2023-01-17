@@ -28,7 +28,7 @@ fetch(streetFoodApiUrl, {
   console.log(response);
 })
 }
-displayStreetFoodInfo()
+displayStreetFoodInfo();
 
 
 
