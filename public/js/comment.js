@@ -9,18 +9,18 @@ const newCommentFormHandler = async (event) => {
     const response = await fetch(`/api/comments`, {
       method: 'POST',
       body: JSON.stringify({
-        post_id: window.location.toString().split("/").length -1,
         comment_body,
+        post_id: window.location.toString().split("/").length -1,        
       }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
-    console.log
+    console.log(response);
 
     if (response.ok) {
       // document.location.replace('/profile');
-      document.location.reload();
+      // document.location.reload();
     } else {
       // alert('Failed to create comment');
       alert(response.statusText);
