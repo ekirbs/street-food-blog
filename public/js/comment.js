@@ -25,7 +25,7 @@ const newCommentFormHandler = async (event) => {
   }
 };
 
-const delButtonHandler = async (event) => {
+const delCommentBtnHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
@@ -43,6 +43,5 @@ const delButtonHandler = async (event) => {
   }
 };
 
-document
-  .querySelector('.new-comment-form')
-  .addEventListener('submit', newCommentFormHandler);
+document.querySelector(".new-comment-form").addEventListener("submit", newCommentFormHandler);
+document.querySelector(".delete-post-btn").addEventListener("click", delCommentBtnHandler);

@@ -1,7 +1,7 @@
 {{> postData post}}
 
 {{#if logged_in}}
-<form class="new-comment">
+<form class="new-comment-form">
   <div>
     <textarea name="comment-body"></textarea>
   </div>
@@ -13,7 +13,7 @@
 {{/if}}
 
 {{!-- {{> commentData}} --}}
-{{> commentData post.comments}}
+{{> commentData comment}}
 
 {{#if logged_in}}
 <script src="/js/comment.js"></script>
