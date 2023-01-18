@@ -23,7 +23,11 @@ body {
   flex-direction: column;
   min-height: 100vh;
   justify-content: flex-start;
-  background-color: var(--quatrinary);
+  /* background-color: var(--quatrinary); */
+  background-image: url("/images/boston-stock.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: #cccccc;
 }
 
 a {
