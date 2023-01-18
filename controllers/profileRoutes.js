@@ -125,6 +125,7 @@ router.get("/post/:id", withAuth, async (req, res) => {
   };
 });
 
+// profile/editPost/:id
 router.get("/editPost/:id", withAuth, async (req, res) => {
   console.log(req.params.id);
   try {
