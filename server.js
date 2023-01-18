@@ -23,10 +23,15 @@ const sess = {
   },
   resave: false,
   saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize
-  })
+  // store: new SequelizeStore({
+  //   db: sequelize
+  // })
 };
+
+app.use((req, res, next) => {
+  console.log(`${req.method} request received on endpoint ${req.url}`);
+  next();
+});
 
 app.use(session(sess));
 

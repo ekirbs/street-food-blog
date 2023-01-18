@@ -333,7 +333,7 @@ header h1 {
   margin: 2px;
   min-width: 100%;
   min-height: 100%;
-  grid-area: 2 / 1 / span 1 / span 2;
+  grid-area: 1 / 1 / span 1 / span 2;
 }
 
 .card-alt {
@@ -352,8 +352,10 @@ header h1 {
   color: var(--tertiary);
   flex: 1 1 50%;
   padding: 2px;
+
   width: 100%;
   height: 2rem;
+
 }
 .img-text p {
   text-align: center;
