@@ -7,11 +7,11 @@
 {{#if logged_in}}
 <form class="new-comment-form">
   <div>
-    <textarea name="comment-body"></textarea>
+    <textarea name="comment-body" data-post-id={{post.id}} id="add-comment-text-area"></textarea>
   </div>
 
   <div>
-    <button class="button" type="submit">Post Your Comment</button>
+    <button class="button" type="submit" id="comment-button">Post Your Comment</button>
     {{!-- <button type="delete" class="delete-post-btn">Delete This Post</button> --}}
 
   </div>

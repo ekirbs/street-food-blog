@@ -19,10 +19,10 @@
         </p>
       </div>
 
-      {{!-- {{#if (eq comment.user_id req.session.id)}} --}}
+      {{#if (eq comment.user_id req.session.id)}}
       <a href="/profile/editComment/{{comment.id}}" class="edit-comment">Edit Your Comment</a>
         <button type="delete" class="delete-comment-btn">Delete This Comment</button>
-      {{!-- {{/if}} --}}
+      {{/if}}
 
     </div>
   </div>

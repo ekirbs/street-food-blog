@@ -19,10 +19,7 @@ module.exports = {
     }
     return word;
   },
+  eq: (a, b) => {
+    return a===b;
+  },
 };
-
-// Handlebars.registerHelper('eq', function(a, b) {
-//   return a === b;
-// });
-
-// module.exports = Handlebars;
