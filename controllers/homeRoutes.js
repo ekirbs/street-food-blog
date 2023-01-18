@@ -132,4 +132,8 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+router.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, '../404'))
+);
+
 module.exports = router;

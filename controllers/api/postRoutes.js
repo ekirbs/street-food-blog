@@ -164,4 +164,8 @@ router.delete("/:id", withAuth, async (req, res) => {
   }
 });
 
+router.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, '../404'))
+);
+
 module.exports = router;
