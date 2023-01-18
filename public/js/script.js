@@ -65,16 +65,16 @@ function displayVendorInfo(vendor) {
 
   let description = vendor.description;
   $("#vendor-description-card").empty();
-  $("#vendor-description-card").append("<br/>" + "Vendor Description" + "<br/>" + description + "<br/>");
+  $("#vendor-description-card").append("<br/>" + "Vendor Description:" + "<br/>" + description + "<br/>");
 
   let address = vendor.address;
   $("#vendor-directions-card").empty();
-  $("#vendor-directions-card").append("<br/>" + "Vendor Location" + "<br/>" + address + "<br/>");
+  $("#vendor-directions-card").append("<br/>" + "Vendor Location:" + "<br/>" + address + "<br/>");
 
   let phone = vendor.phone;
   let email = vendor.email;
   $("#vendor-contact-card").empty();
-  $("#vendor-contact-card").append("<br/>" + "Vendor Phone Number" + "<br/>" + phone + "<br/>" + "Vendor Email Address"+ "<br/>" + email + "<br/>" + `<a href="${website}">${website}</a>`);
+  $("#vendor-contact-card").append("<br/>" + "Vendor Phone Number:" + "<br/>" + phone + "<br/>" + "Vendor Email Address:"+ "<br/>" + email + "<br/>" + `<a href="${website}">${website}</a>`);
 }
 
 $(".dropdown-menu").on("click", function (event) {
