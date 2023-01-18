@@ -23,3 +23,19 @@ function displayChosenCity() {
   };
 
   displayChosenCity();
+
+
+  // comment.js
+
+  // document.querySelector(".new-comment-form").addEventListener("submit", newCommentFormHandler);
+// document.querySelector(".delete-comment-btn").addEventListener("click", delCommentBtnHandler);
+
+
+// createPost.js
+
+// const title = document.querySelector(`input[name="title"]`).value.trim();
+  // const post_body = document.querySelector(`textarea[name="post-body"]`).value.trim();
+
+  // document.location.replace("/profile"); // maybe try document.location.reload()
+
+  // const qwer = document.querySelector(".delete-post-btn").getAttribute("data-id");
