@@ -5,14 +5,14 @@
 <p>This is the profile page.</p>
 
 <div class="row">
-
-  <div="column">
-    <div class="myProfile">
+<article class="card-two profile zoom ">
+  {{!-- <div="column"> --}}
+    {{!-- <div class="myProfile"> --}}
       <h2>Your Profile</h2>
       {{> userData}}
-    </div>
-  </div>
-
+    {{!-- </div> --}}
+  {{!-- </div> --}}
+</article>
   <div class="column">
     <h3>Create a Post &#9997 &#9997</h3>
     <form class="new-post-form">
@@ -57,7 +57,7 @@
         </p>
       </div>
 
-      <a href="/editPost/{{post.id}}" class="edit-post">Edit Your Post</a>
+      <a href="/profile/editPost/{{post.id}}" class="edit-post">Edit Your Post</a>
       <button type="delete" class="delete-post-btn {{post.id}}" data-id="{{post.id}}">Delete This Post</button>
 
 
