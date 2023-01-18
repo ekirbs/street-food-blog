@@ -32,13 +32,13 @@ const newPostFormHandler = async (event) => {
 const delPostButtonHandler = async (event) => {
   console.log("Delete Post btn pressed.")
   console.log(event);
-  // if (event.target.hasAttribute("data-id")) {
+  if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
     // const qwer = document.querySelector(".delete-post-btn").getAttribute("data-id");
 
   console.log(id);
 
-    const response = await fetch(`/api/posts/`, {
+    const response = await fetch(`/api/posts/${id}`, {
       method: "DELETE",
     });
     console.log(response);
@@ -47,9 +47,13 @@ const delPostButtonHandler = async (event) => {
     } else {
       alert("Failed to delete post.");
     }
-  // }
+  }
 };
 
 document.querySelector(".new-post-form").addEventListener("submit", newPostFormHandler);
 
-document.querySelector(".delete-post-btn").addEventListener("click", delPostButtonHandler);
+// document.querySelector(".delete-post-btn").addEventListener("click", delPostButtonHandler);
+
+document.querySelectorAll('.delete-post-btn').forEach(button => {
+  button.addEventListener('click', delPostButtonHandler);
+});

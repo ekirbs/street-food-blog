@@ -11,11 +11,11 @@
   {{/each}}
 </div> --}}
 
-{{#if comments}}
+{{#if post.comments}}
 <div>
 
   <h3>Comments:</h3>
-  {{#each comments as |comment| }}
+  {{#each post.comments as |comment| }}
 
   <div class="row mb-4 comment">
 
@@ -23,7 +23,7 @@
       <h2>
         <a href="/comment/{{comment.id}}"></a>
       </h2>
-      <p>Created by: {{user.username}}</p>
+      <p>Created by: {{comment.user.username}}</p>
     </div>
 
     <div class="col-md-7">
