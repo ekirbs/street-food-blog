@@ -20,3 +20,9 @@ module.exports = {
     return word;
   },
 };
+
+// Handlebars.registerHelper('eq', function(a, b) {
+//   return a === b;
+// });
+
+// module.exports = Handlebars;
