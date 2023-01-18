@@ -1,7 +1,38 @@
+{{!-- {{#if post.comments}} --}}
+<div>
+
+  <h3>Comments:</h3>
+  {{#each this }}
+  <div class="card">
+    <div class="row mb-4 comment">
+
+      <div class="col-md-5">
+        <h2>
+          <a href="/comment/{{comment.id}}"></a>
+        </h2>
+        <p>Created by: {{user.username}}</p>
+      </div>
+
+      <div class="col-md-7">
+        <p>
+          {{comment_body}}
+        </p>
+      </div>
+
+      <a href="/profile/editComment/{{comment.id}}" class="edit-comment">Edit Your Comment</a>
+      <button type="delete" class="delete-comment-btn">Delete This Comment</button>
+
+    </div>
+  </div>
+
+</div>
+{{/each}}
+{{!-- {{/if}} --}}
+
 {{!-- <div class="comments">
   {{#each this}}
   <div class="comment">
-    <div class="commentUserInfo">
+    <div class="meta">
       {{user.username}}
     </div>
     <div class="comment_body">
@@ -11,7 +42,7 @@
   {{/each}}
 </div> --}}
 
-{{#if post.comments}}
+{{!-- {{#if post.comments}}
 <div>
 
   <h3>Comments:</h3>
@@ -39,4 +70,4 @@
 
 </div>
 {{/each}}
-{{/if}}
+{{/if}} --}}
