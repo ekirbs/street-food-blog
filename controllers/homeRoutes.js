@@ -114,6 +114,15 @@ router.get("/post/:id", async (req, res) => {
   }
 });
 
+router.get("/weather", (req, res) => {
+  // if (req.session.logged_in) {
+  //   res.redirect("/weather");
+  //   return;
+  // }
+
+  res.render("weather");
+});
+
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/profile");

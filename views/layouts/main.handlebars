@@ -46,11 +46,12 @@
 
     <nav>
       <a href="/">Home</a>
+      <a href="/weather">5-Day Weather Forecast</a>
       {{#if logged_in}}
       <a href="/profile">Profile</a>
       <button id="logout" class="btn-no-style">Logout</button>
       {{else}}
-      <a href="/login">Login</a>
+      <a class="float-right" href="/login">Login</a>
       {{/if}}
     </nav>
 

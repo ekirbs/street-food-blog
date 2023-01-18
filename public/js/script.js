@@ -142,6 +142,83 @@ window.initMap = initMap;
 
 // displayVendorInfo(data);
 
+// WEATHER DISPLAY FROM HISTORY FUNCTION
+function displayWeather() {
 
+  $("#feature-spot").empty();
 
+  $("#weather").empty();
 
+  $('#weather-day-0').empty();
+  $('#weather-day-1').empty();
+  $('#weather-day-2').empty();
+  $('#weather-day-3').empty();
+  $('#weather-day-4').empty();
+
+  var weatherApiURL = `https://api.openweathermap.org/data/2.5/forecast?q=Boston&appid=${weatherApiKey}&units=${units}&lang=${lang}`;
+
+  fetch(weatherApiURL)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      var featureCard = $("<div class='card feature-card zoom'>");
+
+      var name = data.city.name;
+      var city = $("<h4>").text(name);
+      featureCard.append(city);
+
+      var dateDisplay = $("<h4>").text(dayjs().format("M/D/YYYY"));
+      featureCard.append(dateDisplay);
+
+      var featureImg = $(`<img src="http://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png" id="icon">`);
+      featureCard.append(featureImg);
+
+      var featureBody = $('<div class="card-body">');
+      featureCard.append(featureBody);
+
+      var temperature = data.list[0].main.temp;
+      var tempDisplay = $('<p class="card-text">').text(`Temp: ${temperature}`);
+      featureBody.append(tempDisplay);
+
+      var windSpeed = data.list[0].wind.speed;
+      var windDisplay = $('<p class="card-text">').text(`Wind Speed: ${windSpeed}`);
+      featureBody.append(windDisplay);
+
+      var humidity = data.list[0].main.humidity;
+      var humidDisplay = $('<p class="card-text">').text(`Humidity: ${humidity}`);
+      featureBody.append(humidDisplay);
+
+      $("#weather").prepend(featureCard);
+
+      for (var i = 0; i < 5; i += 1) {
+        var day = i * 8;
+        var count = i;
+
+        var weatherArticle = $(`<div id="article${count}" class="card card-alt-weather zoom">`);
+
+        $(`#weather-day-${count}`).append(weatherArticle);
+
+        var dateDisplay = $("<h5>").text(dayjs().add(i + 1, "day").format("M/D/YYYY"));
+        $(`#article${count}`).append(dateDisplay);
+
+        var weatherImg = $(`<img src="http://openweathermap.org/img/w/${data.list[day + 1].weather[0].icon}.png" id="icon">`);
+        $(`#article${count}`).append(weatherImg);
+
+        var weatherBody = $(`<div id="weatherBody${count}" class="weather-card-body">`);
+        $(`#article${count}`).append(weatherBody);
+
+        var temperature = data.list[day + 1].main.temp;
+        var tempDisplay = $('<p class="card-text">').text(`Temp: ${temperature}`);
+        $(`#weatherBody${count}`).append(tempDisplay);
+
+        var windSpeed = data.list[day + 1].wind.speed;
+        var windDisplay = $('<p class="card-text">').text(`Wind Speed: ${windSpeed}`);
+        $(`#weatherBody${count}`).append(windDisplay);
+
+        var humidity = data.list[day + 1].main.humidity;
+        var humidDisplay = $('<p class="card-text">').text(`Humidity: ${humidity}`);
+        $(`#weatherBody${count}`).append(humidDisplay);
+      }
+    });
+};
