@@ -5,15 +5,16 @@
 <p>This is the profile page.</p>
 
 <div class="row">
-  <div class="column">
-    <div>
+
+  <div="column">
+    <div class="myProfile">
       <h2>Your Profile</h2>
       {{> userData}}
     </div>
   </div>
 
   <div class="column">
-    <h3>Create a Post</h3>
+    <h3>Create a Post &#9997 &#9997</h3>
     <form class="new-post-form">
 
       <div>
@@ -31,10 +32,11 @@
     </form>
   </div>
 
+
 </div>
 
 {{#if posts}}
-<div>
+<div class="myPosts">
 
   <h3>Your Posts:</h3>
   {{#each posts as |post| }}
