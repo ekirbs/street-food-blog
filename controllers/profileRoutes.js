@@ -181,18 +181,21 @@ router.get("/editPost/:id", withAuth, async (req, res) => {
   };
 });
 
-router.get("/editUser/:id", withAuth, async (req, res) => {
+router.get("/editUser", withAuth, async (req, res) => {
+  console.log("GET/ in profile routes for editUser")
+  console.log(req.params.id);
   try {
     const userData = await User.findOne({
-      where: {
-        id: req.params.id,
-      },
+      // where: {
+      //   id: req.params.id,
+      // },
       attributes: {
         exclude: ["password"],
       },
     });
 
     const user = userData.get({ plain: true });
+    console.log(userData);
 
     res.render("editUser", {
       user,
