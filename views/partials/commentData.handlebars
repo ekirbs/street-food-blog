@@ -21,7 +21,7 @@
 
       {{#if (eq comment.user_id req.session.id)}}
       <a href="/profile/editComment/{{comment.id}}" class="edit-comment">Edit Your Comment</a>
-        <button type="delete" class="delete-comment-btn">Delete This Comment</button>
+        <button type="delete" class="delete-comment-btn {{comment.id}}" data-id="{{comment.id}}">Delete This Comment</button>
       {{/if}}
 
     </div>

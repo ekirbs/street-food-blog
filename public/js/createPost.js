@@ -43,9 +43,11 @@ const delPostButtonHandler = async (event) => {
     });
     console.log(response);
     if (response.ok) {
-      document.location.replace("/profile");
+      // document.location.replace("/profile");
+      document.location.reload();
     } else {
-      alert("Failed to delete post.");
+      // alert("Failed to delete post.");
+      alert(response.statusText);
     }
   }
 };
