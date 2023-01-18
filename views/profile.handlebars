@@ -5,6 +5,14 @@
 <p>This is the profile page.</p>
 
 <div class="row">
+
+  <div="column">
+    <div class="myProfile">
+      <h2>Your Profile</h2>
+      {{> userData}}
+    </div>
+  </div>
+
   <div class="column">
     <h3>Create a Post &#9997 &#9997</h3>
     <form class="new-post-form">
@@ -24,10 +32,6 @@
     </form>
   </div>
 
-  <div class="myProfile">
-    <h2>Your Profile</h2>
-    {{> userData}}
-  </div>
 
 </div>
 
@@ -36,29 +40,29 @@
 
   <h3>Your Posts:</h3>
   {{#each posts as |post| }}
+  <div class="card">
+    <div class="row mb-4 post">
 
-  <div class="row mb-4 post">
+      <div class="col-md-5">
+        <h2>
+          {{{get_img}}}
+          <a href="/post/{{post.id}}">{{post.title}}</a>
+        </h2>
+        <p>Created by: {{user.username}}</p>
+      </div>
 
-    <div class="col-md-5">
-      <h2>
-        {{{get_img}}}
-        <a href="/post/{{post.id}}">{{post.title}}</a>
-      </h2>
-      <p>Created by: {{user.username}}</p>
+      <div class="col-md-7">
+        <p>
+          {{post.post_body}}
+        </p>
+      </div>
+
+      <a href="/editPost/{{post.id}}" class="edit-post">Edit Your Post</a>
+      <button type="delete" class="delete-post-btn {{post.id}}" data-id="{{post.id}}">Delete This Post</button>
+
+
     </div>
-
-    <div class="col-md-7">
-      <p>
-        {{post.post_body}}
-      </p>
-    </div>
-
-    <a href="/editPost/{{post.id}}" class="edit-post">Edit Your Post</a>
-    <button type="delete" class="delete-post-btn">Delete This Post</button>
-
-
   </div>
-
 </div>
 {{/each}}
 {{/if}}

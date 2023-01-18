@@ -8,6 +8,10 @@
     "start": "node server.js",
     "seed": "node seeds/seed.js"
   },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

@@ -7,6 +7,7 @@
       <input name="post-title" type="text" value=`{{post.title}}`/>
     </div>
     <div>
+      <label for="post-body">Post Body: </label>
       <textarea name="post-body">{{post.post-body}}</textarea>
     </div>
     <div>
@@ -27,8 +28,8 @@
   </div>
 </form>
 
-{{> commentData}}
-{{!-- {{> comments post.comments }} --}}
+{{!-- {{> commentData}} --}}
+{{> commentData post.comments }}
 
 <script src="/js/editPost.js"></script>
 <script src="/js/deletePost.js"></script>

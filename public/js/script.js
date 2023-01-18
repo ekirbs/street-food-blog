@@ -18,7 +18,7 @@ async function displayStreetFoodInfo() {
       return response.json();
     })
     .then((response) => {
-      console.log(response);
+      // console.log(response);
       const vendors = response.vendors;
       
       const vendorList = Object.entries(vendors);
@@ -55,7 +55,7 @@ async function displayStreetFoodInfo() {
 }
 
 function displayVendorInfo(vendor) {
-  console.log(vendor);
+  // console.log(vendor);
   let name = vendor.name;
   $("#vendor-name").empty();
   $("#vendor-name").append(`<h3 style="text-decoration: underline">${name}</h3>`);
@@ -81,14 +81,14 @@ $(".dropdown-menu").on("click", function (event) {
   event.preventDefault();
   id = event.target.id;
   const selectedVendor = data.find(element => element.name == id);
-  console.log(selectedVendor);
+  // console.log(selectedVendor);
   displayVendorInfo(selectedVendor);
 });
 
 // Initialize and add the map
 async function initMap() {
   await displayStreetFoodInfo();
-  console.log(data);
+  // console.log(data);
   // console.log(data[0]);
   // The location of Uluru
   const boston = { lat: 42.3601, lng: -71.0589 };

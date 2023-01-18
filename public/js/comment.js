@@ -1,23 +1,27 @@
 const newCommentFormHandler = async (event) => {
   event.preventDefault();
 
-  const comment_body = document.querySelector("#comment-body").value.trim();
-
+  // const comment_body = document.querySelector("#comment-body").value.trim();
+  const comment_body = document.querySelector('textarea[name="comment-body"]').value.trim();
+  const post_id = document.querySelector('#add-comment-text-area').getAttribute('data-post-id')
+  console.log(comment_body);
+  console.log(post_id);
   if (comment_body) {
     const response = await fetch(`/api/comments`, {
       method: 'POST',
       body: JSON.stringify({
-        post_id,
         comment_body,
+        post_id: post_id,        
       }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
+    console.log(response);
 
     if (response.ok) {
       // document.location.replace('/profile');
-      document.location.reload();
+      // document.location.reload();
     } else {
       // alert('Failed to create comment');
       alert(response.statusText);
@@ -25,7 +29,7 @@ const newCommentFormHandler = async (event) => {
   }
 };
 
-const delButtonHandler = async (event) => {
+const delCommentBtnHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
@@ -42,7 +46,6 @@ const delButtonHandler = async (event) => {
     }
   }
 };
-
-document
-  .querySelector('.new-comment-form')
-  .addEventListener('submit', newCommentFormHandler);
+document.querySelector("#comment-button").addEventListener("click", newCommentFormHandler);
+document.querySelector(".new-comment-form").addEventListener("submit", newCommentFormHandler);
+// document.querySelector(".delete-comment-btn").addEventListener("click", delCommentBtnHandler);

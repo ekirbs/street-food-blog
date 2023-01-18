@@ -60,11 +60,18 @@ router.get("/:id", withAuth, async (req, res) => {
 });
 
 router.post("/", withAuth, async (req, res) => {
+  console.log("Creating comment");
   try {
+    console.log("Inside comment post try");
+    console.log(req.body);
     const newComment = await Comment.create({
       ...req.body,
+      // comment_body: req.body.comment_body,
       user_id: req.session.user_id,
+      // post_id: req.params.id,
+      // post_id: window.location.toString().split("/").length -1,
     });
+    console.log(newComment);
 
     res.status(200).json(newComment);
   } catch (err) {

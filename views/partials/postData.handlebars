@@ -1,11 +1,86 @@
- <div class="post">
+<h1>Post</h1>
+
+  <div class="card">
+  <div class="card-header card-header-title">
+
+    <div class="column">
+      <h3>Title: {{title}}</h3>
+    </div>
+
+    <div class="column">
+      <p>Posted By: {{user.username}}</p>
+    </div>
+
+  </div>
+
+  <div class="card-content">
+    <div class="content">
+      {{post_body}}
+    </div>
+    <div>
+      <b>{{user.username}}</b>
+      <a href="#anchor-comments">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+    </div>
+  </div>
+
+</div>
+
+
+{{!-- <div class="post">
   <div class="title">
     <a href="/post/{{post.id}}">{{post.title}}</a>
     <span class="float-right">Posted by: {{user.username}}</span>
     <br>
     <span class="float-right">Comments: {{comments.length}}</span>
+    <br>
+    <span class="float-right">Body: {{post.post_body}}</span>
   </div>
   <div class="post-body">
     <p>{{post.post_body}}</p>
   </div>
-</div>
+</div> --}}
+
+{{!-- <div class="card">
+  <div class="card-header card-header-title">
+
+    <div class="column">
+      <h3>
+        <a href="/post/{{id}}">{{title}}</a>
+      </h3>
+    </div>
+
+    <div class="column">
+      <p> Comments: {{comments.length}}</p>
+      <p>Posted By: {{user.username}}</p>
+    </div>
+
+  </div>
+
+  <div class="card-content">
+    <div class="content">
+      {{post_body}}
+    </div>
+    <div>
+      <b>{{user.username}}</b>
+      <a href="/post/{{comment.id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+    </div>
+  </div>
+
+</div> --}}
+
+{{!-- <section class="post-section">
+    <div class="row mb-4 post">
+      <div class="col-md-5">
+        <h2>
+          {{{get_img}}}
+          <a href="/post/{{post.id}}">{{post.title}}</a>
+        </h2>
+        <p>Created by: {{user.username}}</p>
+      </div>
+      <div class="col-md-7">
+        <p>
+          {{post.post_body}}
+        </p>
+      </div>
+    </div>
+  </section> --}}
