@@ -283,12 +283,18 @@ header h1 {
 #contact-vendor {
   padding: 5%;
   color: #000000;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: 'Dosis', sans-serif;
+  font-weight: bolder;
+  position: absolute;
+  top: 0;
+  left:0;
+
 }
 
 #about-site {
   padding: auto;
   color: #000000;
+  font-size: .1rem;
 }
 
 .info-section {
@@ -311,7 +317,7 @@ header h1 {
   margin: 2px;
   min-width: 100%;
   min-height: 100%;
-  /* grid-area: 1 / 1 / span 2 / span 1; */
+  grid-area: 1 / 1 / span 1 / span 2;
 }
 
 .card-alt {
@@ -330,6 +336,13 @@ header h1 {
   color: var(--tertiary);
   flex: 1 1 50%;
   padding: 2px;
+  
+}
+.img-text p {
+  text-align: center;
+}
+.img-text h4 {
+  text-align: center;
 }
 
 a:hover {
@@ -347,7 +360,7 @@ a:hover {
 .main-content {
   display: grid;
   grid-template-columns: 25% 75%;
-  grid-template-rows: 12% 15% 50% 50% 75%;
+  grid-template-rows: 15% 15% 50% 50% 50%;
   grid-auto-rows: minmax(50px, auto);
   grid-gap: 1em;
   margin: 1em;
