@@ -42,6 +42,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// app.use(passport.initialize());
+// app.use()
+
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
