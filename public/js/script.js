@@ -29,6 +29,7 @@ async function displayStreetFoodInfo() {
         // Need to find a way of getting the icons pulled from api
         // console.log(v[1].name);
         if (v[1].images) {
+          console.log(v[1].images.logo_small);
           data.push({
             lat: v[1].last.latitude,
             long: v[1].last.longitude,
@@ -128,6 +129,18 @@ async function initMap() {
   }
   // The marker, positioned at Uluru
   for (const vendor of data) {
+    const image = {
+      url: vendor.logo,
+      // This marker is 20 pixels wide by 32 pixels high.
+      scaledSize: new google.maps.Size(50, 50),
+    };
+
+    const image2 = {
+      url: "https://cdn-icons-png.flaticon.com/512/651/651107.png",
+      // This marker is 20 pixels wide by 32 pixels high.
+      scaledSize: new google.maps.Size(50, 50),
+    };
+
     const pos = { lat: vendor.lat, lng: vendor.long };
     const infoWindow = new google.maps.InfoWindow();
     let marker = new google.maps.Marker();
@@ -137,7 +150,7 @@ async function initMap() {
         map: map,
         title: vendor.name,
         optimized: false,
-        icon: vendor.logo,
+        icon: image,
       });
     } else {
       marker = new google.maps.Marker({
@@ -145,6 +158,7 @@ async function initMap() {
         map: map,
         title: vendor.name,
         optimized: false,
+        icon: image2,
       });
     }
 
