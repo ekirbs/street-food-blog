@@ -36,7 +36,7 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ![Tutorial GIF.](./public/assets/images/tutor-gif.gif)
 
-[![Tutorial](./assets/images/sql-tutor-img.png)](https://dropTutorialVideoHereInGihub.com/0000000.mp4))
+[![Tutorial](./assets/images/sql-tutor-img.png)](https://dropTutorialVideoHereInGithub.com/0000000.mp4))
 
 ## Credits
 
