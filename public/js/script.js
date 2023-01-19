@@ -1,5 +1,3 @@
-// const streetFoodApiKey = `http://data.streetfoodapp.com/1.1/`;
-// const mapApiKey = "";
 let data = [];
 
 function init() {
