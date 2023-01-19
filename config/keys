@@ -4,5 +4,8 @@ module.exports = {
   google: {
     clientID: "750398731691-5hnergan1ucbn5g9159rk8djbnkoebqh.apps.googleusercontent.com",
     clientSecret: "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"
-  }
+  },
+  // session: {
+  //   cookieKey: "SinisterMinister"
+  // }
 };
