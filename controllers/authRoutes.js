@@ -18,3 +18,11 @@ router.get("/google", (req, res) => {
 });
 
 module.exports = router;
+
+
+
+
+
+
+// for login page:
+<a class="google-btn" href="/auth/google">Google +</a>

@@ -1,6 +1,8 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20");
 const dotenv = require("dotenv");
+// require('dotenv').config();
+const keys = require("./keys");
 const User = require("../models/User");
 
 passport.serializeUser((user, done) => {
@@ -19,32 +21,42 @@ passport.deserializeUser((id, done) => {
 passport.use(
   new GoogleStrategy({
     // options for the google strat
-    callbackURL: "/auth/google/redirect",
-    clientID: process.nextTick.GCLIENTID,
-    clientSecret: process.env.GCLIENTSECRET,
-    scope: ["profile"]
-  }, (accessToken, refreshToken, profile, done) => {
-    console.log("***passport callback");
 
-    User.findOne({
-      where: {
-        googleId: profile.id
-      }
-    })
-    .then((currentUser) => {
-      if (currentUser) {
-        console.log("***user is: ", currentUser);
-        done(null, currentUser);
-      } else {
-        User.create({
-          username: profile.displayName,
-          googleId: profile.id
-        })
-        .then((newUser) => {
-          console.log("---new user created: ", newUser);
-          done(null, newUser);
-        });
-      }
-    });
+
+    clientID: keys.google.clientID,
+    clientSecret: keys.google.clientSecret
+  }), () => {
+    // passport callback function
   })
 )
+
+
+//     callbackURL: "/auth/google/redirect",
+//     clientID: process.nextTick.GCLIENTID,
+//     clientSecret: process.env.GCLIENTSECRET,
+//     scope: ["profile"]
+//   }, (accessToken, refreshToken, profile, done) => {
+//     console.log("***passport callback");
+
+//     User.findOne({
+//       where: {
+//         googleId: profile.id
+//       }
+//     })
+//     .then((currentUser) => {
+//       if (currentUser) {
+//         console.log("***user is: ", currentUser);
+//         done(null, currentUser);
+//       } else {
+//         User.create({
+//           username: profile.displayName,
+//           googleId: profile.id
+//         })
+//         .then((newUser) => {
+//           console.log("---new user created: ", newUser);
+//           done(null, newUser);
+//         });
+//       }
+//     });
+//   })
+// )
