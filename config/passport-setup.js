@@ -13,6 +13,9 @@ passport.deserializeUser((id, done) => {
   User.findById(id).then((user) => {
     done(null, user);
   })
+  // User.findByPk(id).then((user) => {
+  //   done(null, user);
+  // })
 });
 
 passport.use(
