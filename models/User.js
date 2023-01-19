@@ -16,8 +16,8 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    // googleId: {
-    //   type: DataTypes.INTEGER,
+    // google_id: {
+    //   type: DataTypes.STRING,
     //   allowNull: false,
     // },
     username: {
