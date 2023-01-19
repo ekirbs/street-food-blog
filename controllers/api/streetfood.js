@@ -16,9 +16,9 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('*', (req, res) =>
-res.render('404')
-// res.sendFile(path.join(__dirname, '../404'))
-);
+// router.get('*', (req, res) =>
+// res.render('404')
+// // res.sendFile(path.join(__dirname, '../404'))
+// );
 
 module.exports = router;
