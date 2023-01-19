@@ -228,6 +228,8 @@ a:hover {
   .profile {
     text-align: left;
     width: 100%;
+    font-weight: bolder;
+    color:black
    /* top: 0%;
    left: 0%; */
   }
@@ -246,6 +248,38 @@ a:hover {
     border-radius: 10px;
     color: var(--dark);
   }
+  h2{
+    font-weight: bolder;
+    color: black;
+  }
+  .post{
+    color: black;
+  }
+  .edit-user-a {
+    font-weight: bolder;
+    color: black;
+  }
+  .card-profile-two {
+    height: 100%;
+    width: 100%;
+    margin: 1%;
+    background-color: var(--tertiary);
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: flex-end;
+    overflow: hidden;
+    border: 7px double var(--dark);
+    border-radius: 10px;
+    color: black;
+    font-weight: bolder;
+  }
+  h3 {
+    font-weight: bolder;
+  }
+  create-post-btn {
+    font-weight: bolder;
+  }
   
   .row {
     width: 100%;
@@ -257,4 +291,7 @@ a:hover {
   
   .myPosts p {
     padding-top: 10px;
+  }
+  .posts {
+    width: 100%;
   }

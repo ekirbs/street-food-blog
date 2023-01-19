@@ -1,8 +1,8 @@
-<figure>
+{{!-- <figure>
   <img src="/images/boston-panorama.jpg" alt="A panorama image of Boston."/>
-</figure>
+</figure> --}}
     
-<p>This is the profile page.</p>
+{{!-- <p>This is the profile page.</p> --}}
 
 <div class="row">
 <article class="card-two profile zoom ">
@@ -13,24 +13,25 @@
     {{!-- </div> --}}
   {{!-- </div> --}}
 </article>
+  <article class="card-profile-two">
   <div class="column">
     <h3>Create a Post &#9997 &#9997</h3>
     <form class="new-post-form">
-
       <div>
         <label for="title">Post Title</label>
-        <input type="text" id="title" name="title" />
+        <input type="text" id="title" name="title" style="width: 100%;" />
       </div>
 
       <div>
         <label for="post-body">Post Body</label>
-        <textarea type="text" id="post-body" name="post-body"></textarea>
+        <textarea type="text" id="post-body" name="post-body" style=" width: 100%"></textarea>
       </div>
 
-      <button type="submit" class="btn">Create Post</button>
+      <button type="submit" class="create-post-btn">Create Post</button>
 
     </form>
   </div>
+  </article>
 
 
 </div>
