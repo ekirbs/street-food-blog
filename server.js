@@ -6,7 +6,7 @@ const routes = require('./controllers');
 const helpers = require("./utils/helpers");
 const passport = require("passport");
 
-const cookieSession = require("cookie-session");
+// const cookieSession = require("cookie-session");
 const passportSetup = require("./config/passport-setup");
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
