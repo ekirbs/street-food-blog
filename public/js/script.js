@@ -75,7 +75,7 @@ function displayVendorInfo(vendor) {
   console.log(vendor);
   let name = vendor.name;
   $("#vendor-name").empty();
-  $("#vendor-name").append(`<h3 style="text-decoration: underline">${name}</h3>`);
+  $("#vendor-name").append(`<h3>${name}</h3>`);
 
   let website = "https://" + vendor.website;
 
