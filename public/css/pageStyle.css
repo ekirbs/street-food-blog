@@ -142,7 +142,7 @@ figure img {
   margin: 2px;
   min-width: 100%;
   min-height: 100%;
-  grid-area: 1 / 1 / span 1 / span 2;
+  grid-area: 2 / 1 / span 1 / span 2;
 }
 
 .card-alt {

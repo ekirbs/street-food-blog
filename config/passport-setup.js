@@ -10,12 +10,12 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-  User.findById(id).then((user) => {
-    done(null, user);
-  })
-  // User.findByPk(id).then((user) => {
+  // User.findById(id).then((user) => {
   //   done(null, user);
   // })
+  User.findByPk(id).then((user) => {
+    done(null, user);
+  })
 });
 
 passport.use(
@@ -26,6 +26,7 @@ passport.use(
     clientID: process.env.GCLIENTID,
     // clientSecret: keys.google.clientSecret
     clientSecret: process.env.GCLIENTSECRET,
+    scope: ["profile"]
   }, (accessToken, refreshToken, profile, done) => {
     // passport callback function
     console.log("passport callback function fired");
@@ -42,6 +43,7 @@ passport.use(
       } else {
         // if not, create user in db
         new User({
+        // User.create({
           username: profile.displayName,
           googleId: profile.id
         }).save()
