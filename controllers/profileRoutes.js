@@ -181,11 +181,13 @@ router.get("/editPost/:id", withAuth, async (req, res) => {
   };
 });
 
-router.get("/editUser/:id", withAuth, async (req, res) => {
+router.get("/editUser", withAuth, async (req, res) => {
+  console.log("GET/ in profile routes for editUser")
+  console.log(req.session.id);
   try {
     const userData = await User.findOne({
       where: {
-        id: req.params.id,
+        id: req.session.user_id,
       },
       attributes: {
         exclude: ["password"],
@@ -193,6 +195,7 @@ router.get("/editUser/:id", withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
+    console.log(userData);
 
     res.render("editUser", {
       user,
@@ -203,5 +206,9 @@ router.get("/editUser/:id", withAuth, async (req, res) => {
     res.status(500).json(err);
   };
 });
+
+// router.get('*', (req, res) =>
+// res.render('404')
+// );
 
 module.exports = router;

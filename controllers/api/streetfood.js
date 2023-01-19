@@ -15,4 +15,10 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+// router.get('*', (req, res) =>
+// res.render('404')
+// // res.sendFile(path.join(__dirname, '../404'))
+// );
+
 module.exports = router;

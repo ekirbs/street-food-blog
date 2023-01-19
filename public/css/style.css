@@ -333,7 +333,7 @@ header h1 {
   margin: 2px;
   min-width: 100%;
   min-height: 100%;
-  grid-area: 1 / 1 / span 1 / span 2;
+  grid-area: 2 / 1 / span 1 / span 2;
 }
 
 .card-alt {
@@ -482,4 +482,91 @@ a:hover {
 
 .myPosts p {
   padding-top: 10px;
+}
+
+/* WEATHER CONTENT */
+.weather-content {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 33%;
+  grid-gap: 1em;
+  margin: 1em;
+}
+
+.weather-content > section {
+  background: var(--light-background);
+  padding: 1em;
+  color: var(--white);
+}
+
+.weather-content > section:nth-child(odd) {
+  background: var(--dark-background);
+}
+
+/* || WEATHER SECTION */
+
+.card-main-weather {
+  width: 0;
+  height: 0;
+  margin: 2px;
+  min-width: 100%;
+  min-height: 100%;
+  grid-area: 1 / 1 / span 1 / span 5;
+}
+
+#weather,
+.feature-card {
+  width: 0;
+  height: 0;
+  margin: 2px;
+  min-width: 100%;
+  min-height: 100%;
+  justify-content: space-around;
+}
+
+.card-alt-weather {
+  width: 0;
+  height: 0;
+  margin: 2px;
+  min-width: 100%;
+  min-height: 100%;
+  display: block;
+}
+
+#weather-day-0,
+#weather-day-1,
+#weather-day-2,
+#weather-day-3,
+#weather-day-4 {
+  width: 0;
+  height: 0;
+  margin: 2px;
+  min-width: 100%;
+  min-height: 100%;
+  display: block;
+}
+
+.daily-section {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 0.5em;
+  grid-template-areas:
+    "main main main main main"
+    "alt alt alt alt alt alt";
+}
+
+.weather-img-text {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: var(--dark-background);
+  color: var(--dark-highlight);
+  flex: 1 1 50%;
+  padding: 2px;
+}
+
+.weather-card-body {
+  width: 100%;
+  height: 50%;
 }
