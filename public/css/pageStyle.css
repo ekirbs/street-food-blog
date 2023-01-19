@@ -81,6 +81,10 @@ figure img {
     margin-top: 20px;
 }
 
+.google-btn {
+  color: var(--primary);
+}
+
 /* || VENDOR INFO SECTION */
 /* #vendor-name {
 
