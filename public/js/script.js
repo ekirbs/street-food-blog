@@ -12,14 +12,14 @@ function init() {
 init();
 
 async function displayStreetFoodInfo() {
- await fetch('/api/streetfood')
+  await fetch('/api/streetfood')
     .then((response) => {
       return response.json();
     })
     .then((response) => {
-      // console.log(response);
+      console.log(response);
       const vendors = response.vendors;
-      
+
       const vendorList = Object.entries(vendors);
       // console.log(vendors);
       for (const v of vendorList) {
@@ -27,40 +27,58 @@ async function displayStreetFoodInfo() {
 
 
         // Need to find a way of getting the icons pulled from api
-        data.push({
-          lat: v[1].last.latitude,
-          long: v[1].last.longitude,
-          name: v[1].name,
-          address: v[1].last.display,
-          ratings: v[1].ratings,
-          website: v[1].url,
-          description: v[1].description,
-          phone: v[1].phone,
-          email: v[1].email
-        });
+        // console.log(v[1].name);
+        if (v[1].images) {
+          data.push({
+            lat: v[1].last.latitude,
+            long: v[1].last.longitude,
+            name: v[1].name,
+            address: v[1].last.display,
+            ratings: v[1].rating,
+            website: v[1].url,
+            description: v[1].description,
+            phone: v[1].phone,
+            email: v[1].email,
+            logo: v[1].images.logo_small
+          });
+        } else {
+          data.push({
+            lat: v[1].last.latitude,
+            long: v[1].last.longitude,
+            name: v[1].name,
+            address: v[1].last.display,
+            ratings: v[1].rating,
+            website: v[1].url,
+            description: v[1].description,
+            phone: v[1].phone,
+            email: v[1].email
+          });
+        }
+
 
 
 
       }
 
-      
-      
+
+
+
       return data;
 
     })
-//     console.log(data);
-//     console.log(data[0]);
-    // displayVendorInfo(data[0]);
+  //     console.log(data);
+  //     console.log(data[0]);
+  // displayVendorInfo(data[0]);
 }
 
 function displayVendorInfo(vendor) {
-  // console.log(vendor);
+  console.log(vendor);
   let name = vendor.name;
   $("#vendor-name").empty();
   $("#vendor-name").append(`<h3 style="text-decoration: underline">${name}</h3>`);
 
-  let website = "https://"+vendor.website;
-  
+  let website = "https://" + vendor.website;
+
 
   let description = vendor.description;
   $("#vendor-description-card").empty();
@@ -73,7 +91,11 @@ function displayVendorInfo(vendor) {
   let phone = vendor.phone;
   let email = vendor.email;
   $("#vendor-contact-card").empty();
-  $("#vendor-contact-card").append("<br/>" + "Vendor Phone Number:" + "<br/>" + phone + "<br/>" + "Vendor Email Address:"+ "<br/>" + email + "<br/>" + `<a href="${website}">${website}</a>`);
+  $("#vendor-contact-card").append("<br/>" + "Vendor Phone Number:" + "<br/>" + phone + "<br/>" + "Vendor Email Address:" + "<br/>" + email + "<br/>" + `<a href="${website}">${website}</a>`);
+
+  let ratings = vendor.ratings;
+  $("#vendor-weather-card").empty();
+  $("#vendor-weather-card").append("<br/>" + "Vendor ratings:" + "<br/>" + ratings);
 }
 
 $(".dropdown-menu").on("click", function (event) {
@@ -97,15 +119,27 @@ async function initMap() {
     center: boston,
   });
   // The marker, positioned at Uluru
-  for(const vendor of data){
-    const pos = {lat: vendor.lat, lng: vendor.long};
+  for (const vendor of data) {
+    const pos = { lat: vendor.lat, lng: vendor.long };
     const infoWindow = new google.maps.InfoWindow();
-    const marker = new google.maps.Marker({
-      position: pos,
-      map: map,
-      title: vendor.name,
-      optimized: false,
-    });
+    let marker = new google.maps.Marker();
+    if (vendor.logo) {
+      marker = new google.maps.Marker({
+        position: pos,
+        map: map,
+        title: vendor.name,
+        optimized: false,
+        icon: vendor.logo,
+      });
+    } else {
+      marker = new google.maps.Marker({
+        position: pos,
+        map: map,
+        title: vendor.name,
+        optimized: false,
+      });
+    }
+
     marker.addListener("click", () => {
       infoWindow.close();
       infoWindow.setContent(marker.getTitle());
