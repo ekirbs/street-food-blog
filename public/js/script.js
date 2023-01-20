@@ -65,7 +65,7 @@ async function displayStreetFoodInfo() {
       return data;
 
     })
-  //     console.log(data);
+       console.log(data);
   //     console.log(data[0]);
   // displayVendorInfo(data[0]);
 }
