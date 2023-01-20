@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { User, Post, Comment } = require("../models");
-// const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 router.get("/", async (req, res) => {
   console.log("GET /");
@@ -124,17 +124,17 @@ router.get("/weather", (req, res) => {
   res.render("weather");
 });
 
-// router.get("/login", (req, res) => {
-//   if (req.session.logged_in) {
-//     res.redirect("/profile");
-//     return;
-//   }
+router.get("/login", (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/profile");
+    return;
+  }
 
-//   res.render("login");
-// });
+  res.render("login");
+});
 
-// router.get('*', (req, res) =>
-// res.render('404')
-// );
+router.get('*', (req, res) =>
+res.render('404')
+);
 
 module.exports = router;
