@@ -1,4 +1,5 @@
 const passport = require("passport");
+// const GoogleStrategy = require("passport-google");
 const GoogleStrategy = require("passport-google-oauth20");
 // const dotenv = require("dotenv");
 require('dotenv').config();
@@ -10,9 +11,6 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-  // User.findById(id).then((user) => {
-  //   done(null, user);
-  // })
   User.findByPk(id).then((user) => {
     done(null, user);
   })
