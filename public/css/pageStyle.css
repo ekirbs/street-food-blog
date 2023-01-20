@@ -85,6 +85,18 @@ figure img {
   color: var(--primary);
 }
 
+
+/* .dropdown-container {
+  display: flex;
+  flex-wrap: wrap;
+} */
+
+/* .dropdown {
+width: 10vw;
+height: 5vh;
+} */
+
+
 /* || VENDOR INFO SECTION */
 #vendor-name h3 {
   font-weight: bolder;
@@ -362,4 +374,16 @@ create-post-btn {
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+}
+
+/* @media only screen and (min-width: 600px) {
+  .dropdown {
+    flex-basis: auto;
+  }
+} */
+
+#foodcart {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
 }
