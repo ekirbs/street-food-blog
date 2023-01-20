@@ -224,7 +224,7 @@ a:hover {
 
 .section-label {
   font-size: 2vw;
-  border-right: 6px solid var(--primary);
+  /* border-right: 6px solid var(--primary); */
   display: flex;
   justify-content: center;
   align-items: flex-start;
