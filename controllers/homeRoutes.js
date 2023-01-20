@@ -120,6 +120,9 @@ router.get("/weather", (req, res) => {
   //   res.redirect("/weather");
   //   return;
   // }
+  res.render("weather", {
+    logged_in: req.session.logged_in,
+  });
 
   res.render("weather");
 });
