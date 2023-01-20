@@ -1,7 +1,7 @@
 .card {
     height: 100%;
     width: 100%;
-    margin: 1%;
+    /* margin: 1%; */
     background-color: var(--tertiary);
     display: flex;
     justify-content: center;
@@ -322,4 +322,8 @@ a:hover {
   .ptitle h2{
     text-align: center;
     color: #000000;
+  }
+  .delete-post-btn {
+    color: black;
+    font-weight: bolder;
   }

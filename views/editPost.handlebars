@@ -13,12 +13,21 @@
     <div>
       <a href=`/post/{{post.id}}`>{{post.comments.length}}</a>
     </div>
+    <form class="new-comment-form">
+  <div>
+    <label for="post-body">Comment:</label>
+    <textarea name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">Comment It</button>
+  </div>
     <button type="submit">Post It</button>
     <button type="delete" class="delete-post-btn">Delete It</button>
   </form>
 </div>
 
-<form class="new-comment-form">
+{{!-- <form class="new-comment-form">
   <div>
     <textarea name="comment-body"></textarea>
   </div>
@@ -26,7 +35,7 @@
   <div>
     <button type="submit">Comment It</button>
   </div>
-</form>
+</form> --}}
 
 {{!-- {{> commentData}} --}}
 {{> commentData post.comments }}
