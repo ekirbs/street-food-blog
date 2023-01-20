@@ -381,3 +381,9 @@ create-post-btn {
     flex-basis: auto;
   }
 } */
+
+#foodcart {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
