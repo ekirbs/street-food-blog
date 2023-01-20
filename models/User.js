@@ -16,17 +16,17 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    // google_id: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
+    googleId: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       unique: true,
       validate: {
         isEmail: true,
@@ -34,7 +34,7 @@ User.init(
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         len: [8],
       },

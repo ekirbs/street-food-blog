@@ -85,6 +85,7 @@ router.get("/:id", withAuth, async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const userData = await User.create(req.body);
+    // req.user
 
     req.session.save(() => {
       req.session.user_id = userData.id;
@@ -137,6 +138,7 @@ router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
+      // res.redirect("/");
     });
   } else {
     res.status(404).end();

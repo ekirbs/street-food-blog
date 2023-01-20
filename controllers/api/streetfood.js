@@ -7,7 +7,7 @@ require('dotenv').config();
 router.get('/', async (req, res) => {
     console.log('GET all street food info');
     try {
-        const streetFoodApiUrl = `http://data.streetfoodapp.com/1.1/schedule/boston/`;
+        const streetFoodApiUrl = `http://data.streetfoodapp.com/1.1/schedule/boston/`; // move any apiKeys, even simple ones, to .env
         const response = await axios.get(streetFoodApiUrl);
         // console.log(response);
         res.status(200).json(response.data);

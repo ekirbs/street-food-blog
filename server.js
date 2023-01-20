@@ -3,8 +3,11 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
-const helpers = require("./utils/helpers")
+const helpers = require("./utils/helpers");
+const passport = require("passport");
 
+// const cookieSession = require("cookie-session");
+const passportSetup = require("./config/passport-setup");
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -42,8 +45,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use(passport.initialize());
-// app.use()
+// app.use(cookieSession({
+//   maxAge: 24*60*60*1000,
+//   keys: [keys.session.cookieKey]
+// }));
+
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(routes);
 
