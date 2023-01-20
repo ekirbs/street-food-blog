@@ -133,8 +133,4 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-// router.get('*', (req, res) =>
-// res.render('404')
-// );
-
 module.exports = router;
