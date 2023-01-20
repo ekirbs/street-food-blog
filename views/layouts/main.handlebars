@@ -27,8 +27,8 @@
 
   <link rel="stylesheet" type="text/css" href="/css/mainStyle.css">
   <link rel="stylesheet" type="text/css" href="/css/pageStyle.css">
-  {{!--
-  <link rel="stylesheet" type="text/css" href="/css/styleSandbox.css"> --}}
+  
+  <link rel="stylesheet" type="text/css" href="/css/styleSandbox.css">
 
 
   {{!--
@@ -42,7 +42,7 @@
 <body>
   <div id="navbar">
     <header class="display-flex justify-space-between align-center p-2" id="anchor-home">
-      <h1>Street Cuisine</h1>
+      <a href="/"><h1>Street Cuisine</h1></a>
       <img src="/images/streetfood-icon.png" alt="An image of street food." />
       <p class="lead">
         Your one-stop-shop for fine dining on the streets.
@@ -51,7 +51,6 @@
     </header>
 
     <nav>
-      <a href="/">Home</a>
       <a href="/weather">5-Day Weather Forecast</a>
       {{#if logged_in}}
       <a href="/profile">Profile</a>
@@ -67,6 +66,15 @@
     <div class="posts">
       {{{body}}}
     </div>
+          <section class="section-label contact-park-header">
+        <h3>Contact the Park</h3>
+      </section>
+
+      <section class="contact-park-section">
+        <!-- <a href="tel:5558675309">Jenny: (555) 867-5309</a> -->
+        <a href="https://www.nps.gov/index.htm">https://www.nps.gov/index.htm</a>
+        <div id="contact-park"></div>
+      </section>
   </main>
 
   {{#if logged_in}}
@@ -86,7 +94,18 @@
   <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9L1HmgV_Sa8s3JoHkZdHreuLR8WY8YdU&callback=initMap">
     </script>
-
+    {{!-- <script src="https://cdn.tailwindcss.com"></script> --}}
+  {{!-- <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script> --}}
 </body>
 
 </html>
