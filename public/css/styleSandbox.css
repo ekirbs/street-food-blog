@@ -5,17 +5,23 @@
   background-color: #cccccc;
   } */
 
-  #about-site {
+   /* .opacity {
     background: rgba(251,251,251, 0.50);
-    /* opacity: 25%; */
+    opacity: .50; 
+    z-index: -1;
     border-radius: 1rem;
     padding: 5%;
-  }
-
-  .section-label {
+  } */
+  /* .opacity-text {
+    opacity: 100%;
+  } */
+  /* #about-site p {
+    font-weight: bolder;
+  } */
+  /* .section-label {
     background: rgba(251,251,251, 0.25); /* THIS IS BEING OVERWRITTEN, WHEN YOU PUT IT DIRECTLY IN THE DIV IT WORKS */
-    border-radius: 1rem;
-  }
+    /* border-radius: 1rem; */
+  /* } */
   
   
   
