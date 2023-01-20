@@ -7,21 +7,20 @@ router.get("/", withPassportAuth, async(req, res) => {
   res.render("profile", { user: req.user })
 });
 
-// /auth/login
-router.get("/login", (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect("/profile");
-    return;
-  }
-  res.render("login");
-});
-
-// // /auth/logout
-// router.get("/logout", (req, res) => {
-//   // handle with passport
-//   req.logout();
-//   res.redirect("/");
+// // /auth/login
+// router.get("/login", (req, res) => {
+//   if (req.session.logged_in) {
+//     res.redirect("/profile");
+//     return;
+//   }
+//   res.render("login");
 // });
+
+// /auth/logout
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/");
+});
 
 // /auth/google
 router.get("/google", passport.authenticate("google", {
