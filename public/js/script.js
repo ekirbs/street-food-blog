@@ -71,12 +71,17 @@ async function displayStreetFoodInfo() {
 }
 
 function displayVendorInfo(vendor) {
+  const image = {
+    url: vendor.logo,
+    // This marker is 20 pixels wide by 32 pixels high.
+    scaledSize: new google.maps.Size(50, 50),
+  };
   vendorZoom = {lat: vendor.lat, lng: vendor.long};
   initMap();
   console.log(vendor);
   let name = vendor.name;
   $("#vendor-name").empty();
-  $("#vendor-name").append(`<h3>${name}</h3>`);
+  $("#vendor-name").append(`<h3>${name} ${vendor.logo}</h3>`);
 
   let website = "https://" + vendor.website;
 
@@ -220,7 +225,7 @@ function displayWeather() {
       return response.json();
     })
     .then(function (data) {
-      const featureCard = $("<div class='card feature-card zoom'>");
+      const featureCard = $("<div class='feature zoom'>");
 
       const name = data.city.name;
       const city = $("<h4>").text(name);
