@@ -2,10 +2,10 @@ const router = require("express").Router();
 const passport = require("passport");
 const withPassportAuth = require("../utils/passportAuth");
 
-// /auth
-router.get("/", withPassportAuth, async(req, res) => {
-  res.render("profile", { user: req.user })
-});
+// // /auth
+// router.get("/", withPassportAuth, async(req, res) => {
+//   res.render("profile", { user: req.user })
+// });
 
 // /auth/login
 router.get("/login", (req, res) => {
