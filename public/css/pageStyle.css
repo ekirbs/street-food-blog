@@ -86,9 +86,14 @@ figure img {
 }
 
 /* || VENDOR INFO SECTION */
-/* #vendor-name {
+#vendor-name h3 {
+font-weight: bolder;
+font-family: 'Josefin Sans', sans-serif;
+font-size: 400%;
+color: black;
+text-decoration: underline;
+}
 
-} */
 #food-type,
 #vendor-description-card,
 #vendor-weather-card,
@@ -116,7 +121,7 @@ figure img {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 0.5em;
+  grid-gap: 0.75em;
   grid-template-areas:
     "name name name"
     "main main alt"
@@ -188,7 +193,7 @@ a:hover {
 .main-content {
   display: grid;
   grid-template-columns: 25% 75%;
-  grid-template-rows: 15% 15% 50% 50% 50%;
+  grid-template-rows: 15% 50% 50% 50%;
   grid-auto-rows: minmax(50px, auto);
   grid-gap: 1em;
   margin: 1em;
@@ -237,6 +242,10 @@ a:hover {
    /* top: 0%;
    left: 0%; */
   }
+  .edit-post {
+    color: black;
+    font-weight: bolder;
+  }
   
   .card-two {
     height: 100%;
@@ -280,6 +289,8 @@ a:hover {
   }
   h3 {
     font-weight: bolder;
+    /* font-family: 'Josefin Sans', sans-serif;
+    color: black; */
   }
   create-post-btn {
     font-weight: bolder;
@@ -291,6 +302,7 @@ a:hover {
 
   .myPosts h3{
     padding-bottom: 10px;
+    color: white;
   }
   
   .myPosts p {
@@ -298,4 +310,9 @@ a:hover {
   }
   .posts {
     width: 100%;
+  }
+
+  .ptitle h2{
+    text-align: center;
+    color: #000000;
   }
