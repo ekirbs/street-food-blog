@@ -16,12 +16,12 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-// /auth/logout
-router.get("/logout", (req, res) => {
-  // handle with passport
-  req.logout();
-  res.redirect("/");
-});
+// // /auth/logout
+// router.get("/logout", (req, res) => {
+//   // handle with passport
+//   req.logout();
+//   res.redirect("/");
+// });
 
 // /auth/google
 router.get("/google", passport.authenticate("google", {
@@ -33,5 +33,13 @@ router.get("/google/redirect", passport.authenticate("google"), (req, res) => {
   // req.user
   res.redirect("/profile");
 });
+
+
+// local login
+router.post('/login', 
+  passport.authenticate('local', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/');
+  });
 
 module.exports = router;
