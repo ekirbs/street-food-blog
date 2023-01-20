@@ -1,58 +1,59 @@
-<main class="card weather-content">
+<main class="card weather-content" id="weather-content">
+  <div class="main-weather" id="main-weather">
+    {{!-- WEATHER SECTION --}}
+    <section id="weather-forecast-header" class="section-label">
+      <h3>Weather Forecast</h3>
+    </section>
 
-  {{!-- WEATHER SECTION --}}
-  <section id="weather-forecast-header" class="section-label">
-        <h3>Weather Forecast</h3>
-      </section>
+    <section id="daily-weather" class="daily-section">
+      <article class="card card-main-weather zoom">
+        <div id="weather"></div>
+        <div class="img-text">
+          {{!-- <h4>Current Weather</h4>
+          <p>the weather today!</p> --}}
+          <h5>Today</h5>
+        </div>
+      </article>
 
-      <section id="daily-weather" class="daily-section">
-        <article class="card card-main-weather zoom">
-          <div id="weather"></div>
-          <div class="img-text">
-            <h4>Current Weather</h4>
-            <p>the weather today!</p>
-          </div>
-        </article>
+      <article class="card card-alt-weather zoom">
+        <div id="weather-day-0"></div>
+        <div class="weather-img-text">
+          <h5>Day 2</h5>
+          {{!-- <p>next 5 days forecast</p> --}}
+        </div>
+      </article>
 
-        <article class="card card-alt-weather zoom">
-          <div id="weather-day-0"></div>
-          <div class="weather-img-text">
-            <h5>Day 2</h5>
-            <p>next 5 days forecast</p>
-          </div>
-        </article>
+      <article class="card card-alt-weather zoom">
+        <div id="weather-day-1"></div>
+        <div class="weather-img-text">
+          <h5>Day 3</h5>
+          {{!-- <p>next 5 days forecast</p> --}}
+        </div>
+      </article>
 
-        <article class="card card-alt-weather zoom">
-          <div id="weather-day-1"></div>
-          <div class="weather-img-text">
-            <h5>Day 3</h5>
-            <p>next 5 days forecast</p>
-          </div>
-        </article>
+      <article class="card card-alt-weather zoom">
+        <div id="weather-day-2"></div>
+        <div class="weather-img-text">
+          <h5>Day 4</h5>
+          {{!-- <p>next 5 days forecast</p> --}}
+        </div>
+      </article>
 
-        <article class="card card-alt-weather zoom">
-          <div id="weather-day-2"></div>
-          <div class="weather-img-text">
-            <h5>Day 4</h5>
-            <p>next 5 days forecast</p>
-          </div>
-        </article>
+      <article class="card card-alt-weather zoom">
+        <div id="weather-day-3"></div>
+        <div class="weather-img-text">
+          <h5>Day 5</h5>
+          {{!-- <p>next 5 days forecast</p> --}}
+        </div>
+      </article>
 
-        <article class="card card-alt-weather zoom">
-          <div id="weather-day-3"></div>
-          <div class="weather-img-text">
-            <h5>Day 5</h5>
-            <p>next 5 days forecast</p>
-          </div>
-        </article>
-
-        <article class="card card-alt-weather zoom">
-          <div id="weather-day-4"></div>
-          <div class="weather-img-text">
-            <h5>Day 6</h5>
-            <p>next 5 days forecast</p>
-          </div>
-        </article>
-      </section>
-
+      <article class="card card-alt-weather zoom">
+        <div id="weather-day-4"></div>
+        <div class="weather-img-text">
+          <h5>Day 6</h5>
+          {{!-- <p>next 5 days forecast</p> --}}
+        </div>
+      </article>
+    </section>
+  </div>
 </main>

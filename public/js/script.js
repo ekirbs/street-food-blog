@@ -253,7 +253,7 @@ function displayWeather() {
         let day = i * 8;
         let count = i;
 
-        let weatherArticle = $(`<div id="article${count}" class="card card-alt-weather zoom">`);
+        let weatherArticle = $(`<div id="article${count}" class="weather zoom">`);
 
         $(`#weather-day-${count}`).append(weatherArticle);
 
@@ -289,6 +289,7 @@ window.onscroll = function() {stickNav()};
 var navbar = document.getElementById("navbar");
 var main = document.getElementById("main");
 
+
 // Get the offset position of the navbar
 var sticky = navbar.offsetTop;
 
@@ -297,8 +298,10 @@ function stickNav() {
   if (window.pageYOffset >= sticky) {
     navbar.classList.add("sticky");
     main.classList.add("main-scroll");
+    
   } else {
     navbar.classList.remove("sticky");
     main.classList.remove("main-scroll");
+    
   }
 }
