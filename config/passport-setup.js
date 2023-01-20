@@ -1,10 +1,8 @@
 const passport = require("passport");
-// const GoogleStrategy = require("passport-google");
 const LocalStrategy = require("passport-local");
 const GoogleStrategy = require("passport-google-oauth20");
 // const dotenv = require("dotenv");
 require('dotenv').config();
-// const keys = require("./keys");
 const User = require("../models/User");
 
 passport.serializeUser((user, done) => {
@@ -34,7 +32,6 @@ passport.use(
         console.log("user is: ", currentUser);
         done(null, currentUser);
       } else {
-        // new User({
         User.create({
           username: profile.displayName,
           googleId: profile.id
