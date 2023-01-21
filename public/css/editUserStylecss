@@ -1,0 +1,5 @@
+/* || editUser.handlebars STYLE || */
+.edit-user-a {
+  font-weight: bolder;
+  color: black;
+}

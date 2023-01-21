@@ -1,0 +1,57 @@
+/* |||| GLOBAL STYLE |||| */
+
+/* ROOT COLOR KEY */
+:root {
+  --primary: #424242;
+  --secondary: #7cb342;
+  --tertiary: #bdbdbd;
+  --quatrinary: #eeeeee;
+  --light: #e3e4e3;
+  --dark: #7cb342;
+  --error: rgb(228, 46, 1);
+  --border-radius: 0.3rem;
+}
+
+/* GLOBAL EFFECTS */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  /* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
+  font-family: Arial;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: flex-start;
+  /* background-color: var(--quatrinary); */
+  background-image: url("/images/bostonbackground.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: #cccccc;
+  /* padding-top: 65px; */
+}
+
+a {
+  color: var(--dark);
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 100%;
+}
+
+a:visited {
+  color: inherit;
+}
+
+.zoom {
+  transition: transform 0.2s;
+}
+
+.zoom:hover {
+  transform: scale(1.025);
+}
