@@ -19,22 +19,6 @@
   margin: 0;
 }
 
-body {
-  /* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
-  font-family: Arial;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  justify-content: flex-start;
-  /* background-color: var(--quatrinary); */
-  background-image: url("/images/bostonbackground.jpg");
-  background-size: cover;
-  background-position: center;
-  background-color: #cccccc;
-  /* padding-top: 65px; */
-}
-
 a {
   color: var(--dark);
   text-decoration: none;

@@ -13,13 +13,12 @@
 }
 
 .main-content>section {
+  background: rgba(251,251,251, 0.50);
+  border-radius: 1rem;
+  box-shadow: .1em .1em 0 0 #424242;
   background: var(--light);
   padding: 1em;
   color: var(--white);
-}
-
-.main-content>section:nth-child(odd) {
-  background: var(--tertiary);
 }
 
 /* HOMEPAGE SECTION */

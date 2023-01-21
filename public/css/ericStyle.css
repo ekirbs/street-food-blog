@@ -199,14 +199,17 @@ main {
 }
 
 .main-content>section {
-  background: var(--light);
+  background: rgba(251,251,251, 0.50);
+  border-radius: 1rem;
+  box-shadow: .1em .1em 0 0 #424242;
+  /* background: var(--light); */
   padding: 1em;
-  color: var(--white);
+  /* color: var(--white); */
 }
 
-.main-content>section:nth-child(odd) {
-  background: var(--tertiary);
-}
+/* .main-content>section:nth-child(odd) {
+  background-color: var(--tertiary);
+} */
 
 /* HOMEPAGE SECTION */
 .section-label {
@@ -276,6 +279,10 @@ main {
   border-radius: 10px;
   color: var(--dark);
   flex: 0 1 300px;
+}
+
+.card a {  /* what does this target? */
+  opacity: 75%;
 }
 
 .card-main {
@@ -572,21 +579,9 @@ main {
 
 }
 
-/* PROFILE IMG */
-/* figure img {
-  width: 100%;
-  height: 300px;
-  z-index: 0;
-} */
-
 .btn {
   margin-top: 20px;
 }
-
-/* .dropdown-container {
-  display: flex;
-  flex-wrap: wrap;
-} */
 
 /* .dropdown {
 width: 10vw;
@@ -595,17 +590,10 @@ height: 5vh;
 
 
 /* || VENDOR INFO SECTION */
-.card a {
-  opacity: 75%;
-}
 
 .main-scroll {
   margin-top: 150px;
 }
-
-  /* .hist-btn {
-    background-color: var(--secondary);
-  } */
 
 h2 {  /* this is no good... */
   font-weight: bolder;
@@ -623,14 +611,30 @@ h3 {  /* this is no good... */
   color: #000000;
 }
 
+#foodcart {  /* what is this?? */
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+
+/* PROFILE IMG */
+/* figure img {
+  width: 100%;
+  height: 300px;
+  z-index: 0;
+} */
+
 /* @media only screen and (min-width: 600px) {
   .dropdown {
     flex-basis: auto;
   }
 } */
 
-#foodcart {  /* what is this?? */
-  width: 30px;
-  height: 30px;
-  object-fit: cover;
-}
+/* .hist-btn {
+  background-color: var(--secondary);
+} */
+
+/* .dropdown-container {
+  display: flex;
+  flex-wrap: wrap;
+} */
