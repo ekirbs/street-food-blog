@@ -1,4 +1,6 @@
-/* || GLOBAL STYLE || */
+/* |||| GLOBAL STYLE |||| */
+
+/* ROOT COLOR KEY */
 :root {
   --primary: #424242;
   --secondary: #7cb342;
@@ -10,6 +12,7 @@
   --border-radius: 0.3rem;
 }
 
+/* GLOBAL EFFECTS */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -52,6 +55,12 @@ a:visited {
 .zoom:hover {
   transform: scale(1.025);
 }
+
+
+
+
+
+
 
 
 /* || main.handlebars STYLE || */
