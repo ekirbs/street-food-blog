@@ -12,10 +12,14 @@
   margin-top: 50px;
 }
 
+.main-scroll {  /* this doesn't appear in the homepage.handlebars, but it does in the devTools... */
+  margin-top: 150px;
+}
+
 .main-content>section {
   background: rgba(251,251,251, 0.50);
   border-radius: 1rem;
-  box-shadow: .1em .1em 0 0 #424242;
+  box-shadow: .2rem .2rem 0 0 var(--primary);
   background: var(--light);
   padding: 1em;
   color: var(--white);
@@ -151,6 +155,7 @@
   /* The height is 400 pixels */
   width: 100%;
   /* The width is the width of the web page */
+  border-radius: 1rem;
 }
 
 

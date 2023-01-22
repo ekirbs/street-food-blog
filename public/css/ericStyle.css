@@ -26,6 +26,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  /* height: auto; */
   justify-content: flex-start;
   /* background-color: var(--quatrinary); */
   background-image: url("/images/bostonbackground.jpg");
@@ -164,14 +165,18 @@ main {
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
-}
 
-.container {
-  display: flex;
   flex-flow: column wrap;
   align-content: flex-start;
   align-items: center;
 }
+
+/* .container {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: flex-start;
+  align-items: center;
+} */
 
 .posts {
   width: 100%;
@@ -190,7 +195,7 @@ main {
 .main-content {
   display: grid;
   grid-template-columns: 25% 75%;
-  grid-template-rows: 15% 50% 50% 50% 5%;
+  grid-template-rows: 15% 50% 50% 50% 10%;
   grid-auto-rows: minmax(50px, auto);
   grid-gap: 1em;
   margin: 1em;
@@ -198,10 +203,14 @@ main {
   margin-top: 50px;
 }
 
+.main-scroll {  /* this doesn't appear in the homepage.handlebars, but it does in the devTools... */
+  margin-top: 150px;
+}
+
 .main-content>section {
   background: rgba(251,251,251, 0.50);
   border-radius: 1rem;
-  box-shadow: .2rem .2rem 0 0 #424242;
+  box-shadow: .2rem .2rem 0 0 var(--primary);
   /* background: var(--light); */
   padding: 1em;
   /* color: var(--white); */
@@ -340,17 +349,49 @@ main {
   text-align: center;
 }
 
+/* GOOGLE MAP SECTION */
 #map {
   /* position: relative; */
   height: 100%;
   /* The height is 400 pixels */
   width: 100%;
   /* The width is the width of the web page */
+  border-radius: 1rem;
 }
-
 
 .row {  /* this is no good... */
   width: 100%;
+}
+
+/* || FOOTER SECTION || */
+/* .footer-content {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 10%;
+  grid-auto-rows: minmax(50px, auto);
+  grid-gap: 1em;
+  margin: 1em;
+  margin-top: 50px;
+} */
+
+/* .footer-content>section {
+  background: rgba(251,251,251, 0.50);
+  border-radius: 1rem;
+  box-shadow: .2rem .2rem 0 0 var(--primary);
+  padding: 1em;
+} */
+
+.contact-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5%;
+}
+
+.contact-section a img {
+  height: 8vh;
+  width: 8vh;
+  border-radius: 10%;
 }
 
 
@@ -591,10 +632,6 @@ height: 5vh;
 
 
 /* || VENDOR INFO SECTION */
-
-.main-scroll {
-  margin-top: 150px;
-}
 
 h2 {  /* this is no good... */
   font-weight: bolder;
