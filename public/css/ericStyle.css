@@ -130,6 +130,7 @@ header h1 {
 nav {
   display: flex;
   background-color: var(--secondary);
+  border-bottom: .1em solid var(--primary);
 }
 
 nav a {
