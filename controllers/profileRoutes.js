@@ -63,6 +63,7 @@ router.get("/", withAuth, async (req, res) => {
 
     res.render("profile", {
       posts,
+      username: req.session.username,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
