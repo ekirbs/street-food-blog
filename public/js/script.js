@@ -1,5 +1,6 @@
 let data = [];
 let vendorZoom;
+
 function init() {
   setInterval(function () {
     $("#currentDay").text(dayjs().format("dddd MMM DD, YYYY [-] h:mm:ss a"));
@@ -204,7 +205,7 @@ window.initMap = initMap;
 // WEATHER DISPLAY FROM HISTORY FUNCTION
 function displayWeather() {
 
-  const weatherApiKey = "3044316f6126db93462603440b6cd43c";
+  let weatherApiKey = "3044316f6126db93462603440b6cd43c";
 
   const units = "imperial";
   const lang = "en";
@@ -226,13 +227,14 @@ function displayWeather() {
       return response.json();
     })
     .then(function (data) {
-      const featureCard = $("<div class='card feature-card zoom'>");
+      const featureCard = $("<div class='feature-card zoom'>");
+      const nameCard = $("<div>");
 
       const name = data.city.name;
-      const city = $("<h4>").text(name);
-      featureCard.append(city);
+      const city = $("<h3>").text(`Weather Forecast: ${name}`);
+      nameCard.append(city);
 
-      var dateDisplay = $("<h4>").text(dayjs().format("M/D/YYYY"));
+      var dateDisplay = $("<h4 class='card-text'>").text(dayjs().format("M/D/YYYY"));
       featureCard.append(dateDisplay);
 
       let featureImg = $(`<img src="http://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png" id="icon">`);
@@ -254,6 +256,7 @@ function displayWeather() {
       featureBody.append(humidDisplay);
 
       $("#weather").prepend(featureCard);
+      $("#weather-forecast-header").append(nameCard);
 
       for (var i = 0; i < 5; i += 1) {
         let day = i * 8;
@@ -263,7 +266,7 @@ function displayWeather() {
 
         $(`#weather-day-${count}`).append(weatherArticle);
 
-        var dateDisplay = $("<h5>").text(dayjs().add(i + 1, "day").format("M/D/YYYY"));
+        var dateDisplay = $("<h5 class='card-text'>").text(dayjs().add(i + 1, "day").format("M/D/YYYY"));
         $(`#article${count}`).append(dateDisplay);
 
         let weatherImg = $(`<img src="http://openweathermap.org/img/w/${data.list[day + 1].weather[0].icon}.png" id="icon">`);
