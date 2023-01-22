@@ -330,9 +330,9 @@ main {
 
 #food-type,
 #vendor-description-card,
-#vendor-weather-card,
+#vendor-rating-card,
 #vendor-directions-card,
-#vendor-hours-card,
+#vendor-payment-card,
 #vendor-contact-card,
 #contact-section {
   padding: 5%;

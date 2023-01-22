@@ -36,6 +36,7 @@ async function displayStreetFoodInfo() {
             ratings: v[1].rating,
             website: v[1].url,
             description: v[1].description,
+            payment_methods: v[1].payment_methods,
             phone: v[1].phone,
             email: v[1].email,
             logo: v[1].images.logo_small
@@ -49,6 +50,7 @@ async function displayStreetFoodInfo() {
             ratings: v[1].rating,
             website: v[1].url,
             description: v[1].description,
+            payment_methods: v[1].payment_methods,
             phone: v[1].phone,
             email: v[1].email
           });
@@ -85,6 +87,10 @@ function displayVendorInfo(vendor) {
   $("#vendor-description-card").empty();
   $("#vendor-description-card").append("<br/>" + "Vendor Description:" + "<br/>" + description + "<br/>");
 
+  let payment = vendor.payment_methods;
+  $("#vendor-payment-card").empty();
+  $("#vendor-payment-card").append("<br/>" + "Vendor Payment Methods:" + "<br/>" + payment + "<br/>");
+
   let address = vendor.address;
   $("#vendor-directions-card").empty();
   $("#vendor-directions-card").append("<br/>" + "Vendor Location:" + "<br/>" + address + "<br/>");
@@ -95,8 +101,8 @@ function displayVendorInfo(vendor) {
   $("#vendor-contact-card").append("<br/>" + "Vendor Phone Number:" + "<br/>" + phone + "<br/>" + "Vendor Email Address:" + "<br/>" + email + "<br/>" + `<a href="${website}">${website}</a>`);
 
   let ratings = vendor.ratings;
-  $("#vendor-weather-card").empty();
-  $("#vendor-weather-card").append("<br/>" + "Vendor ratings:" + "<br/>" + ratings);
+  $("#vendor-rating-card").empty();
+  $("#vendor-rating-card").append("<br/>" + "Vendor ratings:" + "<br/>" + ratings);
 }
 
 $(".dropdown-menu").on("click", function (event) {
