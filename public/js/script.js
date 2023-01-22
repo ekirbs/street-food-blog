@@ -205,6 +205,7 @@ window.initMap = initMap;
 // WEATHER DISPLAY FROM HISTORY FUNCTION
 function displayWeather() {
 
+  // let weatherApiKey = process.env.weatherApiKey;
   let weatherApiKey = "3044316f6126db93462603440b6cd43c";
 
   const units = "imperial";
