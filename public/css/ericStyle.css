@@ -318,7 +318,7 @@ main {
 #vendor-directions-card,
 #vendor-hours-card,
 #vendor-contact-card,
-#contact-vendor {
+#contact-section {
   padding: 5%;
   color: #000000;
   font-family: 'Dosis', sans-serif;
@@ -372,9 +372,9 @@ main {
   grid-gap: 1em;
   margin: 1em;
   margin-top: 50px;
-} */
+}
 
-/* .footer-content>section {
+.footer-content>section {
   background: rgba(251,251,251, 0.50);
   border-radius: 1rem;
   box-shadow: .2rem .2rem 0 0 var(--primary);
