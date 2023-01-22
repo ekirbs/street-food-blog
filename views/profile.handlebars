@@ -3,34 +3,35 @@
 </figure> --}}
     
 {{!-- <p>This is the profile page.</p> --}}
+<h1 class="welcome-mat">Welcome to your space!</h1>
+<div class="row sticky-fix">
 
-<div class="row">
-<article class="card-two profile">
-  {{!-- <div="column"> --}}
-    {{!-- <div class="myProfile"> --}}
-      <h2>{{user.username}}'s Profile</h2> {{!-- this is EJS...it might not work... --}}
-      {{> userData}}
+  <article class="card-two profile">
+    {{!-- <div="column"> --}}
+      {{!-- <div class="myProfile"> --}}
+        {{> userData}}
+      {{!-- </div> --}}
     {{!-- </div> --}}
-  {{!-- </div> --}}
-</article>
+  </article>
+
   <article class="card-profile-two ">
-  <div class="column">
-    <h3>Create a Post &#9997 &#9997</h3>
-    <form class="new-post-form">
-      <div>
-        <label for="title">Post Title</label>
-        <input type="text" id="title" name="title" style="width: 30%;" />
-      </div>
+    <div class="column">
+      <h3>Create a Post &#9997 &#9997</h3>
+      <form class="new-post-form">
+        <div>
+          <label for="title">Post Title</label>
+          <input type="text" id="title" name="title" style="width: 30%;" />
+        </div>
 
-      <div>
-        <label for="post-body">Post Body</label>
-        <textarea type="text" rows="4" id="post-body" name="post-body" style=" width: 100%"></textarea>
-      </div>
+        <div>
+          <label for="post-body">Post Body</label>
+          <textarea type="text" rows="4" id="post-body" name="post-body" style=" width: 100%"></textarea>
+        </div>
 
-      <button type="submit" class="create-post-btn">Create Post</button>
+        <button type="submit" class="create-post-btn">Create Post</button>
 
-    </form>
-  </div>
+      </form>
+    </div>
   </article>
 
 

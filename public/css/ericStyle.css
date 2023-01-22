@@ -57,6 +57,10 @@ a:visited {
   transform: scale(1.025);
 }
 
+.sticky-fix {
+  margin-top: 5rem;
+}
+
 
 
 
@@ -395,9 +399,9 @@ main {
   grid-gap: 1em;
   margin: 1em;
   margin-top: 50px;
-}
+} */
 
-.footer-content>section {
+/* .footer-content>section {
   background: rgba(251,251,251, 0.50);
   border-radius: 1rem;
   box-shadow: .2rem .2rem 0 0 var(--primary);
