@@ -201,7 +201,7 @@ main {
 .main-content>section {
   background: rgba(251,251,251, 0.50);
   border-radius: 1rem;
-  box-shadow: .1em .1em 0 0 #424242;
+  box-shadow: .2rem .2rem 0 0 #424242;
   /* background: var(--light); */
   padding: 1em;
   /* color: var(--white); */
@@ -224,7 +224,8 @@ main {
 
 /* ABOUT-SITE SECTION */
 #about-site {
-  padding: auto;
+  padding: 2rem;
+  /* padding: auto; */
   color: #000000;
   font-size: .1rem;
 }
