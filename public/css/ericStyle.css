@@ -66,6 +66,31 @@ a:visited {
 
 /* || main.handlebars STYLE || */
 
+/* HEADER & NAVBAR */
+#navbar {  /* this is a misleading id... */
+  overflow: hidden;
+  background-color: #333;
+  z-index:1;
+  margin-top: 0;
+  
+}
+
+#navbar a,
+#navbar button {  /* this is a misleading id... */
+  /* Navbar links */
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+#navbar nav a:hover,
+#navbar nav button:hover {
+  color: var(--primary);
+}
+
 /* HEADER */
 header {
   background: var(--primary);
@@ -115,24 +140,6 @@ nav a:hover {
   background-color: var(--dark);
 }
 
-#navbar {
-  overflow: hidden;
-  background-color: #333;
-  z-index:1;
-  margin-top: 0;
-  
-}
-
-#navbar a {
-  /* Navbar links */
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px;
-  text-decoration: none;
-}
-
 .btn-no-style {
   background: none;
   border: none;
@@ -142,6 +149,11 @@ nav a:hover {
   font-size: 100%;
   transition: color 0.1s;
   margin-left: 16px;
+}
+
+.float-right {
+  position: absolute;
+  right: 0px;
 }
 
 /* ????? */
@@ -359,8 +371,19 @@ main {
   border-radius: 1rem;
 }
 
-.row {  /* this is no good... */
+.home-post {
   width: 100%;
+  background-color: var(--tertiary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: flex-end;
+  overflow: hidden;
+  border: 7px double var(--dark);
+  border-radius: 10px;
+  color: var(--primary);
+  flex: 0 1 300px;
 }
 
 /* || FOOTER SECTION || */
@@ -472,6 +495,10 @@ main {
 .edit-post {
   color: black;
   font-weight: bolder;
+}
+
+.row {  /* this is no good... */
+  width: 100%;
 }
 
 

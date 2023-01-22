@@ -5,7 +5,7 @@
 {{!-- <p>This is the profile page.</p> --}}
 
 <div class="row">
-<article class="card-two profile zoom ">
+<article class="card-two profile">
   {{!-- <div="column"> --}}
     {{!-- <div class="myProfile"> --}}
       <h2>{{user.username}}'s Profile</h2> {{!-- this is EJS...it might not work... --}}
@@ -13,7 +13,7 @@
     {{!-- </div> --}}
   {{!-- </div> --}}
 </article>
-  <article class="card-profile-two zoom">
+  <article class="card-profile-two ">
   <div class="column">
     <h3>Create a Post &#9997 &#9997</h3>
     <form class="new-post-form">
@@ -41,7 +41,7 @@
 
   <h3>Your Posts:</h3>
   {{#each posts as |post| }}
-  <div class="card">
+  <div class="card zoom">
     <div class="row mb-4 post">
 
       <div class="row mb-1">
