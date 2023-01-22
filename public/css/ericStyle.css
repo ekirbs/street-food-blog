@@ -626,6 +626,12 @@ main {
   background-color: var(--primary);
 }
 
+.signup-btn {
+  color: var(--light);
+  background-color: var(--primary);
+  margin: 2rem 0;
+}
+
 .google-btn {
   color: var(--primary);
 }
@@ -702,7 +708,7 @@ main {
   height: 40vh;
 }
 
-.btn {
+.btn-404 {
   margin: 2rem 0;
 }
 
