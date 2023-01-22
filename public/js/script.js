@@ -1,5 +1,6 @@
 let data = [];
 let vendorZoom;
+
 function init() {
   setInterval(function () {
     $("#currentDay").text(dayjs().format("dddd MMM DD, YYYY [-] h:mm:ss a"));
@@ -36,6 +37,7 @@ async function displayStreetFoodInfo() {
             ratings: v[1].rating,
             website: v[1].url,
             description: v[1].description,
+            payment_methods: v[1].payment_methods,
             phone: v[1].phone,
             email: v[1].email,
             logo: v[1].images.logo_small
@@ -49,6 +51,7 @@ async function displayStreetFoodInfo() {
             ratings: v[1].rating,
             website: v[1].url,
             description: v[1].description,
+            payment_methods: v[1].payment_methods,
             phone: v[1].phone,
             email: v[1].email
           });
@@ -90,6 +93,10 @@ function displayVendorInfo(vendor) {
   $("#vendor-description-card").empty();
   $("#vendor-description-card").append("<br/>" + "Vendor Description:" + "<br/>" + description + "<br/>");
 
+  let payment = vendor.payment_methods;
+  $("#vendor-payment-card").empty();
+  $("#vendor-payment-card").append("<br/>" + "Vendor Payment Methods:" + "<br/>" + payment + "<br/>");
+
   let address = vendor.address;
   $("#vendor-directions-card").empty();
   $("#vendor-directions-card").append("<br/>" + "Vendor Location:" + "<br/>" + address + "<br/>");
@@ -100,8 +107,8 @@ function displayVendorInfo(vendor) {
   $("#vendor-contact-card").append("<br/>" + "Vendor Phone Number:" + "<br/>" + phone + "<br/>" + "Vendor Email Address:" + "<br/>" + email + "<br/>" + `<a href="${website}">${website}</a>`);
 
   let ratings = vendor.ratings;
-  $("#vendor-weather-card").empty();
-  $("#vendor-weather-card").append("<br/>" + "Vendor ratings:" + "<br/>" + ratings);
+  $("#vendor-rating-card").empty();
+  $("#vendor-rating-card").append("<br/>" + "Vendor ratings:" + "<br/>" + ratings);
 }
 
 $(".dropdown-menu").on("click", function (event) {
@@ -203,7 +210,8 @@ window.initMap = initMap;
 // WEATHER DISPLAY FROM HISTORY FUNCTION
 function displayWeather() {
 
-  const weatherApiKey = "3044316f6126db93462603440b6cd43c";
+  // let weatherApiKey = process.env.weatherApiKey;
+  let weatherApiKey = "3044316f6126db93462603440b6cd43c";
 
   const units = "imperial";
   const lang = "en";
@@ -225,13 +233,14 @@ function displayWeather() {
       return response.json();
     })
     .then(function (data) {
-      const featureCard = $("<div class='feature zoom'>");
+      const featureCard = $("<div class='feature-card zoom'>");
+      const nameCard = $("<div>");
 
       const name = data.city.name;
-      const city = $("<h4>").text(name);
-      featureCard.append(city);
+      const city = $("<h3>").text(`Weather Forecast: ${name}`);
+      nameCard.append(city);
 
-      var dateDisplay = $("<h4>").text(dayjs().format("M/D/YYYY"));
+      var dateDisplay = $("<h4 class='card-text'>").text(dayjs().format("M/D/YYYY"));
       featureCard.append(dateDisplay);
 
       let featureImg = $(`<img src="http://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png" id="icon">`);
@@ -253,6 +262,7 @@ function displayWeather() {
       featureBody.append(humidDisplay);
 
       $("#weather").prepend(featureCard);
+      $("#weather-forecast-header").append(nameCard);
 
       for (var i = 0; i < 5; i += 1) {
         let day = i * 8;
@@ -262,7 +272,7 @@ function displayWeather() {
 
         $(`#weather-day-${count}`).append(weatherArticle);
 
-        var dateDisplay = $("<h5>").text(dayjs().add(i + 1, "day").format("M/D/YYYY"));
+        var dateDisplay = $("<h5 class='card-text'>").text(dayjs().add(i + 1, "day").format("M/D/YYYY"));
         $(`#article${count}`).append(dateDisplay);
 
         let weatherImg = $(`<img src="http://openweathermap.org/img/w/${data.list[day + 1].weather[0].icon}.png" id="icon">`);

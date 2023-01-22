@@ -13,7 +13,7 @@ User.init(
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true,
+      primaryKey: true, // DOES googleID need to be the primary key??
       autoIncrement: true,
     },
     // googleId: {

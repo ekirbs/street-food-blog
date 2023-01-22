@@ -1,0 +1,40 @@
+/* || login.handlebars STYLE || */
+
+/* LOGIN */
+.login-card {
+  width: 750px;
+  height: 450px;
+  display: block;
+  margin-bottom: 20px;
+  flex: 0 0 50%;
+  padding: 5px;
+  border: 3px solid var(--primary);
+  border-radius: var(--border-radius);
+  border-style: double;
+  border-width: thick;
+  background-color: var(--dark);
+}
+
+.login-btn {
+  color: var(--light);
+  background-color: var(--primary);
+}
+
+.google-btn {
+  color: var(--primary);
+}
+
+/* SIGNUP */
+.signup-card {
+  width: 450px;
+  height: 450px;
+  display: block;
+  margin-bottom: 20px;
+  flex: 0 0 50%;
+  padding: 5px;
+  border: 3px solid var(--primary);
+  border-radius: var(--border-radius);
+  border-style: double;
+  border-width: thick;
+  background-color: var(--dark);
+}

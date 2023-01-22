@@ -1,13 +1,13 @@
 <div class="main-content" id="main">
 
-  {{!-- WELCOME SECTION --}}
-  <section class="section-label about-site-header opacity" style="background: rgba(251,251,251, 0.50); border-radius: 1rem; box-shadow: .1em .1em 0 0 #424242; ">
+  {{!-- ABOUT-SITE SECTION --}}
+  <section class="section-label about-site-header">
     <div class="opacity-text">
     <h3>Welcome!</h3>
     </div>
   </section>
 
-  <section id="about-site" class="about-site-section opacity" style="background: rgba(251,251,251, 0.50); border-radius: 1rem; box-shadow: .1em .1em 0 0 #424242;">
+  <section id="about-site" class="about-site-section">
     <p id="greetings">
       Known for it's respected universities and exciting sports teams, Boston is the beating heart of Massachusetts.  The city is one of the oldest and most storied in the country, with the Freedom Trail offering
       people the ability to experience so many amazing historic locations.  Indeed, Boston is an amazing city to walk around, so it goes without saying that along it's beautiful streets, a vibrant and diverse community 
@@ -21,7 +21,7 @@
   </section>
   
   {{!-- VENDOR INFO SECTION --}}
-  <section id="vendor-info-header" class="section-label opacity">
+  <section id="vendor-info-header" class="section-label">
 
     {{!-- <h3>Vendor Name</h3> --}}
       <div class="col s4">
@@ -46,10 +46,10 @@
 
   </section>
 
-  <section id="vendor-info-section" class="info-section opacity" style="background: rgba(251,251,251, 0.50);">
+  <section id="vendor-info-section" class="info-section">
 
 
-    <article class="card vendor-name zoom">
+    <article class="card vendor-name">
       <div id="vendor-name"></div>
       <div class="img-text">
         <h4>Vendor Name</h4>
@@ -57,7 +57,7 @@
       </div>
     </article>
 
-    <article class="card card-main zoom">
+    <article class="card card-main">
       <div id="vendor-description-card"></div>
       <div class="img-text">
         <h4>Vendor Description</h4>
@@ -65,15 +65,15 @@
       </div>
     </article>
 
-    <article class="card card-alt zoom">
-      <div id="vendor-weather-card"></div>
+    <article class="card card-alt">
+      <div id="vendor-payment-card"></div>
       <div class="img-text">
-        <h4>Rating</h4>
-        {{!-- <p>Number of Ratings</p> --}}
+        <h4>Payment</h4>
+        {{!-- <p>payment methods</p> --}}
       </div>
     </article>
 
-    <article class="card card-alt zoom">
+    <article class="card card-alt">
       <div id="vendor-directions-card"></div>
       <div class="img-text">
         <h4>Directions</h4>
@@ -81,15 +81,15 @@
       </div>
     </article>
 
-    <article class="card card-alt zoom">
-      <div id="vendor-hours-card"></div>
+    <article class="card card-alt">
+      <div id="vendor-rating-card"></div>
       <div class="img-text">
-        <h4>Hours</h4>
-        {{!-- <p>hours of operation</p> --}}
+        <h4>Rating</h4>
+        {{!-- <p>Number of Ratings</p> --}}
       </div>
     </article>
 
-    <article class="card card-alt zoom">
+    <article class="card card-alt">
       <div id="vendor-contact-card"></div>
       <div class="img-text">
         <h4>Contact</h4>
@@ -100,22 +100,22 @@
   </section>
 
   {{!-- GOOGLE MAP SECTION --}}
-  <section class="section-label map-header opacity">
+  <section class="section-label map-header">
     <h3>Google Map</h3>
   </section>
 
-  <section class="map-section opacity">
+  <section class="map-section">
     <div id="map"></div>
   </section>
 
   {{!-- POST SECTION --}}
-  <section class="section-label post-header opacity">
+  <section class="section-label post-header">
     <h3>Post Section</h3>
   </section>
 
-  <section class="post-section opacity">
+  <section class="post-section">
     {{#each posts as |post| }}
-    <div class="row mb-4 post">
+    <div class="row mb-4 home-post zoom">
       <div class="col-md-5">
         <h2>
           {{{get_img}}}
@@ -131,5 +131,19 @@
     </div>
     {{/each}}
   </section>
+
+  {{!-- FOOTER SECTION --}}
+  {{!-- <footer class="footer-content"> --}}
+    <section class="section-label contact-header">
+      <h3>Contact the Creators</h3>
+    </section>
+
+    <section class="contact-section">
+      <!-- <a href="tel:5558675309">Jenny: (555) 867-5309</a> -->
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Customer Service</a>
+      <a href="https://github.com/ekirbs/street-food-blog"><img src="/images/streetfood-icon.png" id="foodcart" alt="foodcart" />Boston Street Food blog</a>
+      {{!-- <div id="contact-vender"></div> --}}
+    </section>
+  {{!-- </footer> --}}
 
 </div>

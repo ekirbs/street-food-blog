@@ -63,6 +63,7 @@ router.get("/", withAuth, async (req, res) => {
 
     res.render("profile", {
       posts,
+      username: req.session.username,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -141,6 +142,10 @@ router.get("/editPost/:id", withAuth, async (req, res) => {
         "user_id",
         "created_at",
       ],
+      order: [[
+        "created_at",
+        "DESC",
+      ]],
       include: [
         {
           model: User,
@@ -208,8 +213,59 @@ router.get("/editUser", withAuth, async (req, res) => {
   };
 });
 
-// router.get('*', (req, res) =>
-// res.render('404')
-// );
+// profile/editComment/:id
+router.get("/editComment/:id", withAuth, async (req, res) => {
+  console.log(req.params.id);
+  try {
+    const commentData = await Comment.findOne({
+      where: {
+        id: req.params.id
+      },
+      attributes: [
+        "id",
+        "comment_body",
+        "post_id",
+        "user_id",
+        "created_at",
+      ],
+      order: [[
+        "created_at",
+        "DESC",
+      ]],
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+        {
+          model: Post,
+          attributes: [
+            "id",
+            "title",
+            "post_body",
+            "user_id",
+            "created_at",
+          ],
+          include: [
+            {
+              model: User,
+              attributes: ["username"],
+            },
+          ],
+        },
+      ],
+    });
+
+    const comment = commentData.get({ plain: true });
+
+    res.render("editComment", {
+      comment,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  };
+});
 
 module.exports = router;

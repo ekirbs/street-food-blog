@@ -380,8 +380,6 @@ create-post-btn {
   grid-row-gap: 5px;
 }
 
-}
-
 /* @media only screen and (min-width: 600px) {
   .dropdown {
     flex-basis: auto;

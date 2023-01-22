@@ -1,0 +1,196 @@
+/* || homepage.handlebars GENERAL STYLE || */
+
+/* HOMEPAGE GENERAL */
+.main-content {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 15% 50% 50% 50% 10%;
+  grid-auto-rows: minmax(50px, auto);
+  grid-gap: 1em;
+  margin: 1em;
+  /* padding-top: 85px; */
+  margin-top: 50px;
+}
+
+.main-scroll {  /* this doesn't appear in the homepage.handlebars, but it does in the devTools... */
+  margin-top: 150px;
+}
+
+.main-content>section {
+  background: rgba(251,251,251, 0.50);
+  border-radius: 1rem;
+  box-shadow: .2rem .2rem 0 0 var(--primary);
+  background: var(--light);
+  padding: 1em;
+  color: var(--white);
+}
+
+/* HOMEPAGE SECTION */
+.section-label {
+  font-size: 2vw;
+  /* border-right: 6px solid var(--primary); */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+  text-decoration: underline var(--secondary);
+}
+
+/* ABOUT-SITE SECTION */
+#about-site {
+  padding: auto;
+  color: #000000;
+  font-size: .1rem;
+}
+
+#about-site p {
+  padding: 10px;
+  color: #000000;
+  font-size: 1rem;
+}
+
+/* VENDOR INFO SECTION */
+.info-section {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.75em;
+  grid-template-areas:
+    "name name name"
+    "main main alt"
+    "alt alt alt";
+}
+
+.vendor-name {
+  width: 0;
+  height: 20em;
+  margin: 2px;
+  min-width: 100%;
+  min-height: 100%;
+  grid-area: 1 / 1 / span 1 / span 3;
+}
+
+#vendor-name h3 {
+  font-weight: bolder;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 400%;
+  color: black;
+  text-decoration: underline;
+}
+
+.card {
+  height: 100%;
+  width: 100%;
+  /* margin: 1%; */
+  background-color: var(--tertiary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: flex-end;
+  overflow: hidden;
+  border: 7px double var(--dark);
+  border-radius: 10px;
+  color: var(--dark);
+  flex: 0 1 300px;
+}
+
+.card-main {
+  width: 0;
+  height: 20em;
+  margin: 2px;
+  min-width: 100%;
+  min-height: 100%;
+  grid-area: 2 / 1 / span 1 / span 2;
+}
+
+.card-alt {
+  width: 0;
+  height: 0;
+  margin: 2px;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+#food-type,
+#vendor-description-card,
+#vendor-weather-card,
+#vendor-directions-card,
+#vendor-hours-card,
+#vendor-contact-card,
+#contact-section {
+  padding: 5%;
+  color: #000000;
+  font-family: 'Dosis', sans-serif;
+  font-weight: bolder;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.img-text {
+  position: absolute;
+  top: 0;
+  /* right: 0; */
+  background: var(--primary);
+  color: var(--tertiary);
+  flex: 1 1 50%;
+  padding: 2px;
+
+  width: 100%;
+  height: 2rem;
+}
+
+.img-text p {
+  text-align: center;
+}
+
+.img-text h4 {
+  text-align: center;
+}
+
+/* GOOGLE MAP SECTION */
+#map {
+  /* position: relative; */
+  height: 100%;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
+  border-radius: 1rem;
+}
+
+
+.row {  /* this is no good... */
+  width: 100%;
+}
+
+/* || FOOTER SECTION || */
+/* .footer-content {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 10%;
+  grid-auto-rows: minmax(50px, auto);
+  grid-gap: 1em;
+  margin: 1em;
+  margin-top: 50px;
+} */
+
+/* .footer-content>section {
+  background: rgba(251,251,251, 0.50);
+  border-radius: 1rem;
+  box-shadow: .2rem .2rem 0 0 var(--primary);
+  padding: 1em;
+} */
+
+.contact-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5%;
+}
+
+.contact-section a img {
+  height: 8vh;
+  width: 8vh;
+  border-radius: 10%;
+}

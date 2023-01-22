@@ -1,8 +1,10 @@
 <div class="post">
   <div class="content">
-    <p>User Name: {{posts.[0].user.username}}</p>
+    <h2>{{posts.[0].user.username}}'s Profile</h2>
+    {{!-- <h2>{{posts.[0].user.username}}'s Profile</h2> --}}
+    {{!-- <p>User Name: {{posts.[0].user.username}}</p> --}}
     <p>Posts: {{posts.length}}</p>
-    <p>Comments: {{comments.length}}</p>
+    <p>Comments: {{posts.[0].comments.length}}</p>
     <a href="/profile/editUser" class="edit-user-a">Edit User Info</a>
   </div>
 </div>

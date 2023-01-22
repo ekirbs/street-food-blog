@@ -1,0 +1,72 @@
+/* || profile.handlebars STYLE || */
+.card-two {
+  height: 100%;
+  width: 100%;
+  margin: 1%;
+  background-color: var(--tertiary);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: flex-end;
+  overflow: hidden;
+  border: 7px double var(--dark);
+  border-radius: 10px;
+  color: var(--dark);
+}
+
+.profile {
+  text-align: left;
+  width: 100%;
+  font-weight: bolder;
+  color: black
+    /* top: 0%;
+   left: 0%; */
+}
+
+.card-profile-two {
+  height: 100%;
+  width: 100%;
+  margin: 1%;
+  background-color: var(--tertiary);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: flex-end;
+  overflow: hidden;
+  border: 7px double var(--dark);
+  border-radius: 10px;
+  color: black;
+  font-weight: bolder;
+}
+
+.create-post-btn {
+  font-weight: bolder;
+}
+
+.delete-post-btn {
+  color: black;
+  font-weight: bolder;
+}
+
+.myPosts h3 {
+  padding-bottom: 10px;
+  color: white;
+  background-color: rgb(71, 158, 44) ;
+  border: 7px double rgb(71, 158, 44) ;
+  border-radius: 10px ;
+  text-align: center ;
+  text-decoration: underline black ;
+}
+
+.myPosts p {
+  padding-top: 10px;
+}
+
+.post {
+  color: black;
+}
+
+.edit-post {
+  color: black;
+  font-weight: bolder;
+}

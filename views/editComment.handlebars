@@ -1,0 +1,25 @@
+
+<div class="card">
+  <a href="/profile"> &larr; Back to Profile</a>
+  <h2>Edit Comment on Post:  {{post.title}}</h2>
+  <form class="edit-comment-form">
+    <div>
+      <label for="comment-body">Comment Body: </label>
+      <textarea name="comment-body">{{post.post-body}}</textarea>
+    </div>
+    <div>
+      <a href=`/post/{{post.id}}`>{{post.comments.length}}</a>
+    </div>
+    <form class="new-comment-form">
+  <div>
+    <label for="post-body">Comment:</label>
+    <textarea name="comment-body">{{comment_body}}</textarea>
+  </div>
+
+  <div>
+    <button type="submit">Comment It</button>
+  </div>
+    <button type="submit">Post It</button>
+    <button type="delete" class="delete-post-btn">Delete It</button>
+  </form>
+</div>

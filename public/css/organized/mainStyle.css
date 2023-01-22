@@ -1,0 +1,139 @@
+/* || main.handlebars STYLE */
+
+/* BODY */
+body {
+  /* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
+  font-family: Arial;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: flex-start;
+  /* background-color: var(--quatrinary); */
+  background-image: url("/images/bostonbackground.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: #cccccc;
+  /* padding-top: 65px; */
+}
+
+/* HEADER */
+header {
+  background: var(--primary);
+  color: var(--light);
+  position: static;
+  top: 0px;
+  overflow: auto;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+}
+
+header img {
+  width: 5em;
+  height: auto;
+}
+
+header h1 {
+  display: inline-block;
+  font-size: 48px;
+  text-decoration: underline var(--secondary);
+  margin-left: 20px;
+}
+
+#currentDay {
+  padding-right: 10px;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  background-color: var(--secondary);
+}
+
+nav a {
+  color: var(--light);
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+nav a:hover {
+  color: var(--primary);
+  background-color: var(--dark);
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+  z-index:1;
+  margin-top: 0;
+  
+}
+
+#navbar a {
+  /* Navbar links */
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+.btn-no-style {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 100%;
+  transition: color 0.1s;
+  margin-left: 16px;
+}
+
+.float-right {
+  position: absolute;
+  right: 0px;
+}
+
+/* ????? */
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+  padding-top: 50px;
+}
+
+/* MAIN */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+
+  flex-flow: column wrap;
+  align-content: flex-start;
+  align-items: center;
+}
+
+/* .container {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: flex-start;
+  align-items: center;
+} */
+
+.posts {
+  width: 100%;
+}

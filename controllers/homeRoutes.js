@@ -120,6 +120,9 @@ router.get("/weather", (req, res) => {
   //   res.redirect("/weather");
   //   return;
   // }
+  res.render("weather", {
+    logged_in: req.session.logged_in,
+  });
 
   res.render("weather");
 });
@@ -133,8 +136,13 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-// router.get('*', (req, res) =>
-// res.render('404')
-// );
+router.get("/signup", (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/profile");
+    return;
+  }
+
+  res.render("signup");
+});
 
 module.exports = router;

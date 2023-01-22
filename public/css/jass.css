@@ -1159,8 +1159,8 @@ form [type='radio'] {
   display: inline-block;
 }
 
-label form [type='checkbox'], label
-form [type='radio'] {
+label form [type='checkbox'],
+label form [type='radio'] {
   display: inline-block;
 }
 
