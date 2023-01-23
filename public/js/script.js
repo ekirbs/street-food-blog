@@ -1,3 +1,4 @@
+
 let data = [];
 let vendorZoom;
 
@@ -84,7 +85,13 @@ function displayVendorInfo(vendor) {
   console.log(vendor);
   let name = vendor.name;
   $("#vendor-name").empty();
-  $("#vendor-name").append(`<h3>${name} ${vendor.logo}</h3>`);
+  $("#vendor-name").append(`<h3>${name}</h3>`);
+  if(vendor.logo){
+    $("#vendor-name").append(`<img src="${vendor.logo}" id="logo "alt="logo" width="50" height="50">`);
+  } else {
+    $("#vendor-name").append(`<img src="https://cdn-icons-png.flaticon.com/512/651/651107.png" id="logo" alt="logo" width="50" height="50">`);
+  }
+  
 
   let website = "https://" + vendor.website;
 
@@ -95,7 +102,12 @@ function displayVendorInfo(vendor) {
 
   let payment = vendor.payment_methods;
   $("#vendor-payment-card").empty();
-  $("#vendor-payment-card").append("<br/>" + "Vendor Payment Methods:" + "<br/>" + payment + "<br/>");
+  if(vendor.payment_methods){
+    $("#vendor-payment-card").append("<br/>" + "Vendor Payment Methods:" + "<br/>" + payment + "<br/>");
+  } else {
+    $("#vendor-payment-card").append("<br/>" + "Vendor Payment Methods:" + "<br/>" + "Cash" + "<br/>");
+  }
+  
 
   let address = vendor.address;
   $("#vendor-directions-card").empty();
@@ -208,10 +220,10 @@ window.initMap = initMap;
 // displayVendorInfo(data);
 
 // WEATHER DISPLAY FROM HISTORY FUNCTION
-function displayWeather() {
+async function displayWeather() {
 
   // let weatherApiKey = process.env.weatherApiKey;
-  let weatherApiKey = "3044316f6126db93462603440b6cd43c";
+  
 
   const units = "imperial";
   const lang = "en";
@@ -226,13 +238,14 @@ function displayWeather() {
   $('#weather-day-3').empty();
   $('#weather-day-4').empty();
 
-  const weatherApiURL = `https://api.openweathermap.org/data/2.5/forecast?q=Boston&appid=${weatherApiKey}&units=${units}&lang=${lang}`;
+  
 
-  fetch(weatherApiURL)
+  await fetch('/api/weather')
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
+      console.log("Data: "+data);
       const featureCard = $("<div class='feature-card zoom'>");
       const nameCard = $("<div>");
 
