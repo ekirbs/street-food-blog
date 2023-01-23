@@ -1,4 +1,3 @@
-
 let data = [];
 let vendorZoom;
 
@@ -6,8 +5,6 @@ function init() {
   setInterval(function () {
     $("#currentDay").text(dayjs().format("dddd MMM DD, YYYY [-] h:mm:ss a"));
   }, 1000);
-
-  // renderHistory();
 };
 init();
 
@@ -17,17 +14,11 @@ async function displayStreetFoodInfo() {
       return response.json();
     })
     .then((response) => {
-      console.log(response);
+      // console.log(response);
       const vendors = response.vendors;
 
       const vendorList = Object.entries(vendors);
-      // console.log(vendors);
       for (const v of vendorList) {
-
-
-
-        // Need to find a way of getting the icons pulled from api
-        // console.log(v[1].name);
         if (v[1].images) {
           console.log(v[1].images.logo_small);
           data.push({
@@ -69,63 +60,75 @@ async function displayStreetFoodInfo() {
       return data;
 
     })
-       console.log(data);
-  //     console.log(data[0]);
-  // displayVendorInfo(data[0]);
+      //  console.log(data);
 }
 
 function displayVendorInfo(vendor) {
-  // const image = {
-  //   url: vendor.logo,
-  //   // This marker is 20 pixels wide by 32 pixels high.
-  //   scaledSize: new google.maps.Size(50, 50),
-  // };
+  let newPayement = [];
+  for (const v of vendor.payment_methods) {
+    let payment = v.replace(/_/g, " ");
+    newPayement.push(payment);
+  };
+  
+  const image = {
+    url: vendor.logo,
+    // This marker is 20 pixels wide by 32 pixels high.
+    scaledSize: new google.maps.Size(50, 50),
+  };
+  
   vendorZoom = {lat: vendor.lat, lng: vendor.long};
   initMap();
-  console.log(vendor);
+  // console.log(vendor);
   let name = vendor.name;
   $("#vendor-name").empty();
   $("#vendor-name").append(`<h3>${name}</h3>`);
-
+  if(vendor.logo){
+    $("#vendor-name").append(`<img src="${vendor.logo}" id="logo "alt="logo" width="50" height="50">`);
+  } else {
+    $("#vendor-name").append(`<img src="https://cdn-icons-png.flaticon.com/512/651/651107.png" id="logo" alt="logo" width="50" height="50">`);
+  }
+  
 
   let website = "https://" + vendor.website;
 
+
   let description = vendor.description;
   $("#vendor-description-card").empty();
-  $("#vendor-description-card").append("<br/>" + "Description:" + "<br/>" + description + "<br/>");
+  $("#vendor-description-card").append("<br/>" + "Vendor Description:" + "<br/>" + description + "<br/>");
 
   let payment = vendor.payment_methods;
   $("#vendor-payment-card").empty();
-
+  if(vendor.payment_methods){
+    $("#vendor-payment-card").append("<br/>" + "Vendor Payment Methods:" + "<br/>" + newPayement + "<br/>");
+  } else {
+    $("#vendor-payment-card").append("<br/>" + "Vendor Payment Methods:" + "<br/>" + "Cash" + "<br/>");
+  }
+  
 
   let address = vendor.address;
   $("#vendor-directions-card").empty();
-  $("#vendor-directions-card").append("<br/>" + "Location:" + "<br/>" + address + "<br/>");
+  $("#vendor-directions-card").append("<br/>" + "Vendor Location:" + "<br/>" + address + "<br/>");
 
   let phone = vendor.phone;
   let email = vendor.email;
   $("#vendor-contact-card").empty();
-  $("#vendor-contact-card").append("<br/>" + "Phone Number:" + "<br/>" + phone + "<br/>" + "Vendor Email Address:" + "<br/>" + email + "<br/>" + `<a href="${website}">${website}</a>`);
+  $("#vendor-contact-card").append("<br/>" + "Vendor Phone Number:" + "<br/>" + phone + "<br/>" + "Vendor Email Address:" + "<br/>" + email + "<br/>" + `<a href="${website}">${website}</a>`);
 
   let ratings = vendor.ratings;
   $("#vendor-rating-card").empty();
-  $("#vendor-rating-card").append("<br/>" + "Ratings:" + "<br/>" + ratings);
+  $("#vendor-rating-card").append("<br/>" + "Vendor ratings:" + "<br/>" + ratings);
 }
 
 $(".dropdown-menu").on("click", function (event) {
   event.preventDefault();
   id = event.target.id;
   const selectedVendor = data.find(element => element.name == id);
-  // console.log(selectedVendor);
   displayVendorInfo(selectedVendor);
 });
 
 // Initialize and add the map
 async function initMap() {
   await displayStreetFoodInfo();
-  // console.log(data);
-  // console.log(data[0]);
-  // The location of Uluru
   const boston = { lat: 42.3601, lng: -71.0589 };
   // The map, centered at Uluru
   let map = new google.maps.Map(document.getElementById("map"), {
@@ -184,34 +187,10 @@ async function initMap() {
 window.initMap = initMap;
 
 
-// async function myFunction() {
-//   document.getElementById("myDropdown").classList.toggle("show");
-// }
-
-// // Close the dropdown menu if the user clicks outside of it
-// window.onclick = function(event) {
-//   if (!event.target.matches('.dropbtn')) {
-//     var dropdowns = document.getElementsByClassName("dropdown-content");
-//     var i;
-//     for (i = 0; i < dropdowns.length; i++) {
-//       var openDropdown = dropdowns[i];
-//       if (openDropdown.classList.contains('show')) {
-//         openDropdown.classList.remove('show');
-//       }
-//     }
-//   }
-// }
-
-// displayStreetFoodInfo();
-
-
-
-// displayVendorInfo(data);
 
 // WEATHER DISPLAY FROM HISTORY FUNCTION
 async function displayWeather() {
 
-  // let weatherApiKey = process.env.weatherApiKey;
   
 
   const units = "imperial";
