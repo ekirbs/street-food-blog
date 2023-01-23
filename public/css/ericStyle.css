@@ -740,6 +740,8 @@ main {
 
 /* MOBILE-SIZE SCREEN(400px) */
 @media screen and (max-width: 400px) {
+
+  /* HOMEPAGE */
   #navbar {
     position: relative;
   }
@@ -751,7 +753,7 @@ main {
   .main-content {
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 2% 25% 2% 50% 2% 20% 2% 30% 2% 5%;
+    grid-template-rows: 2% 18% 2% 50% 2% 20% 2% 30% 2% 5%;
     grid-auto-rows: minmax(50px, auto);
     grid-gap: 1em;
     margin: 0;
@@ -795,6 +797,30 @@ main {
     min-height: 100%;
     grid-area: 2 / 1 / span 1 / span 1;
   }
+
+  /* WEATHER */
+  #weather-content {
+    margin-top: 0;
+  }
+
+  .daily-section {
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "main"
+      "alt"
+      "alt"
+      "alt"
+      "alt"
+      "alt";
+    margin: 1rem;
+    }
+
+    .weather-card-main {
+      grid-area: 1 / 1 / span 1 / span 1;
+    }
+
+    /* LOGIN */
 }
 
 
