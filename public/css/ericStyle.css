@@ -739,7 +739,7 @@ main {
 /* || Viewport Resizing || */
 
 /* MOBILE-SIZE SCREEN(400px) */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 400px) {  /* need to remove unued code from below */
 
   /* HOMEPAGE */
   #navbar {
@@ -821,6 +821,16 @@ main {
     }
 
     /* LOGIN */
+    .login-card {
+      width: 100%;
+      flex: 0 0 100%;
+    }
+
+    /* SIGNUP */
+    .signup-card {
+      width: 100%;
+      flex: 0 0 100%;
+    }
 }
 
 
