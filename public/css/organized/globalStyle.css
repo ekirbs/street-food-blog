@@ -8,6 +8,7 @@
   --quatrinary: #eeeeee;
   --light: #e3e4e3;
   --dark: #7cb342;
+  --black:#000000;
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
 }
@@ -20,20 +21,16 @@
 }
 
 body {
-  /* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
   font-family: Arial;
   margin: 0;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  /* height: auto; */
   justify-content: flex-start;
-  /* background-color: var(--quatrinary); */
   background-image: url("/images/bostonbackground.jpg");
   background-size: cover;
   background-position: center;
   background-color: #cccccc;
-  /* padding-top: 65px; */
 }
 
 a {

@@ -3,9 +3,6 @@
   background: rgba(251,251,251, 0.50);
   border-radius: 1rem;
   box-shadow: .2rem .2rem 0 0 var(--primary);
-  /* background: var(--light); */
-  /* padding: 1em; */
-  /* color: var(--white); */
 }
 
 #badnav-area h1 {

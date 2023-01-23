@@ -1,7 +1,6 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const GoogleStrategy = require("passport-google-oauth20");
-// const dotenv = require("dotenv");
 require('dotenv').config();
 const User = require("../models/User");
 

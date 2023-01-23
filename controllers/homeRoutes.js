@@ -3,7 +3,7 @@ const { User, Post, Comment } = require("../models");
 const withAuth = require('../utils/auth');
 
 router.get("/", async (req, res) => {
-  console.log("GET /");
+  // console.log("GET /");
   try {
     const postData = await Post.findAll({
       attributes: [
@@ -50,8 +50,6 @@ router.get("/", async (req, res) => {
     res.render("homepage", {
       posts,
       logged_in: req.session.logged_in,
-      // username: req.session.username,
-      // user: req.user
     });
   } catch (err) {
     res.status(500).json(err);
@@ -59,7 +57,7 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/post/:id", async (req, res) => {
-  console.log(req.params.id);
+  // console.log(req.params.id);
   try {
     const postData = await Post.findOne({
       where: {
@@ -102,7 +100,6 @@ router.get("/post/:id", async (req, res) => {
       ],
     });
 
-    // const post = dbPostData.map((post) => post.get({ plain: true }));
     const post = postData.get({ plain: true });
 
     res.render("post", {
@@ -110,16 +107,12 @@ router.get("/post/:id", async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    console.error(err);
+    // console.error(err);
     res.status(500).json(err);
   }
 });
 
 router.get("/weather", (req, res) => {
-  // if (req.session.logged_in) {
-  //   res.redirect("/weather");
-  //   return;
-  // }
   res.render("weather", {
     logged_in: req.session.logged_in,
   });
