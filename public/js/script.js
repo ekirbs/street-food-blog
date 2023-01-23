@@ -85,7 +85,13 @@ function displayVendorInfo(vendor) {
   console.log(vendor);
   let name = vendor.name;
   $("#vendor-name").empty();
-  $("#vendor-name").append(`<h3>${name} ${vendor.logo}</h3>`);
+  $("#vendor-name").append(`<h3>${name}</h3>`);
+  if(vendor.logo){
+    $("#vendor-name").append(`<img src="${vendor.logo}" id="logo "alt="logo" width="50" height="50">`);
+  } else {
+    $("#vendor-name").append(`<img src="https://cdn-icons-png.flaticon.com/512/651/651107.png" id="logo" alt="logo" width="50" height="50">`);
+  }
+  
 
   let website = "https://" + vendor.website;
 
@@ -96,7 +102,12 @@ function displayVendorInfo(vendor) {
 
   let payment = vendor.payment_methods;
   $("#vendor-payment-card").empty();
-  $("#vendor-payment-card").append("<br/>" + "Vendor Payment Methods:" + "<br/>" + payment + "<br/>");
+  if(vendor.payment_methods){
+    $("#vendor-payment-card").append("<br/>" + "Vendor Payment Methods:" + "<br/>" + payment + "<br/>");
+  } else {
+    $("#vendor-payment-card").append("<br/>" + "Vendor Payment Methods:" + "<br/>" + "Cash" + "<br/>");
+  }
+  
 
   let address = vendor.address;
   $("#vendor-directions-card").empty();

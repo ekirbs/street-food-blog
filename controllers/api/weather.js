@@ -2,6 +2,7 @@ const axios = require('axios') //back end fetches in promises
 const router = require('express').Router();
 require('dotenv').config();
 
+
 // .env will hide the api key
 //the actual route is /api/weather/
 router.get('/', async (req, res) => {
