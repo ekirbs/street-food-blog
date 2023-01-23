@@ -753,7 +753,7 @@ main {
   .main-content {
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 2% 18% 2% 50% 2% 20% 2% 30% 2% 5%;
+    grid-template-rows: 2% 18% 2% 50% 2% 15% 2% 30% 2% 5%;
     grid-auto-rows: minmax(50px, auto);
     grid-gap: 1em;
     margin: 0;
@@ -830,6 +830,11 @@ main {
     .signup-card {
       width: 100%;
       flex: 0 0 100%;
+    }
+
+    /* PROFILE */
+    .welcome-mat {
+      display: none;
     }
 }
 
