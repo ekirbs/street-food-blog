@@ -74,41 +74,40 @@ async function displayStreetFoodInfo() {
 }
 
 function displayVendorInfo(vendor) {
-  const image = {
-    url: vendor.logo,
-    // This marker is 20 pixels wide by 32 pixels high.
-    scaledSize: new google.maps.Size(50, 50),
-  };
+  // const image = {
+  //   url: vendor.logo,
+  //   // This marker is 20 pixels wide by 32 pixels high.
+  //   scaledSize: new google.maps.Size(50, 50),
+  // };
   vendorZoom = {lat: vendor.lat, lng: vendor.long};
   initMap();
   console.log(vendor);
   let name = vendor.name;
   $("#vendor-name").empty();
-  $("#vendor-name").append(`<h3>${name} ${vendor.logo}</h3>`);
+  $("#vendor-name").append(`<h3>${name}</h3>`);
 
   let website = "https://" + vendor.website;
 
-
   let description = vendor.description;
   $("#vendor-description-card").empty();
-  $("#vendor-description-card").append("<br/>" + "Vendor Description:" + "<br/>" + description + "<br/>");
+  $("#vendor-description-card").append("<br/>" + "Description:" + "<br/>" + description + "<br/>");
 
   let payment = vendor.payment_methods;
   $("#vendor-payment-card").empty();
-  $("#vendor-payment-card").append("<br/>" + "Vendor Payment Methods:" + "<br/>" + payment + "<br/>");
+  $("#vendor-payment-card").append("<br/>" + "Payment Methods:" + "<br/>" + payment + "<br/>");
 
   let address = vendor.address;
   $("#vendor-directions-card").empty();
-  $("#vendor-directions-card").append("<br/>" + "Vendor Location:" + "<br/>" + address + "<br/>");
+  $("#vendor-directions-card").append("<br/>" + "Location:" + "<br/>" + address + "<br/>");
 
   let phone = vendor.phone;
   let email = vendor.email;
   $("#vendor-contact-card").empty();
-  $("#vendor-contact-card").append("<br/>" + "Vendor Phone Number:" + "<br/>" + phone + "<br/>" + "Vendor Email Address:" + "<br/>" + email + "<br/>" + `<a href="${website}">${website}</a>`);
+  $("#vendor-contact-card").append("<br/>" + "Phone Number:" + "<br/>" + phone + "<br/>" + "Vendor Email Address:" + "<br/>" + email + "<br/>" + `<a href="${website}">${website}</a>`);
 
   let ratings = vendor.ratings;
   $("#vendor-rating-card").empty();
-  $("#vendor-rating-card").append("<br/>" + "Vendor ratings:" + "<br/>" + ratings);
+  $("#vendor-rating-card").append("<br/>" + "Ratings:" + "<br/>" + ratings);
 }
 
 $(".dropdown-menu").on("click", function (event) {
