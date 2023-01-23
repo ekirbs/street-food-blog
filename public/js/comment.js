@@ -1,11 +1,11 @@
 const newCommentFormHandler = async (event) => {
   event.preventDefault();
 
-  // const comment_body = document.querySelector("#comment-body").value.trim();
+
   const comment_body = document.querySelector('textarea[name="comment-body"]').value.trim();
   const post_id = document.querySelector('#add-comment-text-area').getAttribute('data-post-id')
-  console.log(comment_body);
-  console.log(post_id);
+  // console.log(comment_body);
+  // console.log(post_id);
 
   if (comment_body) {
     const response = await fetch(`/api/comments`, {
@@ -18,31 +18,29 @@ const newCommentFormHandler = async (event) => {
         'Content-Type': 'application/json',
       },
     });
-    console.log(response);
+    // console.log(response);
 
     if (response.ok) {
       document.location.reload();
     } else {
-      // alert('Failed to create comment');
       alert(response.statusText);
     }
   }
 };
 
 const delCommentBtnHandler = async (event) => {
-  console.log("delete comment button pressed.");
-  console.log(event);
+  // console.log("delete comment button pressed.");
+  // console.log(event);
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
-    console.log(id);
+    // console.log(id);
     const response = await fetch(`/api/comments/${id}`, {
       method: 'DELETE',
     });
-    console.log(response);
+    // console.log(response);
     if (response.ok) {
       document.location.reload();
     } else {
-      // alert('Failed to delete comment.');
       alert(response.statusText);
     }
   }

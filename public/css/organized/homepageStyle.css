@@ -7,9 +7,7 @@
   grid-template-rows: 15% 50% 50% 50% 10%;
   grid-auto-rows: minmax(50px, auto);
   grid-gap: 1em;
-  /* margin: 1em; */
   margin: 0;
-  /* padding-top: 85px; */
   margin-top: 50px;
 }
 
@@ -21,19 +19,13 @@
   background: rgba(251,251,251, 0.50);
   border-radius: 1rem;
   box-shadow: .2rem .2rem 0 0 var(--primary);
-  /* background: var(--light); */
   padding: 1em;
-  /* color: var(--white); */
 }
 
-/* .main-content>section:nth-child(odd) {
-  background-color: var(--tertiary);
-} */
 
 /* HOMEPAGE SECTION */
 .section-label {
   font-size: 2vw;
-  /* border-right: 6px solid var(--primary); */
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -44,14 +36,13 @@
 /* ABOUT-SITE SECTION */
 #about-site {
   padding: 2rem;
-  /* padding: auto; */
-  color: #000000;
+  color: var(--black);
   font-size: .1rem;
 }
 
 #about-site p {
   padding: 10px;
-  color: #000000;
+  color: var(--black);
   font-size: 1rem;
 }
 
@@ -80,14 +71,13 @@
   font-weight: bolder;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 400%;
-  color: black;
+  color: var(--black);
   text-decoration: underline;
 }
 
 .card {
   height: 100%;
   width: 100%;
-  /* margin: 1%; */
   background-color: var(--tertiary);
   display: flex;
   justify-content: center;

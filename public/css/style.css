@@ -1,13 +1,100 @@
-/* header {
-  padding: 40px;
-  text-align: center;
-  background: var(--primary);
-  color: var(--light);
+/* |||| GLOBAL STYLE |||| */
+
+/* ROOT COLOR KEY */
+:root {
+  --primary: #424242;
+  --secondary: #7cb342;
+  --tertiary: #bdbdbd;
+  --quatrinary: #eeeeee;
+  --light: #e3e4e3;
+  --dark: #7cb342;
+  --black: #000000;
+  --error: rgb(228, 46, 1);
+  --border-radius: 0.3rem;
 }
 
+/* GLOBAL EFFECTS */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  /* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
+  font-family: Arial;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: flex-start;
+  background-image: url("/images/bostonbackground.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: #cccccc;
+}
+
+a {
+  color: var(--dark);
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 100%;
+}
+
+a:visited {
+  color: inherit;
+}
+
+.zoom {
+  transition: transform 0.2s;
+}
+
+.zoom:hover {
+  transform: scale(1.025);
+}
+
+.sticky-fix {
+  margin-top: 5rem;
+}
+
+
+
+
+
+
+/* || main.handlebars STYLE || */
+
+/* HEADER & NAVBAR */
+#navbar {  /* this is a misleading id... */
+  overflow: hidden;
+  background-color: #333;
+  z-index:1;
+  margin-top: 0;
+  
+}
+
+#navbar a,
+#navbar button {  /* this is a misleading id... */
+  /* Navbar links */
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+#navbar nav a:hover,
+#navbar nav button:hover {
+  color: var(--primary);
+}
+
+/* HEADER */
 header {
-  background-color: var(--dark-background);
-  color: var(--white);
+  background: var(--primary);
+  color: var(--light);
   position: static;
   top: 0px;
   overflow: auto;
@@ -16,97 +103,728 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-} */
+  padding: 40px;
+}
 
-/* aside {
-  flex: 0;
-  background-color: var(--tertiary);
-  padding: 80px;
-  text-align: left;
-  color: var(--light);
-} */
+header img {
+  width: 5em;
+  height: auto;
+}
 
-/* .gallery {
-  flex: 4;
-  background-color: #fff;
-  padding: 50px;
+header h1 {
+  display: inline-block;
+  font-size: 48px;
+  text-decoration: underline var(--secondary);
+  margin-left: 20px;
+}
+
+#currentDay {
+  padding-right: 10px;
+}
+
+/* NAVBAR */
+nav {
   display: flex;
-  flex-flow: row wrap;
+  background-color: var(--secondary);
+  border-bottom: .1em solid var(--primary);
+}
+
+nav a {
+  color: var(--light);
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+nav a:hover {
+  color: var(--primary);
+  background-color: var(--dark);
+}
+
+.btn-no-style {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 100%;
+  transition: color 0.1s;
+  margin-left: 16px;
+}
+
+.float-right {
+  position: absolute;
+  right: 0px;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 50px;
+}
+
+/* MAIN */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+
+  flex-flow: column wrap;
+  align-content: flex-start;
+  align-items: center;
+}
+
+
+.posts {
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+/* || homepage.handlebars GENERAL STYLE || */
+
+/* HOMEPAGE GENERAL */
+.main-content {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 15% 50% 50% 50% 10%;
+  grid-auto-rows: minmax(50px, auto);
+  grid-gap: 1em;
+  margin: 0;
+  margin-top: 50px;
+}
+
+.main-scroll {  /* this doesn't appear in the homepage.handlebars, but it does in the devTools... */
+  margin-top: 150px;
+}
+
+.box-style {
+  background: rgba(251,251,251, 0.50);
+  border-radius: 1rem;
+  box-shadow: .2rem .2rem 0 0 var(--primary);
+  padding: 1em;
+}
+
+
+
+/* HOMEPAGE SECTION */
+.section-label {
+  font-size: 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+  text-decoration: underline var(--secondary);
+}
+
+/* ABOUT-SITE SECTION */
+#about-site {
+  padding: 2rem;
+  color: var(--black);
+  font-size: .1rem;
+}
+
+#about-site p {
+  padding: 10px;
+  color: var(--black);
+  font-size: 1rem;
+}
+
+/* VENDOR INFO SECTION */
+.info-section {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.75em;
+  grid-template-areas:
+    "name name name"
+    "main main alt"
+    "alt alt alt";
+}
+
+.vendor-name {
+  width: 0;
+  height: 20em;
+  margin: 2px;
+  min-width: 100%;
+  min-height: 100%;
+  grid-area: 1 / 1 / span 1 / span 3;
+}
+
+#vendor-name h3 {
+  font-weight: bolder;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 400%;
+  color: var(--black);
+  text-decoration: underline;
+}
+
+.card {
+  height: 100%;
+  width: 100%;
+  background-color: var(--tertiary);
+  display: flex;
   justify-content: center;
   align-items: center;
-} */
-
-/* img {
-  max-width: 100%;
-  height: auto;
-} */
-
-/* .painting {
-  width: 50%;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 25px;
-} */
-
-/* .painting-details {
-  text-align: center;
-  padding: 10px 20px;
-  font-weight: bold;
-} */
-
-/* CARDS */
-
-/* .card {
-  margin: 20px;
+  position: relative;
+  text-align: flex-end;
+  overflow: hidden;
   border: 7px double var(--dark);
-  background-color: var(--light);
+  border-radius: 10px;
   color: var(--dark);
-} */
+  flex: 0 1 300px;
+}
 
-/* flex: 0 0 50%;
-  max-width: 50%;
-  padding: 5px;
+.card a { 
+  opacity: 75%;
+}
+
+.card-main {
+  width: 0;
+  height: 20em;
+  margin: 2px;
+  min-width: 100%;
+  min-height: 100%;
+  grid-area: 2 / 1 / span 1 / span 2;
+}
+
+.card-alt {
+  width: 0;
+  height: 0;
+  margin: 2px;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+#food-type,
+#vendor-description-card,
+#vendor-rating-card,
+#vendor-directions-card,
+#vendor-payment-card,
+#vendor-contact-card,
+#contact-section {
+  padding: 5%;
+  color: var(--black);
+  font-family: 'Dosis', sans-serif;
+  font-weight: bolder;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.img-text {
+  position: absolute;
+  top: 0;
+  background: var(--primary);
+  color: var(--tertiary);
+  flex: 1 1 50%;
+  padding: 2px;
+
+  width: 100%;
+  height: 2rem;
+}
+
+.img-text p {
+  text-align: center;
+}
+
+.img-text h4 {
+  text-align: center;
+}
+
+/* GOOGLE MAP SECTION */
+#map {
+  height: 100%;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.home-post {
+  width: 100%;
+  background-color: var(--tertiary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: flex-end;
+  overflow: hidden;
+  border: 7px double var(--dark);
+  border-radius: 10px;
+  color: var(--primary);
+  flex: 0 1 300px;
+}
+
+
+.contact-header {
+  background: var(--primary);
+  border-radius: 1rem;
+}
+
+.contact-header h3 {
+  color: var(--light);
+}
+
+.contact-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5%;
+  background: var(--primary);
+  border-radius: 1rem;
+}
+
+.contact-section a {
+  color: var(--light);
+}
+
+
+
+
+
+
+
+
+
+/* || profile.handlebars STYLE || */
+.card-two {
+  height: 100%;
+  width: 100%;
+  margin: 1%;
+  background-color: var(--tertiary);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: flex-end;
+  overflow: hidden;
+  border: 7px double var(--dark);
+  border-radius: 10px;
+  color: var(--dark);
+}
+
+.profile {
+  text-align: left;
+  width: 100%;
+  font-weight: bolder;
+  color: black
+}
+
+.card-profile-two {
+  height: 100%;
+  width: 100%;
+  margin: 1%;
+  background-color: var(--tertiary);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: flex-end;
+  overflow: hidden;
+  border: 7px double var(--dark);
+  border-radius: 10px;
+  color: var(--black);
+  font-weight: bolder;
+}
+
+.create-post-btn {
+  font-weight: bolder;
+}
+
+.delete-post-btn {
+  color: var(--black);
+  font-weight: bolder;
+}
+
+.myPosts h3 {
+  padding-bottom: 10px;
+  color: white;
+  background-color: var(--secondary);
+  border: 7px double var(--primary);
+  border-radius: 10px ;
+  text-align: center ;
+  text-decoration: underline black ;
+}
+
+.myPosts p {
+  padding-top: 10px;
+}
+
+.post {
+  color: black;
+}
+
+.edit-post {
+  color: black;
+  font-weight: bolder;
+}
+
+.row { 
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+/* || post.handlebars STYLE || */
+
+
+
+
+
+
+
+
+/* || weather.handlebars STYLE || */
+#weather-content {
+  margin-top: 150px;
+    background: rgba(251,251,251, 0.50);
+    border-radius: 1rem;
+    box-shadow: .2rem .2rem 0 0 var(--primary);
+    padding: 1em;
+}
+
+#weather-forecast-header {
+  margin: 1rem;
+}
+
+.daily-section {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0.75em;
+  grid-template-areas:
+    "main main main alt"
+    "alt alt alt alt";
+  margin: 1rem;
+  }
+
+
+.weather-card-main {
+  width: 30%;
+  height: 20em;
+  margin: 2px;
+  min-width: 100%;
+  min-height: 100%;
+  grid-area: 1 / 1 / span 1 / span 3;
+}
+
+.weather-card-alt {
+  width: 20%;
+  height: 0;
+  margin: 2px;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.weather-img-text {
+  position: absolute;
+  top: 0;
+  background: var(--primary);
+  color: var(--tertiary);
+  flex: 1 1 50%;
+  padding: 2px;
+  width: 100%;
+  height: 2rem;
+}
+
+.weather-img-text p {
+  text-align: center;
+}
+
+.weather-img-text h4 {
+  text-align: center;
+}
+
+.card-text {
+  color: var(--primary);
+}
+
+
+
+
+
+
+
+
+/* || login.handlebars STYLE || */
+
+/* LOGIN */
+.login-card {
+  width: 7.5rem;
+  height: auto;
+  display: block;
+  flex: 0 0 50%;
+  padding: 1em 2em 2em;
+  border: 3px solid var(--primary);
+  border-radius: var(--border-radius);
+  border-style: double;
+  border-width: thick;
+  background-color: var(--secondary);
+}
+
+.login-btn {
+  color: var(--light);
+  background-color: var(--primary);
+}
+
+.signup-btn {
+  color: var(--light);
+  background-color: var(--primary);
+  margin: 2rem 0;
+}
+
+.google-btn {
+  color: var(--primary);
+}
+
+/* SIGNUP */
+.signup-card {
+  width: 50%;
+  height: auto;
+  display: block;
+  flex: 0 0 50%;
+  padding: 1em 2em 1em;
   border: 3px solid var(--primary);
   border-radius: var(--border-radius);
   border-style: double;
   border-width: thick;
   background-color: var(--dark);
-  /* background-color: #577a7c; */
-  /* color: var(--primary); */ 
-
-
-/* ADDED */
-
-/* .active,
-.dot:hover {
-  background-color: var(--primary);
-} */
-
-/* FADING ANIMATION */
-/* .fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
 }
 
-@keyframes fade {
-  from {
-    opacity: 0.4;
+
+
+
+
+
+
+
+/* || editUser.handlebars STYLE || */
+.edit-user-a {
+  font-weight: bolder;
+  color: var(--black);
+}
+
+
+
+
+
+
+
+
+/* || editPost.handlebars STYLE || */
+
+
+
+
+
+
+
+
+/* || editComment.handlebars STYLE || */
+
+
+
+
+
+
+
+
+/* || 404.handlebars STYLE || */
+#badnav-area {
+  background: rgba(251,251,251, 0.50);
+  border-radius: 1rem;
+  box-shadow: .2rem .2rem 0 0 var(--primary);
+}
+
+#badnav-area h1 {
+  text-decoration: underline;
+}
+
+#badnav-area img {
+  width: 60vw;
+  height: 40vh;
+}
+
+.btn-404 {
+  margin: 2rem 0;
+}
+
+
+
+
+
+
+
+
+/* || Viewport Resizing || */
+
+/* MOBILE-SIZE SCREEN(400px) */
+@media screen and (max-width: 400px) {  /* need to remove unued code from below */
+
+  /* HOMEPAGE */
+  #navbar {
+    position: relative;
   }
-  to {
-    opacity: 1;
+
+  header p {
+    display: none;
   }
-} */
 
-/* .container {
-  width: 100%;
-} */
+  .main-content {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 2% 18% 2% 50% 2% 15% 2% 30% 2% 5%;
+    grid-auto-rows: minmax(50px, auto);
+    grid-gap: 1em;
+    margin: 0;
+    margin-top: 0;
+  }
+
+  .info-section {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: 1fr;
+    grid-gap: 0.75em;
+    grid-template-areas:
+      "name"
+      "main"
+      "alt"
+      "alt"
+      "alt"
+      "alt";
+  }
+
+  .vendor-name {
+    width: 0;
+    height: 20em;
+    margin: 2px;
+    min-width: 100%;
+    min-height: 100%;
+    grid-area: 1 / 1 / span 1 / span 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  #vendor-name h3 {
+    font-size: 2em;
+  }
+
+  .card-main {
+    width: 0;
+    height: 20em;
+    margin: 2px;
+    min-width: 100%;
+    min-height: 100%;
+    grid-area: 2 / 1 / span 1 / span 1;
+  }
+
+  /* WEATHER */
+  #weather-content {
+    margin-top: 0;
+  }
+
+  .daily-section {
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "main"
+      "alt"
+      "alt"
+      "alt"
+      "alt"
+      "alt";
+    margin: 1rem;
+    }
+
+    .weather-card-main {
+      grid-area: 1 / 1 / span 1 / span 1;
+    }
+
+    /* LOGIN */
+    .login-card {
+      width: 100%;
+      flex: 0 0 100%;
+    }
+
+    /* SIGNUP */
+    .signup-card {
+      width: 100%;
+      flex: 0 0 100%;
+    }
+
+    /* PROFILE */
+    .welcome-mat {
+      display: none;
+    }
+}
 
 
 
-/* .content {
+
+
+
+
+/* || UNKNOWN STYLE || */
+.card header {
+  color: var(--light);
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+  background-color: var(--tertiary);
+  padding: 0.625rem;
+  border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+}
+
+.card-body {
+  font-size: 1.4rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.form-group label {
+  color: #424242;
+}
+
+.form-group-btn {
+  text-align: center;
   position: relative;
-  top: 0%;
-  right: 0%;
-} */
+  top: 20px;
+
+}
 
 
+
+h2 {  /* this is no good... */
+  font-weight: bolder;
+  color: black;
+}
+
+h3 {  /* this is no good... */
+  font-weight: bolder;
+}
+
+.ptitle h2 {
+  text-align: center;
+  color: var(--black);
+}
+
+#foodcart {  /* what is this?? */
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}

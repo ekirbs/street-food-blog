@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { User, Post, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
-// actually /profile
+
 router.get("/", withAuth, async (req, res) => {
   console.log("GET all posts on dashboard");
   try {
@@ -57,9 +57,9 @@ router.get("/", withAuth, async (req, res) => {
       ],
     });
 
-    // console.log(postData);
+
     const posts = postData.map((post) => post.get({ plain: true }));
-    // console.log(posts);
+
 
     res.render("profile", {
       posts,
@@ -71,7 +71,7 @@ router.get("/", withAuth, async (req, res) => {
   }
 });
 
-// router.get("/edit/:id", withAuth, async (req, res) => {
+
 router.get("/post/:id", withAuth, async (req, res) => {
   console.log(req.params.id);
   try {
@@ -114,7 +114,7 @@ router.get("/post/:id", withAuth, async (req, res) => {
       ],
     });
 
-    // const post = dbPostData.map((post) => post.get({ plain: true }));
+
     const post = postData.get({ plain: true });
 
     res.render("post", {
@@ -122,14 +122,14 @@ router.get("/post/:id", withAuth, async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    console.error(err);
+    // console.error(err);
     res.status(500).json(err);
   };
 });
 
-// profile/editPost/:id
+
 router.get("/editPost/:id", withAuth, async (req, res) => {
-  console.log(req.params.id);
+  // console.log(req.params.id);
   try {
     const postData = await Post.findOne({
       where: {
@@ -174,7 +174,7 @@ router.get("/editPost/:id", withAuth, async (req, res) => {
       ],
     });
 
-    // const post = dbPostData.map((post) => post.get({ plain: true }));
+  
     const post = postData.get({ plain: true });
 
     res.render("editPost", {
@@ -182,14 +182,14 @@ router.get("/editPost/:id", withAuth, async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    console.error(err);
+    // console.error(err);
     res.status(500).json(err);
   };
 });
 
 router.get("/editUser", withAuth, async (req, res) => {
-  console.log("GET/ in profile routes for editUser")
-  console.log(req.session.id);
+  // console.log("GET/ in profile routes for editUser")
+  // console.log(req.session.id);
   try {
     const userData = await User.findOne({
       where: {
@@ -201,21 +201,21 @@ router.get("/editUser", withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    console.log(userData);
+    // console.log(userData);
 
     res.render("editUser", {
       user,
       logged_in: req.session.logged_in
     });
   } catch (err) {
-    console.error(err);
+    // console.error(err);
     res.status(500).json(err);
   };
 });
 
-// profile/editComment/:id
+
 router.get("/editComment/:id", withAuth, async (req, res) => {
-  console.log(req.params.id);
+  // console.log(req.params.id);
   try {
     const commentData = await Comment.findOne({
       where: {
@@ -263,7 +263,7 @@ router.get("/editComment/:id", withAuth, async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    console.error(err);
+    // console.error(err);
     res.status(500).json(err);
   };
 });
