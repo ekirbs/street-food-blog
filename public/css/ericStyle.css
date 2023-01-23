@@ -215,7 +215,8 @@ main {
   grid-template-rows: 15% 50% 50% 50% 10%;
   grid-auto-rows: minmax(50px, auto);
   grid-gap: 1em;
-  margin: 1em;
+  /* margin: 1em; */
+  margin: 0;
   /* padding-top: 85px; */
   margin-top: 50px;
 }
@@ -224,7 +225,7 @@ main {
   margin-top: 150px;
 }
 
-.main-content>section {
+.box-style {
   background: rgba(251,251,251, 0.50);
   border-radius: 1rem;
   box-shadow: .2rem .2rem 0 0 var(--primary);
@@ -409,18 +410,33 @@ main {
   padding: 1em;
 } */
 
+.contact-header {
+  background: var(--primary);
+  border-radius: 1rem;
+}
+
+.contact-header h3 {
+  color: var(--light);
+}
+
 .contact-section {
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 5%;
+  background: var(--primary);
+  border-radius: 1rem;
 }
 
-.contact-section a img {
-  height: 8vh;
-  width: 8vh;
-  border-radius: 10%;
+.contact-section a {
+  color: var(--light);
 }
+
+/* .contact-section a img {
+  height: 5vh;
+  width: 5vh;
+  border-radius: 10%;
+} */
 
 
 
@@ -720,6 +736,110 @@ main {
 
 
 
+/* || Viewport Resizing || */
+
+/* MOBILE-SIZE SCREEN(400px) */
+@media screen and (max-width: 400px) {  /* need to remove unued code from below */
+
+  /* HOMEPAGE */
+  #navbar {
+    position: relative;
+  }
+
+  header p {
+    display: none;
+  }
+
+  .main-content {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 2% 18% 2% 50% 2% 15% 2% 30% 2% 5%;
+    grid-auto-rows: minmax(50px, auto);
+    grid-gap: 1em;
+    margin: 0;
+    margin-top: 0;
+  }
+
+  .info-section {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: 1fr;
+    grid-gap: 0.75em;
+    grid-template-areas:
+      "name"
+      "main"
+      "alt"
+      "alt"
+      "alt"
+      "alt";
+  }
+
+  .vendor-name {
+    width: 0;
+    height: 20em;
+    margin: 2px;
+    min-width: 100%;
+    min-height: 100%;
+    grid-area: 1 / 1 / span 1 / span 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  #vendor-name h3 {
+    font-size: 2em;
+  }
+
+  .card-main {
+    width: 0;
+    height: 20em;
+    margin: 2px;
+    min-width: 100%;
+    min-height: 100%;
+    grid-area: 2 / 1 / span 1 / span 1;
+  }
+
+  /* WEATHER */
+  #weather-content {
+    margin-top: 0;
+  }
+
+  .daily-section {
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "main"
+      "alt"
+      "alt"
+      "alt"
+      "alt"
+      "alt";
+    margin: 1rem;
+    }
+
+    .weather-card-main {
+      grid-area: 1 / 1 / span 1 / span 1;
+    }
+
+    /* LOGIN */
+    .login-card {
+      width: 100%;
+      flex: 0 0 100%;
+    }
+
+    /* SIGNUP */
+    .signup-card {
+      width: 100%;
+      flex: 0 0 100%;
+    }
+
+    /* PROFILE */
+    .welcome-mat {
+      display: none;
+    }
+}
+
+
+
 
 
 
@@ -756,9 +876,6 @@ main {
 width: 10vw;
 height: 5vh;
 } */
-
-
-/* || VENDOR INFO SECTION */
 
 h2 {  /* this is no good... */
   font-weight: bolder;

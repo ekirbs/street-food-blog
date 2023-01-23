@@ -1,20 +1,28 @@
-/* || main.handlebars STYLE */
+/* || main.handlebars STYLE || */
 
-/* BODY */
-body {
-  /* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
-  font-family: Arial;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  justify-content: flex-start;
-  /* background-color: var(--quatrinary); */
-  background-image: url("/images/bostonbackground.jpg");
-  background-size: cover;
-  background-position: center;
-  background-color: #cccccc;
-  /* padding-top: 65px; */
+/* HEADER & NAVBAR */
+#navbar {  /* this is a misleading id... */
+  overflow: hidden;
+  background-color: #333;
+  z-index:1;
+  margin-top: 0;
+  
+}
+
+#navbar a,
+#navbar button {  /* this is a misleading id... */
+  /* Navbar links */
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+#navbar nav a:hover,
+#navbar nav button:hover {
+  color: var(--primary);
 }
 
 /* HEADER */
@@ -52,6 +60,7 @@ header h1 {
 nav {
   display: flex;
   background-color: var(--secondary);
+  border-bottom: .1em solid var(--primary);
 }
 
 nav a {
@@ -64,24 +73,6 @@ nav a {
 nav a:hover {
   color: var(--primary);
   background-color: var(--dark);
-}
-
-#navbar {
-  overflow: hidden;
-  background-color: #333;
-  z-index:1;
-  margin-top: 0;
-  
-}
-
-#navbar a {
-  /* Navbar links */
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px;
-  text-decoration: none;
 }
 
 .btn-no-style {

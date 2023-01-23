@@ -1,12 +1,75 @@
 /* || weather.handlebars STYLE || */
 #weather-content {
   margin-top: 150px;
+    background: rgba(251,251,251, 0.50);
+    border-radius: 1rem;
+    box-shadow: .2rem .2rem 0 0 var(--primary);
+    /* background: var(--light); */
+    padding: 1em;
+    /* color: var(--white); */
+}
+
+#weather-forecast-header {
+  margin: 1rem;
 }
 
 .daily-section {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0.75em;
+  grid-template-areas:
+    "main main main alt"
+    "alt alt alt alt";
+  margin: 1rem;
+  }
+
+/* .daily-section {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+} */
+
+.weather-card-main {
+  width: 30%;
+  height: 20em;
+  margin: 2px;
+  min-width: 100%;
+  min-height: 100%;
+  grid-area: 1 / 1 / span 1 / span 3;
+}
+
+.weather-card-alt {
+  width: 20%;
+  height: 0;
+  margin: 2px;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.weather-img-text {
+  position: absolute;
+  top: 0;
+  /* right: 0; */
+  background: var(--primary);
+  color: var(--tertiary);
+  flex: 1 1 50%;
+  padding: 2px;
+
+  width: 100%;
+  height: 2rem;
+}
+
+.weather-img-text p {
+  text-align: center;
+}
+
+.weather-img-text h4 {
+  text-align: center;
+}
+
+.card-text {
+  color: var(--primary);
 }

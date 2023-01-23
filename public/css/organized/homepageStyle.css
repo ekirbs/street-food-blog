@@ -7,7 +7,8 @@
   grid-template-rows: 15% 50% 50% 50% 10%;
   grid-auto-rows: minmax(50px, auto);
   grid-gap: 1em;
-  margin: 1em;
+  /* margin: 1em; */
+  margin: 0;
   /* padding-top: 85px; */
   margin-top: 50px;
 }
@@ -16,14 +17,18 @@
   margin-top: 150px;
 }
 
-.main-content>section {
+.box-style {
   background: rgba(251,251,251, 0.50);
   border-radius: 1rem;
   box-shadow: .2rem .2rem 0 0 var(--primary);
-  background: var(--light);
+  /* background: var(--light); */
   padding: 1em;
-  color: var(--white);
+  /* color: var(--white); */
 }
+
+/* .main-content>section:nth-child(odd) {
+  background-color: var(--tertiary);
+} */
 
 /* HOMEPAGE SECTION */
 .section-label {
@@ -38,7 +43,8 @@
 
 /* ABOUT-SITE SECTION */
 #about-site {
-  padding: auto;
+  padding: 2rem;
+  /* padding: auto; */
   color: #000000;
   font-size: .1rem;
 }
@@ -95,6 +101,10 @@
   flex: 0 1 300px;
 }
 
+.card a {  /* what does this target? */
+  opacity: 75%;
+}
+
 .card-main {
   width: 0;
   height: 20em;
@@ -114,9 +124,9 @@
 
 #food-type,
 #vendor-description-card,
-#vendor-weather-card,
+#vendor-rating-card,
 #vendor-directions-card,
-#vendor-hours-card,
+#vendor-payment-card,
 #vendor-contact-card,
 #contact-section {
   padding: 5%;
@@ -159,9 +169,19 @@
   border-radius: 1rem;
 }
 
-
-.row {  /* this is no good... */
+.home-post {
   width: 100%;
+  background-color: var(--tertiary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: flex-end;
+  overflow: hidden;
+  border: 7px double var(--dark);
+  border-radius: 10px;
+  color: var(--primary);
+  flex: 0 1 300px;
 }
 
 /* || FOOTER SECTION || */
@@ -182,15 +202,30 @@
   padding: 1em;
 } */
 
+.contact-header {
+  background: var(--primary);
+  border-radius: 1rem;
+}
+
+.contact-header h3 {
+  color: var(--light);
+}
+
 .contact-section {
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 5%;
+  background: var(--primary);
+  border-radius: 1rem;
 }
 
-.contact-section a img {
-  height: 8vh;
-  width: 8vh;
-  border-radius: 10%;
+.contact-section a {
+  color: var(--light);
 }
+
+/* .contact-section a img {
+  height: 5vh;
+  width: 5vh;
+  border-radius: 10%;
+} */
