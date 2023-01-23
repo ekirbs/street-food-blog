@@ -1,0 +1,22 @@
+/* || 404.handlebars STYLE || */
+#badnav-area {
+  background: rgba(251,251,251, 0.50);
+  border-radius: 1rem;
+  box-shadow: .2rem .2rem 0 0 var(--primary);
+  /* background: var(--light); */
+  /* padding: 1em; */
+  /* color: var(--white); */
+}
+
+#badnav-area h1 {
+  text-decoration: underline;
+}
+
+#badnav-area img {
+  width: 60vw;
+  height: 40vh;
+}
+
+.btn-404 {
+  margin: 2rem 0;
+}

@@ -51,8 +51,8 @@
 .myPosts h3 {
   padding-bottom: 10px;
   color: white;
-  background-color: rgb(71, 158, 44) ;
-  border: 7px double rgb(71, 158, 44) ;
+  background-color: var(--secondary);
+  border: 7px double var(--primary);
   border-radius: 10px ;
   text-align: center ;
   text-decoration: underline black ;
@@ -69,4 +69,8 @@
 .edit-post {
   color: black;
   font-weight: bolder;
+}
+
+.row {  /* this is no good... */
+  width: 100%;
 }
