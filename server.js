@@ -54,5 +54,5 @@ res.render('404')
 );
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`App listening on PORT ${PORT} 🚀`));
+  app.listen(PORT, () => console.log(`App listening on PORT ${PORT} 🍔`));
 });

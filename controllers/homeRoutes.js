@@ -117,7 +117,6 @@ router.get("/weather", (req, res) => {
     logged_in: req.session.logged_in,
   });
 
-  res.render("weather");
 });
 
 router.get("/login", (req, res) => {

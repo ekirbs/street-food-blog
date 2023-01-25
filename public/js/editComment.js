@@ -1,4 +1,4 @@
-const editPostFormHandler = async (event) => {
+const editCommentFormHandler = async (event) => {
   event.preventDefault();
 
   const id = window.location.toString().split("/")[
@@ -25,7 +25,7 @@ const editPostFormHandler = async (event) => {
   }
 };
 
-// const delPostButtonHandler = async (event) => {
+// const deleteCommentButtonHandler = async (event) => {
 //   if (event.target.hasAttribute('data-id')) {
 //     const id = event.target.getAttribute('data-id');
 //     console.log(id);
@@ -43,6 +43,6 @@ const editPostFormHandler = async (event) => {
 //   }
 // };
 
-document.querySelector('.edit-post-form').addEventListener('submit', editPostFormHandler);
+document.querySelector('.edit-comment-form').addEventListener('submit', editCommentFormHandler);
 
-// document.querySelector(".delete-post-btn").addEventListener("click", deletePostFormHandler);
+// document.querySelector(".delete-comment-btn").addEventListener("click", deleteCommentButtonHandler);
