@@ -1,13 +1,11 @@
-const axios = require('axios') //back end fetches in promises
+const axios = require('axios');
 const router = require('express').Router();
 require('dotenv').config();
 
 // .env will hide the api key
-//the actual route is /api/streetfood/
 router.get('/', async (req, res) => {
-    // console.log('GET all street food info');
     try {
-        const streetFoodApiUrl = `http://data.streetfoodapp.com/1.1/schedule/boston/`; // move any apiKeys, even simple ones, to .env
+        const streetFoodApiUrl = `http://data.streetfoodapp.com/1.1/schedule/boston/`;
         const response = await axios.get(streetFoodApiUrl);
         res.status(200).json(response.data);
     } catch (err) {

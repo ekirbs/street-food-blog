@@ -5,7 +5,6 @@ require('dotenv').config();
 
 
 router.get('/', async (req, res) => {
-    // console.log('GET all weather info');
     try {
         const weatherApiKey = process.env.weatherApiKey;
         const units = "imperial";

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Comment } = require("../../models");
+const { User, Post, Comment } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
@@ -60,16 +60,11 @@ router.get("/:id", withAuth, async (req, res) => {
 });
 
 router.post("/", withAuth, async (req, res) => {
-  console.log("Creating comment");
   try {
-    console.log("Inside comment post try");
-    console.log(req.body);
     const newComment = await Comment.create({
       ...req.body,
       user_id: req.session.user_id,
     });
-    console.log(newComment);
-
     res.status(200).json(newComment);
   } catch (err) {
     res.status(400).json(err); // 400 vs 500?
@@ -77,14 +72,12 @@ router.post("/", withAuth, async (req, res) => {
 });
 
 router.put("/:id", withAuth, async (req, res) => {
-  console.log(req.body)
   try {   
     const [editedComment] = await Comment.update(req.body, {
       where: {
         id: req.params.id
       }
     });
-    console.log(editedComment);
     res.status(200).json(editedComment);
   } catch (err) {
     res.status(400).json(err); // 400 vs 500?
