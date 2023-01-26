@@ -119,29 +119,43 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
-router.put("/", withAuth, async (req, res) => {
-  // console.log("Creating post");
-  try {
-    // console.log("inside put try")
-    // console.log(req.body);
-    
-    const editedPost = await Post.update({
+router.put("/:id", withAuth, async (req, res) => {
+  try {    
+    const [editedPost] = await Post.update(req.body, {
       where: {
-        id: req.params.id,
-      },
-    },
-    {
-      title: req.body.title,
-      post_body: req.body.post_body,
-    },
-    );
-    // console.log("through put try.");
-    // console.log(editedPost);
+        id: req.params.id
+      }
+    });
+
     res.status(200).json(editedPost);
   } catch (err) {
     res.status(400).json(err); // 400 vs 500?
   }
 });
+
+// router.put("/", withAuth, async (req, res) => {
+//   // console.log("Creating post");
+//   try {
+//     // console.log("inside put try")
+//     // console.log(req.body);
+    
+//     const editedPost = await Post.update({
+//       where: {
+//         id: req.params.id,
+//       },
+//     },
+//     {
+//       title: req.body.title,
+//       post_body: req.body.post_body,
+//     },
+//     );
+//     // console.log("through put try.");
+//     // console.log(editedPost);
+//     res.status(200).json(editedPost);
+//   } catch (err) {
+//     res.status(400).json(err); // 400 vs 500?
+//   }
+// });
 
 router.delete("/:id", withAuth, async (req, res) => {
   try {

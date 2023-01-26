@@ -4,7 +4,8 @@ const userRoutes = require("./userRoutes");
 const postRoutes = require("./postRoutes");
 const commentRoutes = require("./commentRoutes");
 const streetfood = require("./streetfood");
-const weather = require("./weather")
+const weather = require("./weather");
+
 router.use("/users", userRoutes);
 router.use("/posts", postRoutes);
 router.use("/comments", commentRoutes);
