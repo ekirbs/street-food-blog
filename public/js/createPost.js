@@ -15,8 +15,7 @@ const newPostFormHandler = async (event) => {
         "Content-Type": "application/json",
       },
     });
-    console.log(title, post_body);
-    console.log(response);
+
     if (response.ok) {
       document.location.reload();
     } else {
@@ -26,11 +25,9 @@ const newPostFormHandler = async (event) => {
 };
 
 const delPostButtonHandler = async (event) => {
-  console.log("Delete Post btn pressed.")
-  console.log(event);
+
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
-    console.log(id);
 
     const response = await fetch(`/api/posts/${id}`, {
       method: "DELETE",
@@ -39,7 +36,6 @@ const delPostButtonHandler = async (event) => {
     if (response.ok) {
       document.location.reload();
     } else {
-      // alert("Failed to delete post.");
       alert(response.statusText);
     }
   }

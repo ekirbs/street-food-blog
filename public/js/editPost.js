@@ -20,7 +20,7 @@ const editPostFormHandler = async (event) => {
     },
   });
   
-  document.location.replace('/dashboard');
+  document.location.replace('/profile');
   
 };
 
