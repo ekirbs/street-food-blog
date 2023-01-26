@@ -25,9 +25,9 @@ const sess = {
   },
   resave: false,
   saveUninitialized: true,
-  // store: new SequelizeStore({
-  //   db: sequelize
-  // })
+  store: new SequelizeStore({
+    db: sequelize
+  })
 };
 
 app.use((req, res, next) => {
@@ -54,5 +54,5 @@ res.render('404')
 );
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`App listening on PORT ${PORT} 🚀`));
+  app.listen(PORT, () => console.log(`App listening on PORT ${PORT} 🍔`));
 });

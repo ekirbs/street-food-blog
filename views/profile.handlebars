@@ -42,7 +42,7 @@
           {{{get_img}}}
           <a href="/post/{{post.id}}">{{post.title}}</a>
         </h2>
-        <p>Created by: {{user.username}}</p>
+        <p>Created by: {{user.username}} on {{format_date post.created_at}}</p>
       </div>
 
       <div class="row mb-4">
@@ -51,14 +51,13 @@
         </p>
       </div>
 
-      <a href="/profile/editPost/{{post.id}}" class="edit-post">Edit Your Post</a>
+      {{!-- <a href="/profile/editPost/{{post.id}}" class="edit-post">Edit Your Post</a> --}}
       <button type="delete" class="delete-post-btn {{post.id}}" data-id="{{post.id}}">Delete This Post</button>
-
 
     </div>
   </div>
+  {{/each}}
 </div>
-{{/each}}
 {{/if}}
 
 <script src="/js/createPost.js"></script>

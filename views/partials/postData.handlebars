@@ -1,14 +1,14 @@
-<h1>Post:</h1>
-
-  <div class="card">
+<div class="card">
   <div class="card-header card-header-title">
 
     <div class="column">
+      <h1>Post</h1>
       <h3>Title: {{title}}</h3>
     </div>
 
     <div class="column">
       <p>Posted By: {{user.username}} on {{format_date created_at}}</p>
+      <a href="/profile/editPost/{{id}}" class="edit-post">Edit Your Post</a>
     </div>
 
   </div>

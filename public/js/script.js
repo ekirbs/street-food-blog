@@ -130,7 +130,7 @@ $(".dropdown-menu").on("click", function (event) {
 async function initMap() {
   await displayStreetFoodInfo();
   const boston = { lat: 42.3601, lng: -71.0589 };
-  // The map, centered at Uluru
+  // The map, centered at Boston
   let map = new google.maps.Map(document.getElementById("map"), {
     zoom: 10,
     center: boston,
@@ -141,7 +141,7 @@ async function initMap() {
       center: vendorZoom,
     });
   }
-  // The marker, positioned at Uluru
+  // The marker, positioned at Boston
   for (const vendor of data) {
     const image = {
       url: vendor.logo,
